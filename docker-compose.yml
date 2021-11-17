@@ -10,30 +10,12 @@ services:
       - '3000:3000'
     volumes:
       - ./frontend:/app
-      - fe_node_modules:/app/node_modules
-    networks:
-      base:
-        aliases:
-          - frontend
 
   backend:
     build:
       context: backend/
       dockerfile: Dockerfile
-    # environment:
     ports:
       - '3001:3000'
     volumes:
       - ./backend:/app
-      - be_node_modules:/app/node_modules
-    networks:
-      base:
-        aliases:
-          - backend
-volumes:
-  fe_node_modules:
-  be_node_modules:
-  db_data:
-
-networks:
-  base:

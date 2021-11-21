@@ -9,7 +9,8 @@ import { collection, getDocs } from "firebase/firestore";
 
 function App() {
 
-const querySnapshot = getDocs(collection(db, "patlets")).then((obj)=>{
+    //exemplo de ir buscar dados à db (está a retornar duas vezes por motivos desconhecidos)
+    const querySnapshot = getDocs(collection(db, "patlets")).then((obj)=>{
 
             const docSnapshots = obj.docs;
             
@@ -19,17 +20,14 @@ const querySnapshot = getDocs(collection(db, "patlets")).then((obj)=>{
         })
 
     return (
-        
-        <div>
-            <h1>hello</h1>
-        </div>
-        // <Router>
-        //     <div className="App">
-        //         <Routes>
-        //             <Route path="/" exact element={<Example/>}/>
-        //         </Routes>
-        //     </div>
-        // </Router>
+
+         <Router>
+             <div className="App">
+                 <Routes>
+                     <Route path="/" exact element={<Example/>}/>
+                 </Routes>
+             </div>
+         </Router>
     );
 }
 

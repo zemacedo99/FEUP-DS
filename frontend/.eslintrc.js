@@ -25,5 +25,9 @@ module.exports = {
         namedComponents: 'function-declaration',
       },
     ],
+    'no-console': [
+      'warn',
+      { allow: ['error'] },
+    ],
   },
 };

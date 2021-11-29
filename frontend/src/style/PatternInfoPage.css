@@ -1,0 +1,49 @@
+.main-section {
+    height: 100vh;
+    padding-top: 15%;
+}
+
+.header {
+    padding: 1em;
+}
+
+h1 {
+    /* Display lg / Bold */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 60px;
+    /* or 125% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+
+    /* Gray/800 */
+
+    color: #404040;
+}
+
+.patternSection {
+    /* Text md / Medium */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+
+    /* Success / 800 */
+
+    color: #05603A;
+}
+
+body{
+    padding: 1em;
+}

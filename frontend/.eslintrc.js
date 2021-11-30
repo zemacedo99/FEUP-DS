@@ -16,13 +16,35 @@ module.exports = {
   },
   plugins: [
     'react',
+    'import-helpers',
   ],
   rules: {
+    'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/function-component-definition': [
       2,
       {
         namedComponents: 'function-declaration',
+      },
+    ],
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always', // new line between groups
+        groups: [
+          '/^react/',
+          'module',
+          '/^@/',
+          [
+            'parent',
+            'sibling',
+            'index',
+          ],
+        ],
+        alphabetize: {
+          order: 'asc',
+          ignoreCase: true,
+        },
       },
     ],
     'no-console': [

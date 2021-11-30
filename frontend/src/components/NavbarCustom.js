@@ -6,12 +6,12 @@ import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap'
 
 export default class NavbarCustom extends React.Component{
   render(){
-    return (<Navbar bg="light" expand="lg">
-    <Container>
+    return (<Navbar className="color-navbar" expand="lg">
+    <Container id="navbar-container">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/">Logo</Nav.Link>
+          <Navbar.Brand href="/" id="logo">Logo</Navbar.Brand>
           <Form id="search-bar" className="d-flex">
             <FormControl
               type="search"

@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Example from './pages/Example';
-import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap'
 import NavbarCustom from './components/NavbarCustom'
 
 

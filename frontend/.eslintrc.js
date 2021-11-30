@@ -20,6 +20,7 @@ module.exports = {
   ],
   rules: {
     'import/prefer-default-export': 'off',
+    'linebreak-style': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/function-component-definition': [
       2,

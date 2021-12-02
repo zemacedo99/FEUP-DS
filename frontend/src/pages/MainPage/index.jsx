@@ -56,7 +56,7 @@ export default function MainPage() {
       <SubTitle> The core of Scrum </SubTitle>
       <CardRow>
         {patterns.map((pattern) => (
-          <Col xs={6} md={4} lg={3} key={pattern.id} className="mt-3">
+          <Col xs={6} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
             <PatternCard
               id={pattern.id}
               name={pattern.name}

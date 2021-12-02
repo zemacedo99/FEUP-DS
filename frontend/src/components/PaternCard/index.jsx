@@ -3,15 +3,16 @@ import { Card } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 
-import { PatCard } from './style';
+import { PatCard, CardTitle, Icon } from './style';
 
 export default function PatternCard({ id, name, image }) {
   console.log(id);
   return (
-    <PatCard>
+    <PatCard title="See pattern">
       <Card.Img variant="top" src={image} />
+      <Icon />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <CardTitle>{name}</CardTitle>
       </Card.Body>
     </PatCard>
   );

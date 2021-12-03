@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { Col } from 'react-bootstrap';
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 
+import infoIcon from '../../assets/infoIcon.svg';
 import PatternCard from '../../components/PaternCard';
 import {
   MainPageSection, Title, SubTitle, CardRow,
 } from './style';
 
 export default function MainPage() {
-  const [showOptionsId, setShowOptionsId] = useState(-1);
-
   const patterns = [
     {
       id: 1,
@@ -52,17 +51,16 @@ export default function MainPage() {
     },
   ];
 
-  const addEvent = () => {
-    window.onclick = () => {
-      if (showOptionsId === -1) return;
-      setShowOptionsId(-1);
-    };
-  };
-
-  addEvent();
   return (
     <MainPageSection>
-      <Title>Home</Title>
+      <Row>
+        <Col>
+          <Title> Home </Title>
+        </Col>
+        <Col className="d-flex justify-content-end pe-4">
+          <img src={infoIcon} width="50px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
+        </Col>
+      </Row>
       <SubTitle> The core of Scrum </SubTitle>
       <CardRow>
         {patterns.map((pattern) => (
@@ -71,8 +69,6 @@ export default function MainPage() {
               id={pattern.id}
               name={pattern.name}
               image={pattern.image}
-              showOptionsId={showOptionsId}
-              setShowOptionsId={setShowOptionsId}
             />
           </Col>
         ))}

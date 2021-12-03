@@ -22,12 +22,34 @@ export const Icon = styled(IoEllipsisHorizontal)`
   color: white;
   font-size: 34px;
   position: absolute;
-  position: absolute;
   right: 0;
   top: 0;
   transform: translate(-25%, 10%);
-  z-index: 100;
   &:hover {
     color: black;
   }
+`;
+
+export const OptionsSection = styled.div`
+  z-index: 100;
+`;
+
+export const Options = styled.div`
+  background: #FFFFFF;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(70%, 30%);
+  padding: 1em;
+  font-size: 16px;
+`;
+
+export const Option = styled.div`
+  margin-bottom: 0;
+  padding-bottom: 0.3em;
+  &:hover {
+    font-weight: bold;
+  }
+  width: 8em;
 `;

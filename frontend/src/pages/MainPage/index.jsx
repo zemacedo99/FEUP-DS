@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col } from 'react-bootstrap';
 
 import PatternCard from '../../components/PaternCard';
@@ -7,6 +7,8 @@ import {
 } from './style';
 
 export default function MainPage() {
+  const [showOptionsId, setShowOptionsId] = useState(-1);
+
   const patterns = [
     {
       id: 1,
@@ -50,6 +52,14 @@ export default function MainPage() {
     },
   ];
 
+  const addEvent = () => {
+    window.onclick = () => {
+      if (showOptionsId === -1) return;
+      setShowOptionsId(-1);
+    };
+  };
+
+  addEvent();
   return (
     <MainPageSection>
       <Title>Home</Title>
@@ -61,6 +71,8 @@ export default function MainPage() {
               id={pattern.id}
               name={pattern.name}
               image={pattern.image}
+              showOptionsId={showOptionsId}
+              setShowOptionsId={setShowOptionsId}
             />
           </Col>
         ))}

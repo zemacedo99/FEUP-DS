@@ -13,22 +13,20 @@ class Bookmark extends React.Component {
         }
 
         if (this.state.bookmarks === undefined || this.state.bookmarks === null) {
-            this.setState({bookmarks: {}})
+            this.state.bookmarks = {}
         }
     }
 
     updateBookmark() {
-        //this.setState({bookmarks: JSON.parse(localStorage.getItem('bookmarks'))})
-        let dummy=JSON.parse(localStorage.getItem('bookmarks'))
+        this.state.bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
+        let dummy=this.state.bookmarks
         if (dummy[this.patlet_id] === undefined) {
             dummy[this.patlet_id] = true
-            
         }
         else {
             delete dummy[this.patlet_id];           
         }  
         this.setState({bookmarks: dummy})
-        console.log(this.state)
         localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarks));
     }
 

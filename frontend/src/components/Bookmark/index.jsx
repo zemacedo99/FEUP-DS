@@ -1,46 +1,49 @@
 import React from 'react';
-import {AiFillStar, AiOutlineStar} from "react-icons/ai";
-
+import PropTypes from 'prop-types';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 class Bookmark extends React.Component {
-    constructor(props) {
-        super(props)
-        this.patlet_id = props.patlet_id
+  constructor(props) {
+    super(props);
+    this.patlet_id = props.patlet_id;
 
-        this.state = {
-            id : this.patlet_id,
-            bookmarks : JSON.parse(localStorage.getItem('bookmarks'))
-        }
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
-        if (this.state.bookmarks === undefined || this.state.bookmarks === null) {
-            this.state.bookmarks = {}
-        }
+    if (bookmarks === undefined || bookmarks === null) {
+      bookmarks = {};
     }
 
-    updateBookmark() {
-        this.state.bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
-        let dummy=this.state.bookmarks
-        if (dummy[this.patlet_id] === undefined) {
-            dummy[this.patlet_id] = true
-        }
-        else {
-            delete dummy[this.patlet_id];           
-        }  
-        this.setState({bookmarks: dummy})
-        localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarks));
+    this.state = { bookmarks };
+  }
+
+  updateBookmark() {
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+    if (bookmarks[this.patlet_id] === undefined) {
+      bookmarks[this.patlet_id] = true;
+    } else {
+      delete bookmarks[this.patlet_id];
     }
 
-    render() {
-        return (
-            <span onClick={() => {this.updateBookmark()}}>
-                { this.state.bookmarks[this.patlet_id] === true
-                    ? <AiFillStar/>
-                    : <AiOutlineStar/>
-                }
-            </span>
-          );
-    }
+    this.setState({ bookmarks });
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }
+
+  render() {
+    const { bookmarks } = this.state;
+
+    return (
+      <span onClick={() => { this.updateBookmark(); }}>
+        { bookmarks[this.patlet_id] === true
+          ? <AiFillStar />
+          : <AiOutlineStar /> }
+      </span>
+    );
+  }
 }
 
+Bookmark.propTypes = {
+  patlet_id: PropTypes.any.isRequired,
+};
 
-export { Bookmark};
+export { Bookmark };

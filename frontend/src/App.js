@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <NavbarCustom />
         <Routes>
-          {/* <Route path="/" exact element={<Example />} /> */}
+          {<Route path="/" exact element={<Example />} />}
         </Routes>
       </div>
     </Router>

@@ -1,10 +1,43 @@
+.navbar, .nav-link {
+    font-family: Inter;
+    font-size: 20px;
+}
+
+.nav-link {
+    color: black!important;
+    padding-right: 3rem!important;
+}
+
+.navbar-container {
+    margin: 0;
+    max-width: 100%;
+}
+
 .color-navbar {
     background-color: white;
 }
 
-#navbar-container {
+.search-bar, .search-bar:focus {
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    background-color: #F9FAFB;
+    box-shadow: none;
+}
 
-    margin-left: 3em;
+.search-bar-input-group {
+    width: 70%;
+}
+
+.search-icon {
+    background-color: #F9FAFB;
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 2rem;
+}
+
+#navbar-container {
+    margin: 0;
+    max-width: 100%;
 }
 
 #basic-navbar-nav {
@@ -14,6 +47,14 @@
 .me-auto {
     display: flex;
     width: 100%;
-    justify-content: space-between;
     margin: 0!important;
+    justify-content: space-between;
+}
+
+.navbar-button {
+    padding-right: 3rem;
+}
+
+#logo {
+    padding-left: 5rem;
 }

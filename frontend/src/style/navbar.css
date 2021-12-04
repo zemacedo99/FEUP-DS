@@ -3,5 +3,17 @@
 }
 
 #navbar-container {
+
     margin-left: 3em;
+}
+
+#basic-navbar-nav {
+    width: 100%;
+}
+
+.me-auto {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0!important;
 }

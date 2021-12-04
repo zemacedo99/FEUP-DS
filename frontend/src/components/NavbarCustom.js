@@ -20,8 +20,11 @@ export default class NavbarCustom extends React.Component{
               aria-label="Search"
             />
           </Form>
-          <Nav.Link href="/">Patterns</Nav.Link>
-          <Nav.Link href="/">Bookmarks</Nav.Link>
+          <Nav className="navbar-buttons">
+            <Nav.Link href="/">Help</Nav.Link>
+            <Nav.Link href="/">Patterns</Nav.Link>
+            <Nav.Link href="/">Bookmarks</Nav.Link>
+          </Nav>
         </Nav>
       </Navbar.Collapse>
     </Container>

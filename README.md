@@ -26,6 +26,19 @@ We can do that with the following command:
    ```    
 **Note:** if there is a better way to keep the docker modules updated, please update this section.
 
+###Run eslint
+It is necessary to have eslint installed locally. For that you have to execute the following command:
+```
+npm install
+```
+on both backend and frontend folders.
+
+To run eslint execute the following command:
+   ```
+   npm run lint
+   ```  
+on both backend and frontend folders.
+
 ## Useful links
 - [React](https://reactjs.org/docs/getting-started.html): this page is an overview of the React documentation and related resources.
 - [React Bootstrap](https://react-bootstrap.github.io/getting-started/introduction/): similar to bootstrap.

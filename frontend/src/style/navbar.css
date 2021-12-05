@@ -1,16 +1,93 @@
+
+@media screen and (max-width: 480px) {
+    .navbar-mobile {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .navbar-tablet {
+        display: none;
+    }
+    .navbar-desktop {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .navbar-buttons {
+        justify-content: center;
+        text-align: center;
+        color: black!important;
+    }
+}   
+
+@media screen and (min-width: 481px) and (max-width: 1280px) {
+    .navbar-tablet {
+        display: flex;
+    }
+    .navbar-desktop {
+        display: none;
+    }
+    .navbar-mobile {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .nav-link {
+        color: black!important;
+        padding-right: 3rem!important;
+    }
+}   
+
+@media screen and (min-width: 1281px) and (max-width: 1699px){
+    .navbar-tablet {
+        display: none;
+    }
+    .navbar-mobile {
+        display: none;
+    }
+    .nav-link {
+        color: black!important;
+        padding-right: 3rem!important;
+    }
+}
+
+@media screen and (min-width: 1700px){
+    .container {
+        max-width: 100%;
+    }
+    .navbar-tablet {
+        display: none;
+    }
+    .navbar-mobile {
+        display: none;
+    }
+    .nav-link {
+        color: black!important;
+        padding-right: 3rem!important;
+    }
+}
+
+
+html, body {
+    overflow-x: hidden;
+}
+body {
+    position: relative
+}
+
+
 .navbar, .nav-link {
     font-family: Inter;
     font-size: 20px;
 }
 
-.nav-link {
-    color: black!important;
-    padding-right: 3rem!important;
-}
+
 
 .navbar-container {
     margin: 0;
-    max-width: 100%;
 }
 
 .color-navbar {
@@ -56,5 +133,5 @@
 }
 
 #logo {
-    padding-left: 5rem;
+    padding-left: 10%;
 }

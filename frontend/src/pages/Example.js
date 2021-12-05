@@ -6,9 +6,10 @@ export default function Example() {
   const [message, setMessage] = useState('');
 
   const sendRequest = () => {
-    axios.get(`${process.env.REACT_APP_URL}/users/message`).then((res) => {
-      const { data } = res.data;
-      setMessage(data);
+    axios.get(`${process.env.REACT_APP_URL}/hello/hello`).then((res) => {
+      setMessage(res.data.message);
+    }).catch((error) => {
+      console.error(error);
     });
   };
 

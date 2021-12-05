@@ -3,10 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Example from './pages/Example';
-import NavbarCustomDesktop from './components/NavbarCustomDesktop'
-import NavbarCustomTablet from './components/NavbarCustomTablet'
-import NavbarCustomMobile from './components/NavbarCustomMobile'
-
+import NavbarCustomDesktop from './components/NavbarCustomDesktop';
+import NavbarCustomTablet from './components/NavbarCustomTablet';
+import NavbarCustomMobile from './components/NavbarCustomMobile';
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
         <NavbarCustomTablet />
         <NavbarCustomMobile />
         <Routes>
-          {<Route path="/" exact element={<Example />} />}
+          <Route path="/" exact element={<Example />} />
         </Routes>
       </div>
     </Router>

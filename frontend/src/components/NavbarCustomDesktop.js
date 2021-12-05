@@ -2,12 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/style.css';
 import '../style/navbar.css';
-import { Navbar, Container, Nav, Form, FormControl, Button, InputGroup, Row, Col } from 'react-bootstrap';
-import { BsSearch, BsListUl } from "react-icons/bs";
+import {
+  Navbar, Container, Nav, Form, FormControl, InputGroup, Row, Col,
+} from 'react-bootstrap';
+import { BsSearch } from 'react-icons/bs';
 
-export default class NavbarCustomDesktop extends React.Component {
-  render() {
-    return (<Navbar className="color-navbar navbar-desktop" expand="lg">
+export default function NavbarCustomDesktop() {
+  return (
+    <Navbar className="color-navbar navbar-desktop" expand="lg">
       <Container id="navbar-container">
         <Nav className="me-auto">
           <Container className="navbar-container">
@@ -39,7 +41,6 @@ export default class NavbarCustomDesktop extends React.Component {
           </Container>
         </Nav>
       </Container>
-    </Navbar >);
-  }
+    </Navbar>
+  );
 }
-

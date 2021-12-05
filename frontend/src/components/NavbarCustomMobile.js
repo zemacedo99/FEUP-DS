@@ -2,13 +2,15 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/style.css';
 import '../style/navbar.css';
-import { Navbar, Container, Nav, Form, FormControl, Button, InputGroup, Row, Col } from 'react-bootstrap';
-import { BsSearch, BsListUl, BsBookmark } from "react-icons/bs";
-import { BiHome } from "react-icons/bi";
+import {
+  Navbar, Container, Nav, Row, Col,
+} from 'react-bootstrap';
+import { BsSearch, BsListUl, BsBookmark } from 'react-icons/bs';
+import { BiHome } from 'react-icons/bi';
 
-export default class NavbarCustomMobile extends React.Component {
-  render() {
-    return (<Navbar className="color-navbar navbar-mobile" expand="lg">
+export default function NavbarCustomMobile() {
+  return (
+    <Navbar className="color-navbar navbar-mobile" expand="lg">
       <Container id="navbar-container">
         <Nav className="me-auto">
           <Container className="navbar-container">
@@ -29,7 +31,6 @@ export default class NavbarCustomMobile extends React.Component {
           </Container>
         </Nav>
       </Container>
-    </Navbar >);
-  }
+    </Navbar>
+  );
 }
-

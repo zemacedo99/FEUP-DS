@@ -1,36 +1,34 @@
 import React from 'react';
 import {
-  Row, Col,
+  Row, Col, Navbar,
 } from 'react-bootstrap';
 import { BsSearch, BsListUl, BsBookmark } from 'react-icons/bs';
 
 import {
-  NavbarTablet, NavbarNav, NavbarContainer, NavbarLink, NavbarLogo,
+  NavbarTablet, NavbarNav, NavbarContainer, NavbarLink, NavbarButtons, ColContainer,
 } from './style';
 
 export default function NavbarCustomDesktop() {
   return (
     <NavbarTablet expand="lg">
-      <NavbarContainer>
-        <NavbarNav>
-          <NavbarContainer>
-            <Row>
-              <Col xs="9">
-                <NavbarLogo href="/">Logo</NavbarLogo>
-              </Col>
-              <Col xs="1">
+      <NavbarNav>
+        <NavbarContainer>
+          <Row>
+            <Col xs="6">
+              <ColContainer>
+                <Navbar.Brand href="/">Logo</Navbar.Brand>
+              </ColContainer>
+            </Col>
+            <Col xs="6">
+              <NavbarButtons>
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
-              </Col>
-              <Col xs="1">
                 <NavbarLink href="/"><BsSearch /></NavbarLink>
-              </Col>
-              <Col xs="1">
                 <NavbarLink href="/"><BsBookmark /></NavbarLink>
-              </Col>
-            </Row>
-          </NavbarContainer>
-        </NavbarNav>
-      </NavbarContainer>
+              </NavbarButtons>
+            </Col>
+          </Row>
+        </NavbarContainer>
+      </NavbarNav>
     </NavbarTablet>
   );
 }

@@ -33,7 +33,7 @@ class Bookmark extends React.Component {
     const { bookmarks } = this.state;
 
     return (
-      <span onClick={() => { this.updateBookmark(); }}>
+      <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
           ? <AiFillStar />
           : <AiOutlineStar /> }
@@ -43,7 +43,7 @@ class Bookmark extends React.Component {
 }
 
 Bookmark.propTypes = {
-  patlet_id: PropTypes.any.isRequired,
+  patlet_id: PropTypes.number.isRequired,
 };
 
 export { Bookmark };

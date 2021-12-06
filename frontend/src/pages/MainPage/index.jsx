@@ -4,10 +4,8 @@ import { Col, Row } from 'react-bootstrap';
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
 import patterns from '../../placeholders/PlaceholderPatterns';
-import { Layout } from '../style';
-import {
-  Title, SubTitle,
-} from './style';
+import { Layout, PageTitle } from '../style';
+import { SubTitle } from './style';
 
 export default function MainPage() {
   const [patternsList, setPatterns] = useState(patterns);
@@ -23,7 +21,7 @@ export default function MainPage() {
     <Layout>
       <Row>
         <Col>
-          <Title> Home </Title>
+          <PageTitle> Home </PageTitle>
         </Col>
         <Col className="d-flex justify-content-end pe-4">
           <img src={infoIcon} width="30px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />

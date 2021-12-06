@@ -30,9 +30,7 @@ export default function PatternCard({
 
   const favoriteButton = (event) => {
     event.stopPropagation();
-    console.log(favorite, saved);
     const pattern = buildPattern(!favorite, saved);
-    console.log(pattern.favorite, pattern.saved);
     updatePattern(pattern);
   };
 

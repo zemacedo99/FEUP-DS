@@ -16,3 +16,8 @@ export const Layout = styled.div`
   ${horizontalMarginMediaQueries}
   padding: 0px var(--horizontal-margin) 0px var(--horizontal-margin);
 `;
+
+export const PageTitle = styled.h1`
+  font-weight: bold;
+  font-size: 72px;
+`;

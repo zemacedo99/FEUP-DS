@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import PageTitle from '../../components/PageTitle';
 import PatternCardList from '../../components/PatternCardList';
 import patterns from '../../placeholders/PlaceholderPatterns';
-import { Layout } from '../style';
+import { Layout, PageTitle } from '../style';
 import { SearchBarMB } from './style';
 
 export default function SearchPage() {

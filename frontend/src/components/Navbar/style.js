@@ -2,6 +2,8 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import styled from 'styled-components';
 
+import { horizontalMarginMediaQueries } from '../Layout';
+
 export const NavbarDesktop = styled(Navbar)`
   @media screen and (max-width: 1280px) {
     display: none;
@@ -66,7 +68,8 @@ export const NavbarNav = styled(Nav)`
 export const NavbarContainer = styled(Container)`
   margin: 0;
   max-width: 100%;
-  padding: 0 var(--horizontal-margin) 0 var(--horizontal-margin); // Using the padding defined in the home page, TODO change to a dynamic amount
+  ${horizontalMarginMediaQueries}
+  padding: 0 var(--horizontal-margin) 2rem var(--horizontal-margin);
 `;
 
 export const NavbarLink = styled(Nav.Link)`

@@ -66,7 +66,7 @@ export const NavbarNav = styled(Nav)`
 export const NavbarContainer = styled(Container)`
   margin: 0;
   max-width: 100%;
-  padding: 0 50px 0 50px; // Using the padding defined in the home page, TODO change to a dynamic amount
+  padding: 0 var(--horizontal-margin) 0 var(--horizontal-margin); // Using the padding defined in the home page, TODO change to a dynamic amount
 `;
 
 export const NavbarLink = styled(Nav.Link)`

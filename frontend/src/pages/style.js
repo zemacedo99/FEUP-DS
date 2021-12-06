@@ -11,7 +11,7 @@ export const horizontalMarginMediaQueries = `
   --horizontal-margin: 12vw;
 }`;
 
-export default styled.div`
+export const Layout = styled.div`
   font-family: Inter;
   ${horizontalMarginMediaQueries}
   padding: 0px var(--horizontal-margin) 0px var(--horizontal-margin);

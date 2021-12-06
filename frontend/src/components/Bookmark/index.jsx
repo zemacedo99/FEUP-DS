@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
+
 import PropTypes from 'prop-types';
 
 class Bookmark extends React.Component {

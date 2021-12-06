@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+
 import PropTypes from 'prop-types';
 
 class Favorite extends React.Component {

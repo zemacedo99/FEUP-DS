@@ -2,18 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import AddBookmark from './pages/AddBookmark';
-import AddFavorite from './pages/AddFavorite';
+import Example from './pages/Example';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" exact element={<AddBookmark />} />
-        </Routes>
-        <Routes>
-          <Route path="/" exact element={<AddFavorite />} />
+          <Route path="/" exact element={<Example />} />
         </Routes>
       </div>
     </Router>

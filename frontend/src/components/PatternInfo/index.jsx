@@ -1,32 +1,43 @@
 import React from 'react';
 
-import { Row } from 'react-bootstrap';
+import { Row, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import {
+  AiFillStar,
+} from 'react-icons/all';
+
+import RelatedCard from '../RelatedCard';
 
 import {
-  MainPageSection, PatTitle, PatSection, PatStars, PatImage, PatIntro, PatProblem, PatSolution,
+  MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
+  SubTitle,
 } from './style';
 
 export default function PatternInfo({
-  title, section, stars, image, intro, problem, solution, related,
+  /* ToDo: Related */
+  title, section, stars, image, intro, problem, solution,
 }) {
+  const rows = [];
+  for (let i = 0; i < stars; i += 1) {
+    rows.push(<AiFillStar className="me-2" key={i} size={30} />);
+  }
   return (
     <MainPageSection>
       <Row>
         <PatTitle>
           {title}
         </PatTitle>
-        <PatSection>
-          {section}
-        </PatSection>
-        <PatStars>
-          {stars}
-        </PatStars>
+        <SubTitle>
+          <PatSection>
+            {section}
+          </PatSection>
+          <PatStars>
+            {rows}
+          </PatStars>
+        </SubTitle>
       </Row>
       <Row>
-        <PatImage>
-          <img src={image} alt="pattern" />
-        </PatImage>
+        <Image src={image} alt="pattern" rounded fluid className="p-5" />
         <PatIntro>
           {intro}
         </PatIntro>
@@ -36,7 +47,11 @@ export default function PatternInfo({
         <PatSolution>
           {solution}
         </PatSolution>
-        {related}
+        <PatSection className="mt-5">
+          Related Patterns
+        </PatSection>
+        <RelatedCard name="The Spirit of the Game" stars="3" />
+        <RelatedCard name="Teams That Finish Earlier Accelerate Faster" stars="1" />
       </Row>
     </MainPageSection>
   );
@@ -50,5 +65,4 @@ PatternInfo.propTypes = {
   intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  related: PropTypes.string.isRequired,
 };

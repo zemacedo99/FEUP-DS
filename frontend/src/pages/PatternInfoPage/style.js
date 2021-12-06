@@ -10,7 +10,6 @@ export const MainPageSection = styled.div`
 export const Title = styled.h1`
   font-weight: bold;
   font-size: 72px;
-  padding-left: 0.11em;
 `;
 
 export const SubTitle = styled.h1`

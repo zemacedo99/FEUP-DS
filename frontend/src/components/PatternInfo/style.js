@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Col } from 'react-bootstrap';
 
 export const MainPageSection = styled.div`
   font-family: Inter;
@@ -14,7 +15,14 @@ export const PatTitle = styled.div`
     color: #000000;
 `;
 
-export const PatSection = styled.div`
+export const SubTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+`;
+
+export const PatSection = styled(Col)`
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
@@ -23,20 +31,12 @@ export const PatSection = styled.div`
     color: #039855;
 `;
 
-export const PatStars = styled.div`
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    margin: 0px 0px;
-`;
-
-export const PatImage = styled.div`
-    border-radius: 10px;
+export const PatStars = styled(Col)`
     flex: none;
     order: 1;
-    align-self: stretch;
     flex-grow: 0;
-    margin: 50px 0px;
+    margin: 0px 10px;
+    flex-end;
 `;
 
 export const PatIntro = styled.div`

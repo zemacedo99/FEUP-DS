@@ -1,6 +1,6 @@
 import React from 'react';
+import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
 import PropTypes from 'prop-types';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 class Bookmark extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Bookmark extends React.Component {
 
     if (bookmarks === undefined || bookmarks === null) {
       bookmarks = {};
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     }
 
     this.state = { bookmarks };
@@ -35,8 +36,8 @@ class Bookmark extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <AiFillStar />
-          : <AiOutlineStar /> }
+          ? <BsBookmarkFill />
+          : <BsBookmark /> }
       </span>
     );
   }

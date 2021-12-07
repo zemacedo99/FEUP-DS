@@ -18,7 +18,7 @@ export default function PatternCard({
   };
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
-    rows.push(<AiFillStar className="me-2" key={i} size={20} />);
+    rows.push(<AiFillStar className="me-2" key={i} size={20} style={{ fill: 'white', stroke: '#404040', strokeWidth: 50 }} />);
   }
   return (
     <RelatedCard title="See pattern">

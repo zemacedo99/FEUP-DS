@@ -1,13 +1,12 @@
 import React from 'react';
-
 import { Row, Image } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 import {
   AiFillStar,
 } from 'react-icons/all';
 
-import RelatedCard from '../RelatedCard';
+import PropTypes from 'prop-types';
 
+import RelatedCard from '../RelatedCard';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
   SubTitle,
@@ -19,7 +18,7 @@ export default function PatternInfo({
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
-    rows.push(<AiFillStar className="me-2" key={i} size={30} />);
+    rows.push(<AiFillStar className="me-2" key={i} size={30} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
   return (
     <MainPageSection>

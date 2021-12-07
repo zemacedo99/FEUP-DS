@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 
 import styled from 'styled-components';
 
@@ -12,12 +12,14 @@ export const RelatedCard = styled(Card)`
     border: 1px solid black; 
   }
   margin: 1em 0em;
+  display: flex;
+  flex-direction: row;
 `;
 
-export const CardTitle = styled(Card.Title)`
+export const CardTitle = styled(Col)`
   color: #232323;
 `;
 
-export const CardStars = styled(Card.Body)`
+export const CardStars = styled(Col)`
   color: #232323;
 `;

@@ -16,9 +16,7 @@ import {
 export default function PatternCard({
   id, name, image, favorite, saved, updatePattern,
 }) {
-  const goToPattern = () => {
-    console.log(id);
-  };
+  const goToPattern = () => {}; // TODO
 
   const buildPattern = (newFav, newSaved) => ({
     id,

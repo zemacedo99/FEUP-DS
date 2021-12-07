@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
 import patterns from '../../placeholders/PlaceholderPatterns';
-import { Layout, PageTitle } from '../style';
+import { Layout, PageTitle } from '../../style';
 import { SubTitle } from './style';
 
 export default function MainPage() {

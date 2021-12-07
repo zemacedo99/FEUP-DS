@@ -20,5 +20,4 @@ export const IconContainer = styled.div`
 
 export const IconInputContainer = styled.div`
   position: relative;
-  margin-bottom: 1rem;
 `;

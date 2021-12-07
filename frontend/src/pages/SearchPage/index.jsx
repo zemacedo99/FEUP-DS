@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 
 import PatternCardList from '../../components/PatternCardList';
 import patterns from '../../placeholders/PlaceholderPatterns';
-import { Layout, PageTitle } from '../style';
+import { Layout, PageTitle } from '../../style';
 import { SearchBarMB } from './style';
 
 export default function SearchPage() {

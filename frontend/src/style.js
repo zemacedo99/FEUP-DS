@@ -14,7 +14,7 @@ export const horizontalMarginMediaQueries = `
 export const Layout = styled.div`
   font-family: Inter;
   ${horizontalMarginMediaQueries}
-  padding: 0px var(--horizontal-margin) 0px var(--horizontal-margin);
+  padding: 0px var(--horizontal-margin) 100px var(--horizontal-margin);
 `;
 
 export const PageTitle = styled.h1`

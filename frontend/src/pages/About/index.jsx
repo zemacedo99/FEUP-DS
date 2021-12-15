@@ -1,17 +1,18 @@
 import React from 'react';
 import {
-  Row, Col, Container,
+  Row, Col,
 } from 'react-bootstrap';
 
 import SubTitleText from '../../components/SubTitleText/index';
+import { Layout } from '../../style';
 import { Title, Text } from './style';
 
-export default function HelpAboutUs() {
+export default function About() {
   return (
-    <Container>
+    <Layout>
       <Row className="g-0 justify-content-between">
         <Col xs={12} md={6} className="pe-md-5">
-          <Title className="mb-4">Help</Title>
+          <Title className="mb-4">About</Title>
           <Text>
             Orci, at metus viverra facilisis risus maecenas nunc enim.
             Varius eget suscipit cras magnis elit non molestie mattis.
@@ -35,6 +36,6 @@ export default function HelpAboutUs() {
           <SubTitleText title="About Us" text="Quis est ultricies sagittis nec. Risus massa dictumst commodo, ac. Eget id interdum habitasse neque vel pellentesque pharetra, malesuada tortor. Faucibus quam donec vitae condimentum tristique hac fermentum feugiat. Lacus, viverra diam elit integer fermentum penatibus quam. Neque proin varius ultrices interdum malesuada mauris diam, consectetur." />
         </Col>
       </Row>
-    </Container>
+    </Layout>
   );
 }

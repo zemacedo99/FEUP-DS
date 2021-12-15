@@ -17,7 +17,7 @@ export default function Example() {
   return (
     <div className="main-section w-50 ml-0 mr-0 mx-auto text-center">
       <p> Hello! I want to speak with backend. </p>
-      <Button variant="outline-success" onClick={sendRequest}>Click here to send request</Button>
+      <Button variant="outline-success" onClick={sendRequest}>Click here</Button>
       <p className="message">{message}</p>
     </div>
   );

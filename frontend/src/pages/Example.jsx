@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Button } from 'react-bootstrap';
+
+import axios from 'axios';
 
 export default function Example() {
   const [message, setMessage] = useState('');

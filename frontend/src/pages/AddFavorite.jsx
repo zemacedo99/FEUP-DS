@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Favorite } from '../components/Favorite/index';
 
 export default function AddFavorite() {

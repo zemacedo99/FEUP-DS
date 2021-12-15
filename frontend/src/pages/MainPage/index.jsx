@@ -23,7 +23,7 @@ export default function MainPage() {
         <Col>
           <PageTitle> Home </PageTitle>
         </Col>
-        <Col className="d-flex justify-content-end pe-4">
+        <Col className="d-flex d-lg-none justify-content-end pe-4">
           <img src={infoIcon} width="30px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
         </Col>
       </Row>

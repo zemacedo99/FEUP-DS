@@ -18,7 +18,6 @@ export default function PatternInfoPage() {
     related: [],
   };
   return (
-    /* NavBar */
     <MainPageSection className="m-sm-5 m-md-5 p-lg-5 m-lg-5">
       <Row>
         <Col key={pattern.title} className="mt-3 mb-3">
@@ -35,6 +34,5 @@ export default function PatternInfoPage() {
         </Col>
       </Row>
     </MainPageSection>
-    /* Footer */
   );
 }

@@ -4,12 +4,15 @@ import styled from 'styled-components';
 
 export const MainPageSection = styled.div`
   font-family: Inter;
-  padding: 5em;
+  margin: 3em;
+  @media only screen and (max-width: 768px) {
+    margin:1em;
+  }
 `;
 
 export const Title = styled.h1`
   font-weight: bold;
-  font-size: 72px;
+  font-size: 30px !important;
 `;
 
 export const SubTitle = styled.h1`

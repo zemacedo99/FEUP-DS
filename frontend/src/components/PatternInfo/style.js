@@ -10,10 +10,12 @@ export const PatTitle = styled.div`
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
-    font-size: 72px;
-    line-height: 90px;
+    font-size: 4em;
     letter-spacing: -0.02em;
     color: #000000;
+    @media only screen and (max-width: 768px) {
+        font-size: 3em;
+    }
 `;
 
 export const SubTitle = styled.div`
@@ -21,15 +23,18 @@ export const SubTitle = styled.div`
     flex-direction: row;
     align-items: center;
     padding: 20px;
+
 `;
 
 export const PatSection = styled(Col)`
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 2em;
     color: #039855;
+    @media only screen and (max-width: 768px) {
+        font-size: 1.2em;
+    }
 `;
 
 export const PatStars = styled(Col)`
@@ -70,5 +75,4 @@ export const PatSolution = styled.div`
     line-height: 24px;
     display: flex;
     align-items: center;
-    color: #98A2B3;
 `;

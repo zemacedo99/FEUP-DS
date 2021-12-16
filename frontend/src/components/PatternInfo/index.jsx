@@ -6,7 +6,6 @@ import {
 
 import PropTypes from 'prop-types';
 
-import RelatedCard from '../RelatedCard';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
   SubTitle,
@@ -14,11 +13,11 @@ import {
 
 export default function PatternInfo({
   /* ToDo: Related */
-  title, section, stars, image, intro, problem, solution,
+  title, section, stars, image, intro, problem, solution, related,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
-    rows.push(<AiFillStar className="me-2" key={i} size={30} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
+    rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
   return (
     <MainPageSection>
@@ -49,8 +48,9 @@ export default function PatternInfo({
         <PatSection className="mt-5">
           Related Patterns
         </PatSection>
-        <RelatedCard name="The Spirit of the Game" stars="3" />
-        <RelatedCard name="Teams That Finish Earlier Accelerate Faster" stars="1" />
+        <Row xs={1} md={2} className="g-4">
+          {related}
+        </Row>
       </Row>
     </MainPageSection>
   );
@@ -64,4 +64,5 @@ PatternInfo.propTypes = {
   intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
+  related: PropTypes.instanceOf(Array).isRequired,
 };

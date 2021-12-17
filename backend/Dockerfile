@@ -2,9 +2,13 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm install
+ENV PORT 3000
+
+RUN npm install --silent
+
+RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 
 COPY . ./
 

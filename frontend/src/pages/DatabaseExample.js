@@ -8,7 +8,6 @@ export default function DatabaseExample() {
     let aux=[];
     const sendRequest = () => {
         
-        //exemplo de ir buscar dados à db (está a retornar duas vezes por motivos desconhecidos)
         getDocs(collection(db, "patlets")).then((obj)=>{
             aux = [];
             const docSnapshots = obj.docs;

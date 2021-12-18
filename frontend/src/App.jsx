@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { NavbarCustomDesktop, NavbarCustomTablet, NavbarCustomMobile } from './components/Navbar';
-import MainPage from './pages/MainPage';
-import SearchPage from './pages/SearchPage';
-import ReadLaterPage from './pages/ReadLaterPage';
 import HelpAboutUs from './pages/HelpAboutUs';
+import MainPage from './pages/MainPage';
+import ReadLaterPage from './pages/ReadLaterPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="/" exact element={<MainPage />} />
           <Route path="/search" exact element={<SearchPage />} />
           <Route path="/help" exact element={<HelpAboutUs />} />
-          <Route path="/read-later" exact element={<ReadLaterPage />} />
+          <Route path="/readlater" exact element={<ReadLaterPage />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 // Initialize Cloud Firestore through Firebase
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseApp = initializeApp({
   apiKey: 'AIzaSyCJb7N9JOW9Ru11jgvrBwUH7ohDZrQIW20',

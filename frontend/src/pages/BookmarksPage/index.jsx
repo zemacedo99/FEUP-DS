@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
-import ReadLaterSelector from '../../components/ReadLaterSelector';
 import patterns from '../../placeholders/PlaceholderPatterns';
 import { Layout, PageTitle } from '../../style';
 
-export default function ReadLaterPage() {
+export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState(patterns);
   const [isFavoriteList, setFavoriteList] = useState(true);
 
@@ -23,11 +23,11 @@ export default function ReadLaterPage() {
   return (
     <Layout>
       <Row>
-        <Col md="9">
+        <Col md="8">
           <PageTitle> Bookmarks </PageTitle>
         </Col>
-        <ReadLaterSelector
-          md="3"
+        <BookmarksSelector
+          md="4"
           setFavoriteList={setFavoriteList}
           isFavoriteList={isFavoriteList}
         />

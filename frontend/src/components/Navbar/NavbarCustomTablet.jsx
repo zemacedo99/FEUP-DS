@@ -23,7 +23,7 @@ export default function NavbarCustomDesktop() {
               <NavbarButtons>
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
                 <NavbarLink href="/"><BsSearch /></NavbarLink>
-                <NavbarLink href="/readlater"><BsBookmark /></NavbarLink>
+                <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

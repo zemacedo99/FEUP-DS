@@ -14,13 +14,13 @@ import {
 } from './style';
 
 export default function PatternCard({
-  id, name, image, favorite, saved, updatePattern,
+  id, title, image, favorite, saved, updatePattern,
 }) {
   const goToPattern = () => {}; // TODO
 
   const buildPattern = (newFav, newSaved) => ({
     id,
-    name,
+    title,
     favorite: newFav,
     saved: newSaved,
     image,
@@ -72,7 +72,7 @@ export default function PatternCard({
         </Dropdown.Menu>
       </DropdownSection>
       <Card.Body onClick={goToPattern}>
-        <CardTitle>{name}</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </Card.Body>
     </PatCard>
   );
@@ -80,7 +80,7 @@ export default function PatternCard({
 
 PatternCard.propTypes = {
   id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   favorite: PropTypes.bool.isRequired,
   saved: PropTypes.bool.isRequired,

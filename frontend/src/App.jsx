@@ -6,6 +6,7 @@ import { NavbarCustomDesktop, NavbarCustomTablet, NavbarCustomMobile } from './c
 import About from './pages/About';
 import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
+import PatternInfoPage from './pages/PatternInfoPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" exact element={<MainPage />} />
           <Route path="/search" exact element={<SearchPage />} />
           <Route path="/about" exact element={<About />} />
+          <Route path="/pattern" exact element={<PatternInfoPage />} />
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
@@ -9,6 +9,7 @@ import {
 } from './style';
 
 export default function NavbarCustomDesktop() {
+  const [text, setText] = useState('');
   return (
     <NavbarDesktop expand="lg">
       <NavbarNav>
@@ -21,7 +22,7 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col md="3">
               <ColContainer>
-                <SearchBar />
+                <SearchBar text={text} setText={setText} />
               </ColContainer>
             </Col>
             <Col md="5">

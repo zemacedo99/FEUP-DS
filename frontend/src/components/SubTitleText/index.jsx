@@ -4,16 +4,16 @@ import * as PropTypes from 'prop-types';
 
 import { SubTitle, Text } from './style';
 
-export default function SubTitleText({ title, text }) {
+export default function SubTitleText({ children, title }) {
   return (
     <div>
       <SubTitle className="mt-4">{ title }</SubTitle>
-      <Text>{ text }</Text>
+      <Text>{ children }</Text>
     </div>
   );
 }
 
 SubTitleText.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

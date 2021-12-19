@@ -26,7 +26,7 @@ export default function NavbarCustomMobile() {
               <NavbarLink href="/"><BiSearch /></NavbarLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/"><BiBookmark /></NavbarLink>
+              <NavbarLink href="/bookmarks"><BiBookmark /></NavbarLink>
             </Col>
           </Row>
         </NavbarContainer>

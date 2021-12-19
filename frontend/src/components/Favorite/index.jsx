@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 class Favorite extends React.Component {
   constructor(props) {
     super(props);
+    this.setFavoriteIds = props.setFavoriteIds;
     this.patlet_id = props.patlet_id;
 
     let favorites = JSON.parse(localStorage.getItem('favorites'));
@@ -28,6 +29,7 @@ class Favorite extends React.Component {
     }
 
     this.setState({ favorites });
+    this.setFavoriteIds(favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
@@ -46,6 +48,7 @@ class Favorite extends React.Component {
 
 Favorite.propTypes = {
   patlet_id: PropTypes.number.isRequired,
+  setFavoriteIds: PropTypes.func.isRequired,
 };
 
 export { Favorite };

@@ -8,6 +8,7 @@ export const NavbarDesktop = styled(Navbar)`
   @media screen and (max-width: 1280px) {
     display: none;
   }
+  margin-bottom: 1rem;
   background-color: white;
   font-family: Inter;
   font-size: 20px;
@@ -78,7 +79,7 @@ export const NavbarLink = styled(Nav.Link)`
     color: black !important;
     font-size: 1rem;
     text-align: right;
-    padding: 0 0 0 3rem !important;
+    padding: 0 0 0 1.5rem !important;
   }
   transition: 0.2s opacity;
   &:hover {

@@ -1,5 +1,5 @@
 import { Card, Dropdown } from 'react-bootstrap';
-import { IoEllipsisHorizontal } from 'react-icons/all';
+import { IoEllipsisHorizontal } from 'react-icons/io5';
 
 import styled from 'styled-components';
 

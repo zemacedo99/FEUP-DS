@@ -5,7 +5,7 @@ import {
   AiFillStar,
   AiOutlineClockCircle,
   AiOutlineStar,
-} from 'react-icons/all';
+} from 'react-icons/ai';
 
 import PropTypes from 'prop-types';
 

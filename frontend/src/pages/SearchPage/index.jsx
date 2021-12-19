@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import PatternCardList from '../../components/PatternCardList';
+import SearchBar from '../../components/SearchBar';
 import patterns from '../../placeholders/PlaceholderPatterns';
 import { Layout, PageTitle } from '../../style';
-import { SearchBarMB } from './style';
+import { SearchBarContainer } from './style';
 
 export default function SearchPage() {
   const [text, setText] = useState('');
@@ -24,7 +25,9 @@ export default function SearchPage() {
           <PageTitle> Search </PageTitle>
         </Col>
       </Row>
-      <SearchBarMB text={text} setText={setText} />
+      <SearchBarContainer>
+        <SearchBar text={text} setText={setText} />
+      </SearchBarContainer>
       {text !== '' ? (
         <p>
           Showing results for &quot;

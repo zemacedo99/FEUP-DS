@@ -28,6 +28,9 @@ export default function MainPage() {
         </Col>
       </Row>
       <SubTitle> The core of Scrum </SubTitle>
+      <button id="button" aria-describedby="tooltip" type="button">
+        My button
+      </button>
       <PatternCardList patterns={patternsList} updatePattern={updatePattern} />
     </Layout>
   );

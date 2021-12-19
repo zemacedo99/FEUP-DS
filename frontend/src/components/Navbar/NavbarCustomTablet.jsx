@@ -29,7 +29,7 @@ export default function NavbarCustomDesktop() {
             <Col xs="2" md="2">
               <NavbarButtons>
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
-                <NavbarLink href="/"><BsBookmark /></NavbarLink>
+                <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

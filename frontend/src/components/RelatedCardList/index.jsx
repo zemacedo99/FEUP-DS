@@ -3,21 +3,22 @@ import { Col } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 
-import PatternCard from '../PaternCard';
-import { CardRow } from './style';
+import { CardRow } from '../PatternCardList/style';
+import RespPatternCard from '../RespPatternCard';
 
-export default function PatternCardList({ patterns, updatePattern }) {
+export default function RelatedCardList({ patterns, updatePattern }) {
   return (
     <CardRow>
       {patterns.map((pattern) => (
-        <Col xs={6} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
-          <PatternCard
+        <Col xs={12} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
+          <RespPatternCard
             id={pattern.id}
-            title={pattern.title}
+            name={pattern.name}
             favorite={pattern.favorite}
             saved={pattern.saved}
             image={pattern.image}
             updatePattern={updatePattern}
+            stars={3}
           />
         </Col>
       ))}
@@ -25,7 +26,7 @@ export default function PatternCardList({ patterns, updatePattern }) {
   );
 }
 
-PatternCardList.propTypes = {
+RelatedCardList.propTypes = {
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
   updatePattern: PropTypes.func.isRequired,
 };

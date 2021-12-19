@@ -8,6 +8,7 @@ export const NavbarDesktop = styled(Navbar)`
   @media screen and (max-width: 1280px) {
     display: none;
   }
+  margin-bottom: 1rem;
   background-color: white;
   font-family: Inter;
   font-size: 20px;

@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+import axios from 'axios';
+
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
-import patterns from '../../placeholders/PlaceholderPatterns';
 import { Layout, PageTitle } from '../../style';
 import { SubTitle } from './style';
 
 export default function MainPage() {
-  const [patternsList, setPatterns] = useState(patterns);
   const navigate = useNavigate();
+  const [patternsList, setPatterns] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
+      setPatterns(res.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }, []);
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
@@ -20,7 +29,7 @@ export default function MainPage() {
   };
 
   const navigateToHelp = () => {
-    navigate('/help');
+    navigate('/about');
   };
 
   return (

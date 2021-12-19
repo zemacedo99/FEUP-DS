@@ -9,6 +9,7 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID,
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
-const db = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
 
-module.exports = db;
+module.exports = firestore;

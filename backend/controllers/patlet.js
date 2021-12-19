@@ -1,7 +1,5 @@
-const firebase = require('../db');
+const firestore = require('../database/config');
 const Patlet = require('../models/patlet');
-
-const firestore = firebase.firestore();
 
 async function getAllPatlets(req, res) {
   try {

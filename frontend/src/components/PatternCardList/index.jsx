@@ -13,7 +13,7 @@ export default function PatternCardList({ patterns, updatePattern }) {
         <Col xs={6} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
           <PatternCard
             id={pattern.id}
-            name={pattern.name}
+            title={pattern.title}
             favorite={pattern.favorite}
             saved={pattern.saved}
             image={pattern.image}

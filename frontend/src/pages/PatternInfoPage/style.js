@@ -1,25 +1,15 @@
-import { Row } from 'react-bootstrap';
-
 import styled from 'styled-components';
 
 export const MainPageSection = styled.div`
   font-family: Inter;
-  margin: 3em;
-  @media only screen and (max-width: 768px) {
-    margin:1em;
+  margin: 1em 10em;
+  @media screen and (max-width: 480px) {
+    margin: 1em 1em;
   }
-`;
-
-export const Title = styled.h1`
-  font-weight: bold;
-  font-size: 30px !important;
-`;
-
-export const SubTitle = styled.h1`
-  font-size: 30px;
-  padding-left: 0.35em;
-`;
-
-export const CardRow = styled(Row)`
-  margin: 0;
+  @media screen and (min-width: 481px) and (max-width: 1280px) {
+    margin: 1em 5em;
+  }
+  @media screen and (min-width: 1281px) {
+    margin: 1em 10em;
+  }
 `;

@@ -5,6 +5,7 @@ import {
 } from 'react-icons/all';
 
 import PropTypes from 'prop-types';
+import RelatedCardList from '../RelatedCardList';
 
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
@@ -12,13 +13,15 @@ import {
 } from './style';
 
 export default function PatternInfo({
-  /* ToDo: Related */
-  title, section, stars, image, intro, problem, solution, related,
+  title, section, stars, image, intro, problem, solution, relatedList,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
     rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
+
+  const updatePattern = () => {
+  };
   return (
     <MainPageSection>
       <Row>
@@ -48,9 +51,7 @@ export default function PatternInfo({
         <PatSection className="mt-5">
           Related Patterns
         </PatSection>
-        <Row xs={1} md={2} className="g-4">
-          {related}
-        </Row>
+        <RelatedCardList className="my-component" patterns={relatedList} updatePattern={updatePattern} />
       </Row>
     </MainPageSection>
   );
@@ -64,5 +65,5 @@ PatternInfo.propTypes = {
   intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  related: PropTypes.instanceOf(Array).isRequired,
+  relatedList: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

@@ -7,12 +7,8 @@ export const MainPageSection = styled.div`
 `;
 
 export const PatTitle = styled.div`
-    font-family: Inter;
-    font-style: normal;
     font-weight: bold;
-    font-size: 4em;
-    letter-spacing: -0.02em;
-    color: #000000;
+    font-size: 72px;
     @media only screen and (max-width: 768px) {
         font-size: 3em;
     }
@@ -23,7 +19,6 @@ export const SubTitle = styled.div`
     flex-direction: row;
     align-items: center;
     padding: 20px;
-
 `;
 
 export const PatSection = styled(Col)`

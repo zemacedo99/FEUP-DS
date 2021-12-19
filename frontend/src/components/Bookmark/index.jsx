@@ -7,6 +7,7 @@ class Bookmark extends React.Component {
   constructor(props) {
     super(props);
     this.patlet_id = props.patlet_id;
+    this.setBookmarkIds = props.setBookmarkIds;
 
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
@@ -28,6 +29,7 @@ class Bookmark extends React.Component {
     }
 
     this.setState({ bookmarks });
+    this.setBookmarkIds(bookmarks);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 
@@ -46,6 +48,7 @@ class Bookmark extends React.Component {
 
 Bookmark.propTypes = {
   patlet_id: PropTypes.number.isRequired,
+  setBookmarkIds: PropTypes.func.isRequired,
 };
 
 export { Bookmark };

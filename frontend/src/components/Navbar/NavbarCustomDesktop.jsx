@@ -29,7 +29,7 @@ export default function NavbarCustomDesktop() {
               <NavbarButtons>
                 <NavbarLink href="/about">About</NavbarLink>
                 <NavbarLink href="/">Patterns</NavbarLink>
-                <NavbarLink href="/">Bookmarks</NavbarLink>
+                <NavbarLink href="/bookmarks">Bookmarks</NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

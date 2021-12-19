@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
+import Review from '../../components/PatternReview';
 import patterns from '../../placeholders/PlaceholderPatterns';
 import { Layout, PageTitle } from '../../style';
 import { SubTitle } from './style';
@@ -28,9 +29,7 @@ export default function MainPage() {
         </Col>
       </Row>
       <SubTitle> The core of Scrum </SubTitle>
-      <button id="button" aria-describedby="tooltip" type="button">
-        My button
-      </button>
+      <Review />
       <PatternCardList patterns={patternsList} updatePattern={updatePattern} />
     </Layout>
   );

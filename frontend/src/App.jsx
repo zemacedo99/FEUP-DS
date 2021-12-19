@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { NavbarCustomDesktop, NavbarCustomTablet, NavbarCustomMobile } from './components/Navbar';
 import HelpAboutUs from './pages/HelpAboutUs';
-import MainPage from './pages/MainPage';
+import DatabaseExample from './pages/DatabaseExample';
+// import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <NavbarCustomTablet />
         <NavbarCustomMobile />
         <Routes>
-          <Route path="/" exact element={<MainPage />} />
+          <Route path="/" exact element={<DatabaseExample />} />
           <Route path="/search" exact element={<SearchPage />} />
           <Route path="/help" exact element={<HelpAboutUs />} />
         </Routes>

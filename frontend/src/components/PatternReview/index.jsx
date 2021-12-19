@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useModal } from 'react-hooks-use-modal';
 import { AiFillCheckSquare } from 'react-icons/ai';
 import { Rating } from 'react-simple-star-rating';
@@ -15,14 +14,10 @@ export default function Review() {
     closeOnOverlayClick: false,
   });
 
-  const [rating, setRating] = useState(0); // initial rating value
+  const rating = useState(0); // initial rating value
   // Catch Rating value
   const handleRating = (rate: number) => {
-    setRating(rate);
-    console.log(rate);
-    document.querySelector('#rating').value = rate;
-    console.log(document.querySelector('#rating').value);
-    console.log(document.querySelector('#review').value);
+    document.querySelector('#rating').value = parseInt(rate, 10) / 20;
     // other logic
   };
 
@@ -51,7 +46,7 @@ export default function Review() {
             <br />
             <input type="text" name="review" id="review" />
             <br />
-            <Button onClick={addReview}>Send Review</Button>
+            <button type="submit" onClick={addReview}>Send Review</button>
             <button type="submit" onClick={close}>Close</button>
           </div>
         </FeedbackPopup>

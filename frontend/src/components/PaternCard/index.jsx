@@ -1,16 +1,14 @@
 import React from 'react';
-import { Card, Dropdown } from 'react-bootstrap';
-import {
-  AiFillClockCircle,
-  AiFillStar,
-  AiOutlineClockCircle,
-  AiOutlineStar,
-} from 'react-icons/all';
+import { Card } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 
 import {
-  PatCard, CardTitle, Icon, Toggle, DropdownSection, DropdownItem,
+  PatCard,
+  CardTitle,
+  FavDiv,
+  SaveDiv,
+  FillClockCircle, FillStar, OutlineStar, OutlineClockCircle,
 } from './style';
 
 export default function PatternCard({
@@ -40,37 +38,26 @@ export default function PatternCard({
   return (
     <PatCard title="See pattern">
       <Card.Img variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
-      <DropdownSection>
-        <Toggle title="See options" variant="outline-light">
-          <Icon />
-        </Toggle>
-        <Dropdown.Menu>
-          {favorite ? (
-            <DropdownItem onClick={(event) => favoriteButton(event)} className="d-flex align-items-center">
-              <AiFillStar className="me-2" />
-              <span>Unfavorite</span>
-            </DropdownItem>
-          )
-            : (
-              <DropdownItem onClick={(event) => favoriteButton(event)} className="d-flex align-items-center">
-                <AiOutlineStar className="me-2" />
-                <span>Favorite</span>
-              </DropdownItem>
-            )}
-          {saved ? (
-            <DropdownItem onClick={(event) => saveButton(event)} className="d-flex align-items-center">
-              <AiFillClockCircle className="me-2" />
-              Unsave
-            </DropdownItem>
-          )
-            : (
-              <DropdownItem onClick={(event) => saveButton(event)} className="d-flex align-items-center">
-                <AiOutlineClockCircle className="me-2" />
-                Save for later
-              </DropdownItem>
-            )}
-        </Dropdown.Menu>
-      </DropdownSection>
+      {favorite ? (
+        <FavDiv onClick={(event) => favoriteButton(event)} onKeyPress={(event) => favoriteButton(event)} role="button" tabIndex={0}>
+          <FillStar title="Unfavorite" />
+        </FavDiv>
+      )
+        : (
+          <FavDiv onClick={(event) => favoriteButton(event)} onKeyPress={(event) => favoriteButton(event)} role="button" tabIndex={0}>
+            <OutlineStar title="Favorite" />
+          </FavDiv>
+        )}
+      {saved ? (
+        <SaveDiv onClick={(event) => saveButton(event)} onKeyPress={(event) => saveButton(event)} role="button" tabIndex={0}>
+          <FillClockCircle title="Unsave" />
+        </SaveDiv>
+      )
+        : (
+          <SaveDiv onClick={(event) => saveButton(event)} onKeyPress={(event) => saveButton(event)} role="button" tabIndex={0}>
+            <OutlineClockCircle title="Save for later" />
+          </SaveDiv>
+        )}
       <Card.Body onClick={goToPattern}>
         <CardTitle>{name}</CardTitle>
       </Card.Body>

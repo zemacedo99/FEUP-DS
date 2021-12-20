@@ -45,6 +45,7 @@ async function getPatlet(req, res){
           doc.data().solution,
           doc.data().stars,
           doc.data().title,
+          JSON.stringify(doc.ref)
         );
         res.send(patlet);
       }

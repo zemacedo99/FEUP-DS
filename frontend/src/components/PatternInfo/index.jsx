@@ -5,8 +5,8 @@ import {
 } from 'react-icons/all';
 
 import PropTypes from 'prop-types';
-import RelatedCardList from '../RelatedCardList';
 
+import RelatedCardList from '../RelatedCardList';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
   SubTitle,

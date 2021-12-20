@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { NavbarCustomDesktop, NavbarCustomTablet, NavbarCustomMobile } from './components/Navbar';
-import BookmarksPage from './pages/BookmarksPage';
 import About from './pages/About';
+import BookmarksPage from './pages/BookmarksPage';
 import MainPage from './pages/MainPage';
-import SearchPage from './pages/SearchPage';
 import PatternInfoPage from './pages/PatternInfoPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (

@@ -12,6 +12,8 @@ import { SubTitle } from './style';
 export default function MainPage() {
   const navigate = useNavigate();
   const [patternsList, setPatterns] = useState([]);
+  const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
+  const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
@@ -45,7 +47,12 @@ export default function MainPage() {
         </Col>
       </Row>
       <SubTitle> The core of Scrum </SubTitle>
-      <PatternCardList patterns={patternsList} updatePattern={updatePattern} />
+      <PatternCardList
+        patterns={patternsList}
+        updatePattern={updatePattern}
+        setFavoriteIds={setFavoriteIds}
+        setBookmarkIds={setBookmarkIds}
+      />
     </Layout>
   );
 }

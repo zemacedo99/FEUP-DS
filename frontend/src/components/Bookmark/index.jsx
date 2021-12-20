@@ -1,7 +1,11 @@
 import React from 'react';
-import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
+
+import {
+  FillClockCircle,
+  OutlineClockCircle,
+} from './style';
 
 class Bookmark extends React.Component {
   constructor(props) {
@@ -39,8 +43,8 @@ class Bookmark extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <BsBookmarkFill />
-          : <BsBookmark /> }
+          ? <FillClockCircle />
+          : <OutlineClockCircle /> }
       </span>
     );
   }

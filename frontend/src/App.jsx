@@ -21,7 +21,7 @@ function App() {
           <Route path="/search" exact element={<SearchPage />} />
           <Route path="/bookmarks" exact element={<BookmarksPage />} />
           <Route path="/about" exact element={<About />} />
-          <Route path="/pattern" exact element={<PatternInfoPage />} />
+          <Route path="/pattern/:id/patlet" exact element={<PatternInfoPage />} />
         </Routes>
       </div>
     </Router>

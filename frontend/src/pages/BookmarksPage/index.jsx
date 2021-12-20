@@ -50,6 +50,8 @@ export default function BookmarksPage() {
       <PatternCardList
         patterns={isFavoriteList ? favoriteList : readlaterList}
         updatePattern={updatePattern}
+        setFavoriteIds={setFavoriteIds}
+        setBookmarkIds={setBookmarkIds}
       />
       <AddFavorite
         setFavoriteIds={setFavoriteIds}

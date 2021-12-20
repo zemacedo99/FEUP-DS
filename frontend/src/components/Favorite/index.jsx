@@ -1,7 +1,11 @@
 import React from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import PropTypes from 'prop-types';
+
+import {
+  FillStar,
+  OutlineStar,
+} from './style';
 
 class Favorite extends React.Component {
   constructor(props) {
@@ -39,8 +43,8 @@ class Favorite extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateFavorite(); }} onKeyPress={() => {}} tabIndex="0">
         { favorites[this.patlet_id] === true
-          ? <AiFillStar />
-          : <AiOutlineStar /> }
+          ? <FillStar />
+          : <OutlineStar /> }
       </span>
     );
   }

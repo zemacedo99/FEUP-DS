@@ -1,9 +1,7 @@
 import { Card } from 'react-bootstrap';
 import {
   AiFillClockCircle,
-  AiFillStar,
   AiOutlineClockCircle,
-  AiOutlineStar,
 } from 'react-icons/ai';
 
 import styled from 'styled-components';
@@ -29,25 +27,7 @@ export const FillClockCircle = styled(AiFillClockCircle)`
   }
 `;
 
-export const FillStar = styled(AiFillStar)`
-  background-color: #FFFFFFBF;
-  border-radius: 50%;
-  font-size: 30px;
-  &:hover {
-    background-color: #ffffff;
-  }
-`;
-
 export const OutlineClockCircle = styled(AiOutlineClockCircle)`
-  background-color: #FFFFFFBF;
-  border-radius: 50%;
-  font-size: 30px;
-  &:hover {
-    background-color: #ffffff;
-  }
-`;
-
-export const OutlineStar = styled(AiOutlineStar)`
   background-color: #FFFFFFBF;
   border-radius: 50%;
   font-size: 30px;

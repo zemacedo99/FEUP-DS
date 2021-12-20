@@ -6,7 +6,12 @@ import PropTypes from 'prop-types';
 import PatternCard from '../PaternCard';
 import { CardRow } from './style';
 
-export default function PatternCardList({ patterns, updatePattern }) {
+export default function PatternCardList({
+  patterns,
+  updatePattern,
+  setFavoriteIds,
+  setBookmarkIds,
+}) {
   return (
     <CardRow>
       {patterns.map((pattern) => (
@@ -18,6 +23,8 @@ export default function PatternCardList({ patterns, updatePattern }) {
             saved={pattern.saved}
             image={pattern.image}
             updatePattern={updatePattern}
+            setFavoriteIds={setFavoriteIds}
+            setBookmarkIds={setBookmarkIds}
           />
         </Col>
       ))}
@@ -28,4 +35,6 @@ export default function PatternCardList({ patterns, updatePattern }) {
 PatternCardList.propTypes = {
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
   updatePattern: PropTypes.func.isRequired,
+  setFavoriteIds: PropTypes.func.isRequired,
+  setBookmarkIds: PropTypes.func.isRequired,
 };

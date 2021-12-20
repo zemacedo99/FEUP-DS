@@ -6,4 +6,6 @@ const controller = require('../controllers/patlet');
 
 router.get('/', controller.getAllPatlets);
 
+router.get('/:id', controller.getPatlet);
+
 module.exports = router;

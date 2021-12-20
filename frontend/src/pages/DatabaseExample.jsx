@@ -24,7 +24,7 @@ export default function DatabaseExample() {
       rating: parseInt(document.querySelector('#rating').value, 10),
       review: document.querySelector('#review').value,
       // patletId: DocumentReference of Patlet
-    }).then((data) => {
+    }).then(() => {
       setfinal(<h1>Review added, check database.</h1>);
     });
   };

@@ -1,12 +1,17 @@
 import React from 'react';
-import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
+
+import {
+  FillClockCircle,
+  OutlineClockCircle,
+} from './style';
 
 class Bookmark extends React.Component {
   constructor(props) {
     super(props);
     this.patlet_id = props.patlet_id;
+    this.setBookmarkIds = props.setBookmarkIds;
 
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
@@ -28,6 +33,7 @@ class Bookmark extends React.Component {
     }
 
     this.setState({ bookmarks });
+    this.setBookmarkIds(bookmarks);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 
@@ -37,8 +43,8 @@ class Bookmark extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <BsBookmarkFill />
-          : <BsBookmark /> }
+          ? <FillClockCircle />
+          : <OutlineClockCircle /> }
       </span>
     );
   }
@@ -46,6 +52,7 @@ class Bookmark extends React.Component {
 
 Bookmark.propTypes = {
   patlet_id: PropTypes.number.isRequired,
+  setBookmarkIds: PropTypes.func.isRequired,
 };
 
 export { Bookmark };

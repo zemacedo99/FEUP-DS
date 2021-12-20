@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-import SearchBar from '../../components/SearchBar';
-
-export const SearchBarMB = styled(SearchBar)`
+export const SearchBarContainer = styled.div`
     margin-bottom: 1rem;
+    display: none;
+
+    @media screen and (max-width: 480px) {
+        display: block;
+    }
 `;

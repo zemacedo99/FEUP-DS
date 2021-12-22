@@ -3,9 +3,8 @@ import { Row, Image } from 'react-bootstrap';
 import {
   AiFillStar,
 } from 'react-icons/all';
-
 import PropTypes from 'prop-types';
-
+import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
@@ -13,7 +12,7 @@ import {
 } from './style';
 
 export default function PatternInfo({
-  title, section, stars, image, intro, problem, solution, relatedList,
+  id, title, section, stars, image, intro, problem, solution, relatedList,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
@@ -22,6 +21,7 @@ export default function PatternInfo({
 
   const updatePattern = () => {
   };
+  const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}}.jpg`, image);
   return (
     <MainPageSection>
       <Row>
@@ -38,7 +38,7 @@ export default function PatternInfo({
         </SubTitle>
       </Row>
       <Row>
-        <Image src={image} alt="pattern" rounded fluid className="p-5" />
+        <Image src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern" rounded fluid className="p-5" />
         <PatIntro>
           {intro}
         </PatIntro>
@@ -58,6 +58,7 @@ export default function PatternInfo({
 }
 
 PatternInfo.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   section: PropTypes.string.isRequired,
   stars: PropTypes.string.isRequired,

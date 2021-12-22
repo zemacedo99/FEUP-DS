@@ -11,14 +11,17 @@ import {
   SaveDiv,
 } from './style';
 
+import ProgressiveImg from '../ProgressiveImage/index';
+
 export default function PatternCard({
   id, title, image, setFavoriteIds, setBookmarkIds,
 }) {
   const goToPattern = () => {};
 
+  const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}.jpg`, image);
   return (
     <PatCard title="See pattern">
-      <Card.Img variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
+      <Card.Img variant="top" src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern's image" onClick={goToPattern} />
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
       </FavDiv>

@@ -27,6 +27,7 @@ export default function PatternInfoPage() {
       <Row>
         <Col key={pattern.title} className="mb-3">
           <PatternInfo
+            id={pattern.id}
             title={pattern.title}
             section=""
             stars={pattern.stars}

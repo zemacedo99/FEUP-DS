@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
-import Review from '../../components/PatternReview';
+import '../../components/PatternReview';
 import relatedPatterns from '../../placeholders/PlaceholderPatterns';
 import {
   MainPageSection,

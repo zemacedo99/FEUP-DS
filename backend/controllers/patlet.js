@@ -30,30 +30,27 @@ async function getAllPatlets(req, res) {
   }
 }
 
-async function getPatlet(req, res){
+async function getPatlet(req, res) {
   const docRef = await firestore.collection('patlets').doc(req.params.id);
   docRef.get().then((doc) => {
     if (!doc.exists) {
-        res.status(404).send('Patlet not found');
-      } else {
-        const patlet = new Patlet(
-          parseInt(doc.id, 10),
-          doc.data().image,
-          doc.data().introduction,
-          doc.data().linked_patlets,
-          doc.data().problem,
-          doc.data().solution,
-          doc.data().stars,
-          doc.data().title
-        );
-        res.send(patlet);
-      }
+      res.status(404).send('Patlet not found');
+    } else {
+      const patlet = new Patlet(
+        parseInt(doc.id, 10),
+        doc.data().image,
+        doc.data().introduction,
+        doc.data().linked_patlets,
+        doc.data().problem,
+        doc.data().solution,
+        doc.data().stars,
+        doc.data().title,
+      );
+      res.send(patlet);
     }
-  ).catch((error) => {
+  }).catch((error) => {
     res.status(400).send(error.message);
-    }
-  );
-    
+  });
 }
 
 async function addReview(req, res){

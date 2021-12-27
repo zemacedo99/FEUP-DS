@@ -11,7 +11,7 @@ import {
 } from './style';
 
 export default function PatternInfoPage() {
-  const [pattern, setPattern] = useState([]);
+  const [pattern, setPattern] = useState();
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,6 +22,10 @@ export default function PatternInfoPage() {
     });
   }, []);
 
+  // Return nothing until Firebase request is finished
+  // TODO replace for spinner later
+  if (!pattern) return ('');
+
   return (
     <MainPageSection>
       <Row>
@@ -31,7 +35,7 @@ export default function PatternInfoPage() {
             section=""
             stars={pattern.stars}
             image={pattern.image}
-            intro={pattern.intro}
+            intro={pattern.introduction}
             problem={pattern.problem}
             solution={pattern.solution}
             relatedList={relatedPatterns}

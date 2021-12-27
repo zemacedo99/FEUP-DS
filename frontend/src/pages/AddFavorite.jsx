@@ -8,23 +8,23 @@ export default function AddFavorite({ setFavoriteIds }) {
   return (
     <div>
       <Favorite
-        patlet_id="1"
+        patlet_id={1}
         setFavoriteIds={setFavoriteIds}
       />
       <Favorite
-        patlet_id="2"
+        patlet_id={2}
         setFavoriteIds={setFavoriteIds}
       />
       <Favorite
-        patlet_id="3"
+        patlet_id={3}
         setFavoriteIds={setFavoriteIds}
       />
       <Favorite
-        patlet_id="4"
+        patlet_id={4}
         setFavoriteIds={setFavoriteIds}
       />
       <Favorite
-        patlet_id="5"
+        patlet_id={5}
         setFavoriteIds={setFavoriteIds}
       />
     </div>

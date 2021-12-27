@@ -16,7 +16,7 @@ export default function Review({ patletId }) {
 
   const [rating, setRating] = useState(20); // initial rating value
   // Catch Rating value
-  const handleRating = (rate: number) => {
+  const handleRating = (rate) => {
     // document.querySelector('#rating').value = parseInt(rate, 10) / 20;
     setRating(rate);
   };

@@ -27,12 +27,7 @@ export default function Review({ patletId }) {
       // rating: parseInt(document.querySelector('#rating').value, 10),
       review: document.querySelector('#review').value,
     };
-    axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data).then((res) => {
-      console.log(res);
-    }).catch((error) => {
-      console.error(error);
-    });
-  };
+    axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data);
 
   return (
     <div>

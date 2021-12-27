@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-floating-action-button';
 import { Col, Row } from 'react-bootstrap';
+import { Container } from 'react-floating-action-button';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
+
 import PatternInfo from '../../components/PatternInfo';
 import Review from '../../components/PatternReview';
 import relatedPatterns from '../../placeholders/PlaceholderPatterns';

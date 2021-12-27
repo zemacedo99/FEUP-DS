@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import { FeedbackPopup } from './style';
 
-export default function Review({ patletId }) {
+export default function PatternReview({ patletId }) {
   const [Modal, open, close] = useModal('root', {
     preventScroll: true,
     closeOnOverlayClick: false,
@@ -28,6 +28,7 @@ export default function Review({ patletId }) {
       review: document.querySelector('#review').value,
     };
     axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data);
+  };
 
   return (
     <div>
@@ -62,6 +63,6 @@ export default function Review({ patletId }) {
   );
 }
 
-Review.propTypes = {
+PatternReview.propTypes = {
   patletId: PropTypes.string.isRequired,
 };

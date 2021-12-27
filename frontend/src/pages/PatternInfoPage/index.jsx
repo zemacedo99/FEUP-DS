@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
-import '../../components/PatternReview';
+import PatternReview from '../../components/PatternReview';
 import relatedPatterns from '../../placeholders/PlaceholderPatterns';
 import {
   MainPageSection,
@@ -45,7 +45,7 @@ export default function PatternInfoPage() {
         </Col>
       </Row>
       <Container>
-        <Review patletId={id} icon="fas fa-plus" class="position-absolute" />
+        <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
       </Container>
     </MainPageSection>
   );

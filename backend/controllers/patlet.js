@@ -53,7 +53,7 @@ async function getPatlet(req, res) {
   });
 }
 
-async function addReview(req, res){
+async function addReview(req){
   let { rating, review } = req.body;
 
   let patletRef = firestore.collection('patlets').doc(req.params.id);

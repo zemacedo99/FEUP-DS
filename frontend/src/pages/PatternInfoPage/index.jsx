@@ -40,7 +40,7 @@ export default function PatternInfoPage() {
         </Col>
       </Row>
       <Container>
-        <Review patletRef={pattern.ref} icon="fas fa-plus" class="position-absolute" />
+        <Review patletId={id} icon="fas fa-plus" class="position-absolute" />
       </Container>
     </MainPageSection>
   );

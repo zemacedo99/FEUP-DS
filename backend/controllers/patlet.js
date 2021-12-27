@@ -18,7 +18,7 @@ async function getAllPatlets(req, res) {
           doc.data().problem,
           doc.data().solution,
           doc.data().stars,
-          doc.data().title,
+          doc.data().title
         );
         patletsArray.push(patlet);
       });
@@ -44,8 +44,7 @@ async function getPatlet(req, res){
           doc.data().problem,
           doc.data().solution,
           doc.data().stars,
-          doc.data().title,
-          JSON.stringify(doc.ref)
+          doc.data().title
         );
         res.send(patlet);
       }
@@ -57,7 +56,20 @@ async function getPatlet(req, res){
     
 }
 
+async function addReview(req, res){
+  let { rating, review } = req.body;
+
+  let patletRef = firestore.collection('patlets').doc(req.params.id);
+  firestore.collection('reviews').doc().set({
+    rating,
+    review,
+    patletRef
+  });
+  
+}
+
 module.exports = {
   getAllPatlets,
   getPatlet,
+  addReview,
 };

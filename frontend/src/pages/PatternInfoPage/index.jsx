@@ -15,6 +15,7 @@ export default function PatternInfoPage() {
   const { id } = useParams();
 
   useEffect(() => {
+    document.title = pattern.title;
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
     }).catch((error) => {

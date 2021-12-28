@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import PatternCardList from '../../components/PatternCardList';
@@ -10,6 +10,10 @@ import { SearchBarContainer } from './style';
 export default function SearchPage() {
   const [text, setText] = useState('');
   const [patternsList, setPatterns] = useState(patterns);
+
+  useEffect(() => {
+    document.title = 'Search';
+  }, []);
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);

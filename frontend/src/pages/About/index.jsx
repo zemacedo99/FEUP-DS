@@ -3,7 +3,7 @@ import {
   Row, Col, Button,
 } from 'react-bootstrap';
 
-import ContributeModal from '../../components/ContributePopup/indext';
+import ContributeModal from '../../components/ContributePopup/index';
 import SubTitleText from '../../components/SubTitleText/index';
 import { Layout } from '../../style';
 import { Title, Text, Container } from './style';

@@ -11,27 +11,29 @@ export default function ContributeModal({ show, onHide }) {
       centered
     >
       <Modal.Header closeButton>
-        <h3>Contribute</h3>
+        <h1 className="m-0">Contribute</h1>
       </Modal.Header>
       <Modal.Body>
-        <Form>
-          <Form.Group className="mb-3" controlId="name">
+        <Form className="mt-3">
+          <Form.Group className="mb-1" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control type="name" placeholder="Enter your name" />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="email">
+          <Form.Group className="mb-1" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter your email" />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="reason">
+          <Form.Group className="mb-1" controlId="reason">
             <Form.Label>Reason</Form.Label>
             <Form.Control as="textarea" rows={3} placeholder="Describe why you want to contribute" />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <div className="mt-3 row g-0">
+            <Button className="col-12 col-md-auto" variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
       </Modal.Body>
     </Modal>

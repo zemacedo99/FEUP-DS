@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Image } from 'react-bootstrap';
 import {
   AiFillStar,
@@ -19,6 +19,8 @@ export default function PatternInfo({
   for (let i = 0; i < stars; i += 1) {
     rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
+  const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
+  const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
 
   return (
     <MainPageSection>
@@ -53,7 +55,7 @@ export default function PatternInfo({
         <PatSection className="mt-5">
           Related Patterns
         </PatSection>
-        <RelatedCardList className="my-component" patterns={relatedList} />
+        <RelatedCardList className="my-component" patterns={relatedList} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
       </Row>
     </MainPageSection>
   );

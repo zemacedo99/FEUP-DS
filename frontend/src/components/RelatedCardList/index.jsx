@@ -6,7 +6,11 @@ import PropTypes from 'prop-types';
 import { CardRow } from '../PatternCardList/style';
 import RespPatternCard from '../RespPatternCard';
 
-export default function RelatedCardList({ patterns }) {
+export default function RelatedCardList({
+  patterns,
+  setFavoriteIds,
+  setBookmarkIds,
+}) {
   return (
     <CardRow>
       {patterns.map((pattern) => (
@@ -18,6 +22,8 @@ export default function RelatedCardList({ patterns }) {
             saved={pattern.saved}
             image={pattern.image}
             stars={pattern.stars}
+            setFavoriteIds={setFavoriteIds}
+            setBookmarkIds={setBookmarkIds}
           />
         </Col>
       ))}
@@ -27,4 +33,6 @@ export default function RelatedCardList({ patterns }) {
 
 RelatedCardList.propTypes = {
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setFavoriteIds: PropTypes.func.isRequired,
+  setBookmarkIds: PropTypes.func.isRequired,
 };

@@ -86,10 +86,8 @@ export const PatSolution = styled.div`
     align-items: center;
 `;
 
-export const PatImage = styled.div`
-    max-width: 50%;
+export const PatImage = styled.img`
+    height: 17em; 
+    width: auto;
     margin: auto;
-    @media only screen and (max-width: 768px) {
-        max-width: 75%;
-    }
 `;

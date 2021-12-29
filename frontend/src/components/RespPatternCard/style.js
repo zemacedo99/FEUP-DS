@@ -22,9 +22,6 @@ export const PatCard = styled(Card)`
 
 export const CardTitle = styled(Card.Title)`
   color: #232323;
-  @media only screen and (max-width: 768px) {
-    margin-top: 1em;
-  }
 `;
 
 export const Icon = styled(IoEllipsisHorizontal)`
@@ -96,6 +93,9 @@ export const FavDiv = styled.div`
   left: 0;
   top: 0;
   transform: translate(10%, 10%);
+  @media only screen and (max-width: 768px) {
+    display:none
+  }
 `;
 
 export const SaveDiv = styled.div`
@@ -103,4 +103,7 @@ export const SaveDiv = styled.div`
   right: 0;
   top: 0;
   transform: translate(-10%, 10%);
+  @media only screen and (max-width: 768px) {
+    display:none
+  }
 `;

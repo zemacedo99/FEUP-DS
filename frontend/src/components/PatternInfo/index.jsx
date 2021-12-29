@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Image } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import {
   AiFillStar,
 } from 'react-icons/all';
@@ -38,9 +38,7 @@ export default function PatternInfo({
         </SubTitle>
       </Row>
       <Row>
-        <PatImage>
-          <Image src={image} alt="pattern" rounded fluid className="p-5" />
-        </PatImage>
+        <PatImage src={image} alt="pattern" rounded fluid className="mt-3 mb-5" />
         <PatIntro>
           {intro}
         </PatIntro>

@@ -28,5 +28,6 @@ app.use('/hello', helloRoute);
 const patternRoute = require('./routes/patlet');
 
 app.use('/patterns', patternRoute);
+app.use('/patlets', patternRoute);
 
 app.listen(port);

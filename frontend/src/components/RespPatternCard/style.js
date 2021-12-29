@@ -22,6 +22,9 @@ export const PatCard = styled(Card)`
 
 export const CardTitle = styled(Card.Title)`
   color: #232323;
+  @media only screen and (max-width: 768px) {
+    margin-top: 1em;
+  }
 `;
 
 export const Icon = styled(IoEllipsisHorizontal)`
@@ -83,9 +86,21 @@ export const CardImage = styled.div`
 export const CardStars = styled.div`
     order: 1;
     flex-grow: 0;
-    margin: 0px 10px;
-    flex-end;
     @media only screen and (min-width: 768px) {
         display:none
     }
+`;
+
+export const FavDiv = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(10%, 10%);
+`;
+
+export const SaveDiv = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-10%, 10%);
 `;

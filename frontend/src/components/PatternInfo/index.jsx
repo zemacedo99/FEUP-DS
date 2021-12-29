@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import RelatedCardList from '../RelatedCardList';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
-  SubTitle,
+  SubTitle, PatImage,
 } from './style';
 
 export default function PatternInfo({
@@ -20,8 +20,6 @@ export default function PatternInfo({
     rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
 
-  const updatePattern = () => {
-  };
   return (
     <MainPageSection>
       <Row>
@@ -38,20 +36,24 @@ export default function PatternInfo({
         </SubTitle>
       </Row>
       <Row>
-        <Image src={image} alt="pattern" rounded fluid className="p-5" />
+        <PatImage>
+          <Image src={image} alt="pattern" rounded fluid className="p-5" />
+        </PatImage>
         <PatIntro>
           {intro}
         </PatIntro>
+        <br />
         <PatProblem>
           {problem}
         </PatProblem>
+        <br />
         <PatSolution>
           {solution}
         </PatSolution>
         <PatSection className="mt-5">
           Related Patterns
         </PatSection>
-        <RelatedCardList className="my-component" patterns={relatedList} updatePattern={updatePattern} />
+        <RelatedCardList className="my-component" patterns={relatedList} />
       </Row>
     </MainPageSection>
   );

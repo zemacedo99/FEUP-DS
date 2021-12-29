@@ -31,10 +31,14 @@ export default function PatternReview({ patletId }) {
     axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data);
   };
 
+  const sent = () => {
+    document.querySelector('#checkButton').click();
+  };
+
   const popover = (
-    <Popover id="review-popover">
-      <Popover.Body>
-        <FeedbackPopup className="m-3">
+    <Popover id="review-popover" className="w-100">
+      <Popover.Body className="p-0 w-100">
+        <FeedbackPopup className="p-4">
           <div className="d-flex flex-column">
             <h1>I have used this pattern</h1>
             <br />
@@ -50,7 +54,7 @@ export default function PatternReview({ patletId }) {
                 <br />
                 <textarea className="form-control" id="review" rows="3" />
                 <br />
-                <button className="btn btn-success align-self-end" type="button" onClick={() => { addReview(); }}>Send Review</button>
+                <button className="btn btn-success align-self-end" type="button" onClick={() => { addReview(); sent(); }}>Send Review</button>
               </div>
             </form>
           </div>
@@ -61,8 +65,8 @@ export default function PatternReview({ patletId }) {
 
   return (
     <div>
-      <OverlayTrigger trigger="click" placement="left" overlay={popover}>
-        <span className="btn btn-success p-0">
+      <OverlayTrigger trigger="click" placement="top-end" overlay={popover}>
+        <span id="checkButton" className="btn btn-success p-0">
           <AiOutlineCheckSquare className="display-1" />
         </span>
       </OverlayTrigger>

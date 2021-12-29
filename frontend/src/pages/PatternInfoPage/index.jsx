@@ -6,9 +6,6 @@ import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
 // import relatedPatterns from '../../placeholders/PlaceholderPatterns';
-import {
-  MainPageSection,
-} from './style';
 
 export default function PatternInfoPage() {
   const [pattern, setPattern] = useState();
@@ -38,21 +35,19 @@ export default function PatternInfoPage() {
   if (!pattern) return ('');
 
   return (
-    <MainPageSection>
-      <Row>
-        <Col key={pattern.title} className="mb-3">
-          <PatternInfo
-            title={pattern.title}
-            section="Pattern Section Not Defined Yet"
-            stars={pattern.stars}
-            image={pattern.image}
-            intro={pattern.introduction}
-            problem={pattern.problem}
-            solution={pattern.solution}
-            relatedList={relatedPatterns}
-          />
-        </Col>
-      </Row>
-    </MainPageSection>
+    <Row>
+      <Col key={pattern.title} className="mb-3">
+        <PatternInfo
+          title={pattern.title}
+          section="Pattern Section Not Defined Yet"
+          stars={pattern.stars}
+          image={pattern.image}
+          intro={pattern.introduction}
+          problem={pattern.problem}
+          solution={pattern.solution}
+          relatedList={relatedPatterns}
+        />
+      </Col>
+    </Row>
   );
 }

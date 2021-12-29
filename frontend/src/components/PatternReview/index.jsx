@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useModal } from 'react-hooks-use-modal';
+// import { useModal } from 'react-hooks-use-modal';
 import { AiOutlineCheckSquare } from 'react-icons/ai';
 import { Rating } from 'react-simple-star-rating';
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -9,10 +10,10 @@ import axios from 'axios';
 import { FeedbackPopup } from './style';
 
 export default function PatternReview({ patletId }) {
-  const [Modal, open, close] = useModal('root', {
-    preventScroll: true,
-    closeOnOverlayClick: false,
-  });
+  // const [Modal, open, close] = useModal('root', {
+  //   preventScroll: true,
+  //   closeOnOverlayClick: false,
+  // });
 
   const [rating, setRating] = useState(20); // initial rating value
   // Catch Rating value
@@ -30,15 +31,11 @@ export default function PatternReview({ patletId }) {
     axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data);
   };
 
-  return (
-    <div>
-      <span className="btn btn-success p-0" role="button" type="submit" onClick={open} onKeyPress={() => {}} tabIndex="0">
-        <AiOutlineCheckSquare className="display-1" />
-      </span>
-      <Modal>
+  const popover = (
+    <Popover id="review-popover">
+      <Popover.Body>
         <FeedbackPopup className="m-3">
           <div className="d-flex flex-column">
-            <h4 aria-hidden="true" onClick={close} className="align-self-end m-0">&times;</h4>
             <h1>I have used this pattern</h1>
             <br />
             <Rating
@@ -53,12 +50,22 @@ export default function PatternReview({ patletId }) {
                 <br />
                 <textarea className="form-control" id="review" rows="3" />
                 <br />
-                <button className="btn btn-success align-self-end" type="button" onClick={() => { addReview(); close(); }}>Send Review</button>
+                <button className="btn btn-success align-self-end" type="button" onClick={() => { addReview(); }}>Send Review</button>
               </div>
             </form>
           </div>
         </FeedbackPopup>
-      </Modal>
+      </Popover.Body>
+    </Popover>
+  );
+
+  return (
+    <div>
+      <OverlayTrigger trigger="click" placement="left" overlay={popover}>
+        <span className="btn btn-success p-0">
+          <AiOutlineCheckSquare className="display-1" />
+        </span>
+      </OverlayTrigger>
     </div>
   );
 }

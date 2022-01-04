@@ -2,13 +2,11 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
-import { Favorite } from '../Favorite/index';
+
 import { Bookmark } from '../Bookmark/index';
+import { Favorite } from '../Favorite/index';
 import {
-  PatCard,
-  CardTitle,
-  FavDiv,
-  SaveDiv,
+  PatCard, CardTitle, FavDiv, SaveDiv,
 } from './style';
 
 import ProgressiveImg from '../ProgressiveImage/index';

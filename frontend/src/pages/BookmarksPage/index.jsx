@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+
+import axios from 'axios';
 
 import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
-import patterns from '../../placeholders/PlaceholderPatterns';
 import { Layout, PageTitle } from '../../style';
-import AddBookmark from '../AddBookmark';
-import AddFavorite from '../AddFavorite';
 
 export default function BookmarksPage() {
-  const [patternsList, setPatterns] = useState(patterns);
+  const [patternsList, setPatterns] = useState([]);
   const [isFavoriteList, setFavoriteList] = useState(true);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
-  if (!localStorage.getItem('patterns')) {
-    localStorage.setItem('patterns', JSON.stringify(patterns));
-  }
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
+      setPatterns(res.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }, []);
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
@@ -25,13 +28,12 @@ export default function BookmarksPage() {
     setPatterns([...list]);
   };
 
-  const storagePatterns = JSON.parse(localStorage.getItem('patterns'));
-  const favoriteList = favoriteIds ? storagePatterns.filter(
+  const favoriteList = favoriteIds ? patternsList.filter(
     (e) => favoriteIds[e.id],
   ) : [];
 
   const readlaterIds = JSON.parse(localStorage.getItem('bookmarks'));
-  const readlaterList = bookmarkIds ? storagePatterns.filter(
+  const readlaterList = bookmarkIds ? patternsList.filter(
     (e) => readlaterIds[e.id],
   ) : [];
 
@@ -51,12 +53,6 @@ export default function BookmarksPage() {
         patterns={isFavoriteList ? favoriteList : readlaterList}
         updatePattern={updatePattern}
         setFavoriteIds={setFavoriteIds}
-        setBookmarkIds={setBookmarkIds}
-      />
-      <AddFavorite
-        setFavoriteIds={setFavoriteIds}
-      />
-      <AddBookmark
         setBookmarkIds={setBookmarkIds}
       />
     </Layout>

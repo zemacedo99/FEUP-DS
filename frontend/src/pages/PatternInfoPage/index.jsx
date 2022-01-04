@@ -26,6 +26,10 @@ export default function PatternInfoPage() {
     });
   }, []);
 
+  // Return nothing until Firebase request is finished
+  // TODO replace for spinner later
+  if (!pattern) return ('');
+
   return (
     <MainPageSection>
       { loading ? (
@@ -38,12 +42,11 @@ export default function PatternInfoPage() {
         <Row>
           <Col key={pattern.title} className="mb-3">
             <PatternInfo
-              id={pattern.id}
               title={pattern.title}
               section=""
               stars={pattern.stars}
               image={pattern.image}
-              intro={pattern.intro}
+              intro={pattern.introduction}
               problem={pattern.problem}
               solution={pattern.solution}
               relatedList={relatedPatterns}

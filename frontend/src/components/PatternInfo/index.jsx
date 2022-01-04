@@ -61,7 +61,7 @@ PatternInfo.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   section: PropTypes.string.isRequired,
-  stars: PropTypes.string.isRequired,
+  stars: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,

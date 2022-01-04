@@ -8,23 +8,23 @@ export default function AddBookmark({ setBookmarkIds }) {
   return (
     <div>
       <Bookmark
-        patlet_id="1"
+        patlet_id={1}
         setBookmarkIds={setBookmarkIds}
       />
       <Bookmark
-        patlet_id="2"
+        patlet_id={2}
         setBookmarkIds={setBookmarkIds}
       />
       <Bookmark
-        patlet_id="3"
+        patlet_id={3}
         setBookmarkIds={setBookmarkIds}
       />
       <Bookmark
-        patlet_id="4"
+        patlet_id={4}
         setBookmarkIds={setBookmarkIds}
       />
       <Bookmark
-        patlet_id="5"
+        patlet_id={5}
         setBookmarkIds={setBookmarkIds}
       />
     </div>

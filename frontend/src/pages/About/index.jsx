@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Row, Col, Button,
 } from 'react-bootstrap';
@@ -10,6 +10,9 @@ import { Title, Text, Container } from './style';
 
 export default function About() {
   const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    document.title = 'About';
+  }, []);
 
   return (
     <Container>

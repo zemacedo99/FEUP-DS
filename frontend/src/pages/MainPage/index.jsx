@@ -16,6 +16,7 @@ export default function MainPage() {
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
 
   useEffect(() => {
+    document.title = 'The Scrum Book';
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
     }).catch((error) => {

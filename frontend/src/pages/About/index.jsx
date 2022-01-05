@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Row, Col,
 } from 'react-bootstrap';
@@ -8,6 +8,10 @@ import { Layout } from '../../style';
 import { Title, Text } from './style';
 
 export default function About() {
+  useEffect(() => {
+    document.title = 'About';
+  }, []);
+
   return (
     <Layout>
       <Row className="g-0 justify-content-between">

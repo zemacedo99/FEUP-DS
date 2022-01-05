@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Row, Col, Navbar,
+  Row, Col,
 } from 'react-bootstrap';
 import {
-  BiSearch, BiListUl, BiBookmark,
+  BiHome, BiSearch, BiListUl, BiBookmark,
 } from 'react-icons/bi';
 
 import {
@@ -17,7 +17,7 @@ export default function NavbarCustomMobile() {
         <NavbarContainer>
           <Row>
             <Col xs="3">
-              <NavbarLink href="/"><Navbar.Brand href="/"><img width="50px" height="auto" src="/logo.ico" alt="logo" /></Navbar.Brand></NavbarLink>
+              <NavbarLink href="/"><BiHome /></NavbarLink>
             </Col>
             <Col xs="3">
               <NavbarLink href="/"><BiListUl /></NavbarLink>

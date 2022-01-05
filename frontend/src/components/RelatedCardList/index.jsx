@@ -1,9 +1,11 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+// import { Col } from 'react-bootstrap';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 import PropTypes from 'prop-types';
 
-import { CardRow } from '../PatternCardList/style';
+// import { CardRow } from '../PatternCardList/style';
 import RespPatternCard from '../RespPatternCard';
 
 export default function RelatedCardList({
@@ -11,10 +13,41 @@ export default function RelatedCardList({
   setFavoriteIds,
   setBookmarkIds,
 }) {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+    },
+  };
   return (
-    <CardRow>
+    <Carousel
+      swipeable
+      centerMode
+      draggable
+      responsive={responsive}
+      ssr // means to render carousel on server-side.
+      infinite
+      keyBoardControl
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={['tablet', 'mobile']}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
+    >
       {patterns.map((pattern) => (
-        <Col xs={12} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
+        <div>
           <RespPatternCard
             id={pattern.id}
             title={pattern.title}
@@ -25,9 +58,9 @@ export default function RelatedCardList({
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />
-        </Col>
+        </div>
       ))}
-    </CardRow>
+    </Carousel>
   );
 }
 

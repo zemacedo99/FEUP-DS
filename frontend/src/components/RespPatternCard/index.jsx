@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { Bookmark } from '../Bookmark/index';
 import { Favorite } from '../Favorite/index';
 import {
-  PatCard, CardTitle, CardStars, FavDiv, SaveDiv, CardImage,
+  PatCard, CardTitle, CardStars, FavDiv, SaveDiv,
 } from './style';
 
 export default function RespPatternCard({
@@ -24,9 +24,7 @@ export default function RespPatternCard({
 
   return (
     <PatCard title="See pattern">
-      <CardImage>
-        <Card.Img variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
-      </CardImage>
+      <Card.Img className="card-img-top" variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
       </FavDiv>

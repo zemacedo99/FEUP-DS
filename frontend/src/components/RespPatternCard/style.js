@@ -9,6 +9,7 @@ export const PatCard = styled(Card)`
   font-size: 20px;
   border: 1px solid white; 
   cursor: pointer;
+  margin: 1em;
   &:hover {
     border: 1px solid black; 
   }
@@ -75,9 +76,10 @@ export const DropdownItem = styled(Dropdown.Item)`
 `;
 
 export const CardImage = styled.div`
-    @media only screen and (max-width: 768px) {
-        display:none
-    }
+  @media only screen and (max-width: 768px) {
+    display:none
+  }
+  max-height:100px;
 `;
 
 export const CardStars = styled.div`

@@ -1,61 +1,22 @@
-const functions = require('firebase-functions');
-const { Client } = require('@elastic/elasticsearch');
+const algoliasearch = require('algoliasearch');
 
-// Initialize Elastic, requires installing Elastic dependencies:
-// https://github.com/elastic/elasticsearch-js
-//
-// ID, username, and password are stored in functions config variables
-const ELASTIC_ID = functions.config().elastic.id;
-const ELASTIC_USERNAME = functions.config().elastic.username;
-const ELASTIC_PASSWORD = functions.config().elastic.password;
+const client = algoliasearch('RUC322JB2D', '32cb543c74477006f9262979a30edca1');
+const index = client.initIndex('patlets');
 
-const client = new Client({
-  cloud: {
-    id: ELASTIC_ID,
-    username: ELASTIC_USERNAME,
-    password: ELASTIC_PASSWORD,
-  },
-});
-
-const onPatletCreated = functions.firestore.document('patlets/{patletId}').onCreate(async (snap, context) => {
-  const patlet = snap.data();
-
-  const id = context.params.patletId;
-
-  client.index({
-    index: 'patlet',
-    id,
-    body: patlet,
-  });
-});
-
-const searchPatlets = functions.https.onCall(async (data) => {
-  const { query } = data;
-
-  const searchRes = await client.search({
-    index: 'patlet',
-    body: {
-      query: {
-        query_string: {
-          query: `*${query}*`,
-          fields: [
-            'title',
-            'problem',
-          ],
-        },
-      },
-    },
-  });
-
-  const { hits } = searchRes.body.hits;
-
-  const patlets = hits.map((h) => h._source);
-  return {
-    patlets,
-  };
-});
+async function searchPatlet(req, res) {
+  console.log(req.query.query);
+  index.search({
+    query: req.query.query,
+  })
+    .then((responses) => {
+      responses.hits.forEach((hit) => {
+        // eslint-disable-next-line no-param-reassign
+        hit.id = parseInt(hit.objectID, 10);
+      });
+      res.send(responses.hits);
+    });
+}
 
 module.exports = {
-  onPatletCreated,
-  searchPatlets,
+  searchPatlet,
 };

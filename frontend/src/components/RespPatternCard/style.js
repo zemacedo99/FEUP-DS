@@ -13,12 +13,12 @@ export const PatCard = styled(Card)`
   &:hover {
     border: 1px solid black; 
   }
-  @media only screen and (max-width: 768px) {
+  /*@media only screen and (max-width: 768px) {
+    margin: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-  }
+  }*/
 `;
 
 export const CardTitle = styled(Card.Title)`
@@ -34,17 +34,6 @@ export const Icon = styled(IoEllipsisHorizontal)`
   transform: translate(-25%, 10%);*/
   &:hover {
     color: black;
-  }
-`;
-
-export const DropdownSection = styled(Dropdown)`
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: translate(-25%, 10%);
-  z-index: 100
-  @media only screen and (max-width: 768px) {
-    display:none
   }
 `;
 
@@ -68,26 +57,19 @@ export const Toggle = styled(Dropdown.Toggle)`
   }
 `;
 
-export const DropdownItem = styled(Dropdown.Item)`
-  &:active {
-    background-color: transparent;
-    color: black;
-  }
-`;
-
 export const CardImage = styled.div`
-  @media only screen and (max-width: 768px) {
+  /*@media only screen and (max-width: 768px) {
     display:none
-  }
-  max-height:100px;
+  }*/
 `;
 
 export const CardStars = styled.div`
+    display:none;
     order: 1;
     flex-grow: 0;
-    @media only screen and (min-width: 768px) {
+    /*@media only screen and (min-width: 768px) {
         display:none
-    }
+    }*/
 `;
 
 export const FavDiv = styled.div`

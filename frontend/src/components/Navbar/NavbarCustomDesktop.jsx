@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
@@ -9,7 +10,14 @@ import {
 } from './style';
 
 export default function NavbarCustomDesktop() {
-  const [text, setText] = useState('');
+  const navigate = useNavigate();
+
+  const onKeyUp = (e) => {
+    if (e.key === 'Enter') {
+      navigate('/search');
+    }
+  };
+
   return (
     <NavbarDesktop expand="lg">
       <NavbarNav>
@@ -22,7 +30,7 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col md="3">
               <ColContainer>
-                <SearchBar text={text} setText={setText} />
+                <SearchBar onKeyUp={onKeyUp} />
               </ColContainer>
             </Col>
             <Col md="5">

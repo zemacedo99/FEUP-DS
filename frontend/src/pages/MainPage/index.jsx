@@ -17,7 +17,6 @@ export default function MainPage() {
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
-      console.log(res.data);
       setPatterns(res.data);
     }).catch((error) => {
       console.error(error);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Spinner } from 'react-bootstrap';
 
 import axios from 'axios';
 
@@ -10,6 +10,8 @@ import { Layout, PageTitle } from '../../style';
 import { SearchBarContainer } from './style';
 
 export default function SearchPage() {
+  const [loading, setLoading] = useState(false);
+  const [delayedSearchTerm, setDelayedSearchTerm] = useState('');
   const [patternsList, setPatterns] = useState();
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
@@ -23,14 +25,24 @@ export default function SearchPage() {
     setPatterns([...list]);
   };
 
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL}/search`, { query: '' }).then((res) => {
-      console.log(res.data);
+  const sendRequest = () => {
+    axios.get(`${process.env.REACT_APP_URL}/search`, { params: { query: text } }).then((res) => {
       setPatterns(res.data);
     }).catch((error) => {
       console.error(error);
     });
-  }, []);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    const delayDebounceFn = setTimeout(() => {
+      sendRequest();
+      setDelayedSearchTerm(text);
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [text]);
 
   return (
     <Layout>
@@ -42,14 +54,23 @@ export default function SearchPage() {
       <SearchBarContainer>
         <SearchBar />
       </SearchBarContainer>
-      {text !== '' && (
+      {loading && (
+        <Row className="justify-content-center">
+          <Col xs="auto">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
+        </Row>
+      )}
+      {!loading && delayedSearchTerm !== '' && (
         <p>
           Showing results for &quot;
-          {text}
+          {delayedSearchTerm}
           &quot;.
         </p>
       )}
-      {patternsList && (
+      {!loading && patternsList && (
         <PatternCardList
           patterns={patternsList}
           updatePattern={updatePattern}

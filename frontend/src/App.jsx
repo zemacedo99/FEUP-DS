@@ -14,26 +14,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavbarCustomDesktop />
-        <NavbarCustomTablet />
-        <NavbarCustomMobile />
-        <Routes>
-          <Route path="/" exact element={<MainPage />} />
-          <Route
-            path="/search"
-            exact
-            element={
-              (
-                <SearchContextProvider>
-                  <SearchPage />
-                </SearchContextProvider>
-              )
-            }
-          />
-          <Route path="/bookmarks" exact element={<BookmarksPage />} />
-          <Route path="/about" exact element={<About />} />
-          <Route path="/pattern/:id/patlet" exact element={<PatternInfoPage />} />
-        </Routes>
+        <SearchContextProvider>
+          <NavbarCustomDesktop />
+          <NavbarCustomTablet />
+          <NavbarCustomMobile />
+          <Routes>
+            <Route path="/" exact element={<MainPage />} />
+            <Route path="/search" exact element={<SearchPage />} />
+            <Route path="/bookmarks" exact element={<BookmarksPage />} />
+            <Route path="/about" exact element={<About />} />
+            <Route path="/pattern/:id/patlet" exact element={<PatternInfoPage />} />
+          </Routes>
+        </SearchContextProvider>
       </div>
     </Router>
   );

@@ -18,6 +18,10 @@ export default function SearchPage() {
 
   const { text } = useContext(SearchContext);
 
+  useEffect(() => {
+    document.title = 'Search';
+  }, []);
+
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
     const list = patternsList;

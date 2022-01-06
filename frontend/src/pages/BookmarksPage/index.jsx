@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import BookmarksSelector from '../../components/BookmarksSelector';
@@ -13,6 +13,10 @@ export default function BookmarksPage() {
   const [isFavoriteList, setFavoriteList] = useState(true);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
+
+  useEffect(() => {
+    document.title = 'Bookmarks';
+  }, []);
 
   if (!localStorage.getItem('patterns')) {
     localStorage.setItem('patterns', JSON.stringify(patterns));

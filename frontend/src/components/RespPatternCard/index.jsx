@@ -18,6 +18,7 @@ export default function RespPatternCard({
   const goToPattern = () => {}; // TODO
 
   const printStars = [];
+
   for (let i = 0; i < stars; i += 1) {
     printStars.push(<AiFillStar className="me-2" key={i} size={19} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
   }
@@ -25,7 +26,7 @@ export default function RespPatternCard({
   return (
     <PatCard title="See pattern">
       <CardImage>
-        <Card.Img variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
+        <Card.Img style={{ 'object-fit': 'contain', height: '10em' }} variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
       </CardImage>
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />

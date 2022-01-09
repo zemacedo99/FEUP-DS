@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
@@ -35,19 +35,19 @@ export default function PatternInfoPage() {
   if (!pattern) return ('');
 
   return (
-    <Row>
-      <Col key={pattern.title} className="mb-3">
-        <PatternInfo
-          title={pattern.title}
-          section="Pattern Section Not Defined Yet"
-          stars={pattern.stars}
-          image={pattern.image}
-          intro={pattern.introduction}
-          problem={pattern.problem}
-          solution={pattern.solution}
-          relatedList={relatedPatterns}
-        />
-      </Col>
-    </Row>
+
+    <Col key={pattern.title} className="mb-3">
+      <PatternInfo
+        title={pattern.title}
+        section="Pattern Section Not Defined Yet"
+        stars={pattern.stars}
+        image={pattern.image}
+        intro={pattern.introduction}
+        problem={pattern.problem}
+        solution={pattern.solution}
+        relatedList={relatedPatterns}
+      />
+    </Col>
+
   );
 }

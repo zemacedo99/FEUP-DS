@@ -9,11 +9,11 @@ import PropTypes from 'prop-types';
 import RelatedCardList from '../RelatedCardList';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
-  SubTitle, PatImage,
+  SubTitle, PatImage, RelatedSection,
 } from './style';
 
 export default function PatternInfo({
-  title, section, stars, image, intro, problem, solution, relatedList,
+  title, section, stars, image, intro, problem, solution, relatedList1, relatedList2,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
@@ -53,7 +53,10 @@ export default function PatternInfo({
         <PatSection className="mt-5">
           Related Patterns
         </PatSection>
-        <RelatedCardList className="my-component" patterns={relatedList} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+        {relatedList1.length > 0 ? <RelatedSection className="mt-2">Product Organization</RelatedSection> : null}
+        <RelatedCardList className="my-component" patterns={relatedList1} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+        {relatedList2.length > 0 ? <RelatedSection className="mt-2">Value Stream</RelatedSection> : null}
+        <RelatedCardList className="my-component" patterns={relatedList2} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
       </Row>
     </MainPageSection>
   );
@@ -67,5 +70,6 @@ PatternInfo.propTypes = {
   intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  relatedList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  relatedList1: PropTypes.arrayOf(PropTypes.object).isRequired,
+  relatedList2: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

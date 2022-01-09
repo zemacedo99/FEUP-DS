@@ -46,6 +46,16 @@ export const PatSection = styled(Col)`
     }
 `;
 
+export const RelatedSection = styled.div`
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    color: #039855;
+`;
+
 export const PatStars = styled(Col)`
     flex: none;
     order: 1;

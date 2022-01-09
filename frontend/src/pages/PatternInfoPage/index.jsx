@@ -11,19 +11,32 @@ export default function PatternInfoPage() {
   const [pattern, setPattern] = useState();
   const { id } = useParams();
   const list = [];
+  const list2 = [];
   let index = 0;
-  const [relatedPatterns, setRelatedPatterns] = useState([]);
+  const [relatedPatterns1, setRelatedPatterns1] = useState([]);
+  const [relatedPatterns2, setRelatedPatterns2] = useState([]);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
       index = 0;
-      res.data.linkedPatlets.map((patlet) => (
-        axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
-          list.splice(index, 1, res1.data);
-          index += 1;
-          setRelatedPatterns([...list]);
-        })));
+      if (res.data.graph_po !== undefined) {
+        res.data.graph_po.map((patlet) => (
+          axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
+            list.splice(index, 1, res1.data);
+            index += 1;
+            setRelatedPatterns1([...list]);
+          })));
+      }
+      if (res.data.graph_vs !== undefined) {
+        index = 0;
+        res.data.graph_vs.map((patlet) => (
+          axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
+            list2.splice(index, 1, res1.data);
+            index += 1;
+            setRelatedPatterns2([...list2]);
+          })));
+      }
     }).catch((error) => {
       console.error(error);
     });
@@ -45,7 +58,8 @@ export default function PatternInfoPage() {
         intro={pattern.introduction}
         problem={pattern.problem}
         solution={pattern.solution}
-        relatedList={relatedPatterns}
+        relatedList1={relatedPatterns1}
+        relatedList2={relatedPatterns2}
       />
     </Col>
 

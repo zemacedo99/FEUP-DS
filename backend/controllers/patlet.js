@@ -1,5 +1,6 @@
 const firestore = require('../database/config');
 const Patlet = require('../models/patlet');
+const sendMail = require('../middleware/email')
 
 async function getAllPatlets(req, res) {
   try {
@@ -62,7 +63,11 @@ async function addReview(req){
     review,
     patletRef
   });
-  
+
+  patletRef.get().then((doc) => {
+    console.log(doc.data());
+    sendMail('Rating Patlet: ' + doc.data().title, "\nRating: " + rating + "/5\n\n" + review);
+  })
 }
 
 module.exports = {

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 // import { useModal } from 'react-hooks-use-modal';
-import { AiOutlineCheckSquare } from 'react-icons/ai';
-import { Rating } from 'react-simple-star-rating';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
+import { AiOutlineCheckSquare } from 'react-icons/ai';
+import {
+  AiFillStar,
+  AiOutlineStar,
+} from 'react-icons/all';
+import { Rating } from 'react-simple-star-rating';
 
-import PropTypes from 'prop-types';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
+import SubTitleText from '../SubTitleText';
 import { FeedbackPopup } from './style';
 
 export default function PatternReview({ patletId }) {
@@ -36,17 +41,19 @@ export default function PatternReview({ patletId }) {
   };
 
   const popover = (
-    <Popover id="review-popover" className="w-100">
+    <Popover id="review-popover">
       <Popover.Body className="p-0 w-100">
         <FeedbackPopup className="p-4">
           <div className="d-flex flex-column">
-            <h1>I have used this pattern</h1>
+            <SubTitleText title="I have used this pattern" />
             <br />
             <Rating
               onClick={handleRating}
               ratingValue={rating}
               allowHover={false}
               initialValue={20}
+              emptyIcon={<AiOutlineStar className="me-2" size={23} />}
+              fullIcon={<AiFillStar className="me-2" size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />}
             />
             <form>
               <div className="form-group d-flex flex-column">

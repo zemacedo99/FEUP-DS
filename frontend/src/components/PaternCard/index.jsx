@@ -19,7 +19,7 @@ export default function PatternCard({
 
   return (
     <PatCard title="See pattern">
-      <Card.Img variant="top" src={image} alt="pattern's image" onClick={goToPattern} />
+      <Card.Img variant="top" style={{ objectFit: 'contain', height: '10em' }} src={image} alt="pattern's image" onClick={goToPattern} />
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
       </FavDiv>

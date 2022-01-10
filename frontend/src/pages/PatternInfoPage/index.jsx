@@ -19,6 +19,7 @@ export default function PatternInfoPage() {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
+      document.title = res.data.title;
       index = 0;
       if (res.data.graph_po !== undefined) {
         res.data.graph_po.map((patlet) => (

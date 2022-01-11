@@ -14,7 +14,7 @@ import {
 
 export default function PatternInfoPage() {
   const [loading, setLoading] = useState(false);
-  const [pattern, setPattern] = useState([]);
+  const [pattern, setPattern] = useState();
   const { id } = useParams();
   const list = [];
   const list2 = [];
@@ -26,7 +26,6 @@ export default function PatternInfoPage() {
     setLoading(true);
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
-      setLoading(false);
       document.title = res.data.title;
       index = 0;
       if (res.data.graphPo !== undefined) {
@@ -46,6 +45,7 @@ export default function PatternInfoPage() {
             setRelatedPatterns2([...list2]);
           })));
       }
+      setLoading(false);
     }).catch((error) => {
       console.error(error);
     });
@@ -68,6 +68,7 @@ export default function PatternInfoPage() {
         <Row>
           <Col key={pattern.title} className="mb-3">
             <PatternInfo
+              id={pattern.id}
               title={pattern.title}
               section=""
               stars={pattern.stars}

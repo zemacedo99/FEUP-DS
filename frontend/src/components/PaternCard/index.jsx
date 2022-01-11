@@ -17,6 +17,7 @@ export default function PatternCard({
   const navigate = useNavigate();
   const navigateToPattern = () => {
     navigate(`/pattern/${id}/patlet`);
+    window.location.reload();
   };
 
   const [src, { blur }] = ProgressiveImg('../assets/placeholder.jpg', image);

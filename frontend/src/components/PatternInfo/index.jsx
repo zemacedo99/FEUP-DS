@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
-  MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
+  PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
   SubTitle, PatImage, RelatedSection,
 } from './style';
 
@@ -25,7 +25,7 @@ export default function PatternInfo({
 
   const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}}.jpg`, image);
   return (
-    <MainPageSection>
+    <>
       <Row>
         <PatTitle>
           {title}
@@ -60,7 +60,7 @@ export default function PatternInfo({
         {relatedList2.length > 0 ? <RelatedSection className="mt-2">Value Stream</RelatedSection> : null}
         <RelatedCardList className="my-component" patterns={relatedList2} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
       </Row>
-    </MainPageSection>
+    </>
   );
 }
 

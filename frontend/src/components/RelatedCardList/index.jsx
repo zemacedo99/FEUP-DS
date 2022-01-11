@@ -1,11 +1,9 @@
 import React from 'react';
-// import { Col } from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import PropTypes from 'prop-types';
 
-// import { CardRow } from '../PatternCardList/style';
 import PatternCard from '../PaternCard';
 
 export default function RelatedCardList({
@@ -36,7 +34,7 @@ export default function RelatedCardList({
       responsive={responsive}
     >
       {patterns.map((pattern) => (
-        <div className="m-2">
+        <div key={pattern.id} className="m-2">
           <PatternCard
             id={pattern.id}
             title={pattern.title}

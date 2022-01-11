@@ -8,22 +8,44 @@ import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
 import PatternReview from '../../components/PatternReview';
-import relatedPatterns from '../../placeholders/PlaceholderPatterns';
 import {
   MainPageSection,
 } from './style';
 
 export default function PatternInfoPage() {
   const [loading, setLoading] = useState(false);
-  const [pattern, setPattern] = useState([]);
+  const [pattern, setPattern] = useState();
   const { id } = useParams();
+  const list = [];
+  const list2 = [];
+  let index = 0;
+  const [relatedPatterns1, setRelatedPatterns1] = useState([]);
+  const [relatedPatterns2, setRelatedPatterns2] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
-      setLoading(false);
       document.title = res.data.title;
+      index = 0;
+      if (res.data.graphPo !== undefined) {
+        res.data.graphPo.map((patlet) => (
+          axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
+            list.splice(index, 1, res1.data);
+            index += 1;
+            setRelatedPatterns1([...list]);
+          })));
+      }
+      if (res.data.graphVs !== undefined) {
+        index = 0;
+        res.data.graphVs.map((patlet) => (
+          axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
+            list2.splice(index, 1, res1.data);
+            index += 1;
+            setRelatedPatterns2([...list2]);
+          })));
+      }
+      setLoading(false);
     }).catch((error) => {
       console.error(error);
     });
@@ -31,6 +53,7 @@ export default function PatternInfoPage() {
 
   // Return nothing until Firebase request is finished
   // TODO replace for spinner later
+
   if (!pattern) return ('');
 
   return (
@@ -45,6 +68,7 @@ export default function PatternInfoPage() {
         <Row>
           <Col key={pattern.title} className="mb-3">
             <PatternInfo
+              id={pattern.id}
               title={pattern.title}
               section=""
               stars={pattern.stars}
@@ -52,7 +76,8 @@ export default function PatternInfoPage() {
               intro={pattern.introduction}
               problem={pattern.problem}
               solution={pattern.solution}
-              relatedList={relatedPatterns}
+              relatedList1={relatedPatterns1}
+              relatedList2={relatedPatterns2}
             />
           </Col>
         </Row>

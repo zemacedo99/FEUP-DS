@@ -13,7 +13,11 @@ export default function SubTitleText({ children, title }) {
   );
 }
 
+SubTitleText.defaultProps = {
+  children: '',
+};
+
 SubTitleText.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
   title: PropTypes.string.isRequired,
 };

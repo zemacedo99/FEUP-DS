@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    name: 'Teams That Finish Earlier Accelerate Faster 1',
+    title: 'Teams That Finish Earlier Accelerate Faster 1',
     favorite: true,
     saved: true,
     image:
@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    name: 'Teams That Finish Earlier Accelerate Faster 2',
+    title: 'Teams That Finish Earlier Accelerate Faster 2',
     favorite: true,
     saved: false,
     image:
@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    name: 'Teams That Finish Earlier Accelerate Faster 3',
+    title: 'Teams That Finish Earlier Accelerate Faster 3',
     favorite: false,
     saved: true,
     image:
@@ -25,7 +25,7 @@ export default [
   },
   {
     id: 4,
-    name: 'Teams That Finish Earlier Accelerate Faster 4',
+    title: 'Teams That Finish Earlier Accelerate Faster 4',
     favorite: false,
     saved: false,
     image:
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 5,
-    name: 'Teams That Finish Earlier Accelerate Faster 5',
+    title: 'Teams That Finish Earlier Accelerate Faster 5',
     favorite: true,
     saved: false,
     image:
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 6,
-    name: 'Teams That Finish Earlier Accelerate Faster 6',
+    title: 'Teams That Finish Earlier Accelerate Faster 6',
     favorite: true,
     saved: false,
     image:
@@ -49,7 +49,7 @@ export default [
   },
   {
     id: 7,
-    name: 'Teams That Finish Earlier Accelerate Faster 7',
+    title: 'Teams That Finish Earlier Accelerate Faster 7',
     favorite: true,
     saved: false,
     image:
@@ -57,7 +57,7 @@ export default [
   },
   {
     id: 8,
-    name: 'Teams That Finish Earlier Accelerate Faster 8',
+    title: 'Teams That Finish Earlier Accelerate Faster 8',
     favorite: true,
     saved: false,
     image:

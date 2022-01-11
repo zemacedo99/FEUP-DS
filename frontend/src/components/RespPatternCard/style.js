@@ -89,3 +89,17 @@ export const CardStars = styled.div`
         display:none
     }
 `;
+
+export const FavDiv = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(10%, 10%);
+`;
+
+export const SaveDiv = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-10%, 10%);
+`;

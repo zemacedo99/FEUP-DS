@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import ReactGA from 'react-ga';
 
 import PatternCardList from '../../components/PatternCardList';
 import SearchBar from '../../components/SearchBar';
@@ -13,6 +14,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     document.title = 'Search';
+    ReactGA.pageview('/search');
   }, []);
 
   const updatePattern = (pattern) => {

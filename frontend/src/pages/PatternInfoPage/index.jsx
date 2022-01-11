@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import ReactGA from 'react-ga';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
@@ -18,6 +19,7 @@ export default function PatternInfoPage() {
     axios.get(`${process.env.REACT_APP_URL}/patterns/${id}`).then((res) => {
       setPattern(res.data);
       document.title = res.data.title;
+      ReactGA.pageview(`/pattern/${id}/patlet`, undefined, res.data.title);
     }).catch((error) => {
       console.error(error);
     });

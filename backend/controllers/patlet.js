@@ -15,6 +15,8 @@ async function getAllPatlets(req, res) {
           parseInt(doc.id, 10),
           doc.data().image,
           doc.data().introduction,
+          doc.data().graph_po,
+          doc.data().graph_vs,
           doc.data().linked_patlets,
           doc.data().problem,
           doc.data().solution,
@@ -41,6 +43,8 @@ async function getPatlet(req, res) {
         parseInt(doc.id, 10),
         doc.data().image,
         doc.data().introduction,
+        doc.data().graph_po,
+        doc.data().graph_vs,
         doc.data().linked_patlets,
         doc.data().problem,
         doc.data().solution,
@@ -65,7 +69,6 @@ async function addReview(req) {
   });
 
   patletRef.get().then((doc) => {
-    console.log(doc.data());
     sendMail(`Rating Patlet: ${doc.data().title}`, `\nRating: ${rating}/5\n\n${review}`);
   });
 }

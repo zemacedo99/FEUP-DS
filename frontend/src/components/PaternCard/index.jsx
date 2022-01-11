@@ -17,12 +17,24 @@ export default function PatternCard({
   const navigate = useNavigate();
   const navigateToPattern = () => {
     navigate(`/pattern/${id}/patlet`);
+    window.location.reload();
   };
 
   const [src, { blur }] = ProgressiveImg('../assets/placeholder.jpg', image);
   return (
     <PatCard title="See pattern">
-      <Card.Img variant="top" src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern's image" onClick={navigateToPattern} />
+      <Card.Img
+        variant="top"
+        src={src}
+        style={{
+          objectFit: 'contain',
+          height: '10em',
+          filter: blur ? 'blur(20px)' : 'none',
+          transition: blur ? 'none' : 'filter 0.3s ease-out',
+        }}
+        alt="pattern's image"
+        onClick={navigateToPattern}
+      />
 
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />

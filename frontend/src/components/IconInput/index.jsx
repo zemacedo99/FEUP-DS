@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 
 import { Input, IconContainer, IconInputContainer } from './style';
 
-export default function IconInput({ value, setValue, icon }) {
+export default function IconInput({
+  value,
+  setValue,
+  onKeyUp,
+  icon,
+}) {
   return (
     <IconInputContainer>
       <IconContainer>{icon}</IconContainer>
@@ -12,14 +17,20 @@ export default function IconInput({ value, setValue, icon }) {
         className="form-control"
         value={value}
         placeholder="Search here..."
+        onKeyUp={onKeyUp}
         onChange={(e) => setValue(e.target.value)}
       />
     </IconInputContainer>
   );
 }
 
+IconInput.defaultProps = {
+  onKeyUp: undefined,
+};
+
 IconInput.propTypes = {
   value: PropTypes.string.isRequired,
   setValue: PropTypes.func.isRequired,
+  onKeyUp: PropTypes.func,
   icon: PropTypes.element.isRequired,
 };

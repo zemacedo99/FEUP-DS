@@ -30,4 +30,8 @@ const patternRoute = require('./routes/patlet');
 app.use('/patterns', patternRoute);
 app.use('/patlets', patternRoute);
 
+const searchRoute = require('./routes/search');
+
+app.use('/search', searchRoute);
+
 app.listen(port);

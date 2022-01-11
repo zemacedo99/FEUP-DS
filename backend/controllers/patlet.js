@@ -1,5 +1,6 @@
-const firestore = require('../database/config');
+const { firestore } = require('../database/config');
 const Patlet = require('../models/patlet');
+const sendMail = require('../middleware/email');
 
 async function getAllPatlets(req, res) {
   try {
@@ -43,7 +44,7 @@ async function getPatlet(req, res) {
         doc.data().image,
         doc.data().introduction,
         doc.data().graph_po,
-        doc.data().graph_vs,        
+        doc.data().graph_vs,
         doc.data().linked_patlets,
         doc.data().problem,
         doc.data().solution,
@@ -57,7 +58,23 @@ async function getPatlet(req, res) {
   });
 }
 
+async function addReview(req) {
+  const { rating, review } = req.body;
+
+  const patletRef = firestore.collection('patlets').doc(req.params.id);
+  firestore.collection('reviews').doc().set({
+    rating,
+    review,
+    patletRef,
+  });
+
+  patletRef.get().then((doc) => {
+    sendMail(`Rating Patlet: ${doc.data().title}`, `\nRating: ${rating}/5\n\n${review}`);
+  });
+}
+
 module.exports = {
   getAllPatlets,
   getPatlet,
+  addReview,
 };

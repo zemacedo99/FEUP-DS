@@ -1,15 +1,28 @@
 class Patlet {
-  constructor(id, image, introduction, graph_po, graph_vs, linkedPatlets, problem, solution, stars, title) {
+  constructor(
+    id,
+    image,
+    introduction,
+    graphPo,
+    graphVs,
+    linkedPatlets,
+    problem,
+    solution,
+    stars,
+    title,
+    ref,
+  ) {
     this.id = id;
     this.image = image;
     this.introduction = introduction;
     this.linkedPatlets = linkedPatlets;
-    this.graph_po = graph_po;
-    this.graph_vs = graph_vs;
+    this.graphPo = graphPo;
+    this.graphVs = graphVs;
     this.problem = problem;
     this.solution = solution;
     this.stars = stars;
     this.title = title;
+    this.ref = ref;
   }
 }
 

@@ -6,6 +6,7 @@ import {
 
 import PropTypes from 'prop-types';
 
+import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
   MainPageSection, PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
@@ -13,7 +14,7 @@ import {
 } from './style';
 
 export default function PatternInfo({
-  title, section, stars, image, intro, problem, solution, relatedList1, relatedList2,
+  id, title, section, stars, image, intro, problem, solution, relatedList1, relatedList2,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
@@ -22,6 +23,7 @@ export default function PatternInfo({
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
 
+  const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}}.jpg`, image);
   return (
     <MainPageSection>
       <Row>
@@ -38,7 +40,7 @@ export default function PatternInfo({
         </SubTitle>
       </Row>
       <Row>
-        <PatImage src={image} alt="pattern" rounded fluid className="mt-3 mb-5" />
+        <PatImage src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern" rounded fluid className="p-5" />
         <PatIntro>
           {intro}
         </PatIntro>
@@ -63,6 +65,7 @@ export default function PatternInfo({
 }
 
 PatternInfo.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   section: PropTypes.string.isRequired,
   stars: PropTypes.number.isRequired,

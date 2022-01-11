@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import React, { useEffect, useState, useContext } from 'react';
+import { Col, Row, Spinner } from 'react-bootstrap';
+
+import axios from 'axios';
 
 import PatternCardList from '../../components/PatternCardList';
 import SearchBar from '../../components/SearchBar';
-import patterns from '../../placeholders/PlaceholderPatterns';
+import { SearchContext } from '../../context/SearchContext';
 import { Layout, PageTitle } from '../../style';
 import { SearchBarContainer } from './style';
 
 export default function SearchPage() {
-  const [text, setText] = useState('');
-  const [patternsList, setPatterns] = useState(patterns);
+  const [loading, setLoading] = useState(false);
+  const [delayedSearchTerm, setDelayedSearchTerm] = useState('');
+  const [patternsList, setPatterns] = useState();
+  const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
+  const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
+
+  const { text } = useContext(SearchContext);
 
   useEffect(() => {
     document.title = 'Search';
@@ -22,6 +29,25 @@ export default function SearchPage() {
     setPatterns([...list]);
   };
 
+  const sendRequest = () => {
+    axios.get(`${process.env.REACT_APP_URL}/search`, { params: { query: text } }).then((res) => {
+      setPatterns(res.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    const delayDebounceFn = setTimeout(() => {
+      sendRequest();
+      setDelayedSearchTerm(text);
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [text]);
+
   return (
     <Layout>
       <Row>
@@ -30,16 +56,32 @@ export default function SearchPage() {
         </Col>
       </Row>
       <SearchBarContainer>
-        <SearchBar text={text} setText={setText} />
+        <SearchBar />
       </SearchBarContainer>
-      {text !== '' ? (
+      {loading && (
+        <Row className="justify-content-center">
+          <Col xs="auto">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
+        </Row>
+      )}
+      {!loading && delayedSearchTerm !== '' && (
         <p>
           Showing results for &quot;
-          {text}
+          {delayedSearchTerm}
           &quot;.
         </p>
-      ) : undefined}
-      <PatternCardList patterns={patternsList} updatePattern={updatePattern} />
+      )}
+      {!loading && patternsList && (
+        <PatternCardList
+          patterns={patternsList}
+          updatePattern={updatePattern}
+          setFavoriteIds={setFavoriteIds}
+          setBookmarkIds={setBookmarkIds}
+        />
+      )}
     </Layout>
   );
 }

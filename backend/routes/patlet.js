@@ -8,6 +8,6 @@ router.get('/', controller.getAllPatlets);
 
 router.get('/:id', controller.getPatlet);
 
-router.post('/:id/review', controller.addReview)
+router.post('/:id/review', controller.addReview);
 
 module.exports = router;

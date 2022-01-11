@@ -39,7 +39,7 @@ export default function BookmarksPage() {
 
   return (
     <Layout>
-      <Row>
+      <Row className="mb-4">
         <Col md="8">
           <PageTitle> Bookmarks </PageTitle>
         </Col>
@@ -49,12 +49,24 @@ export default function BookmarksPage() {
           isFavoriteList={isFavoriteList}
         />
       </Row>
-      <PatternCardList
-        patterns={isFavoriteList ? favoriteList : readlaterList}
-        updatePattern={updatePattern}
-        setFavoriteIds={setFavoriteIds}
-        setBookmarkIds={setBookmarkIds}
-      />
+      {
+        (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
+          ? (
+            <PatternCardList
+              patterns={isFavoriteList ? favoriteList : readlaterList}
+              updatePattern={updatePattern}
+              setFavoriteIds={setFavoriteIds}
+              setBookmarkIds={setBookmarkIds}
+            />
+          )
+          : (
+            <p>
+              You have no
+              { isFavoriteList ? ' favourited ' : ' bookmarked ' }
+              patterns.
+            </p>
+          )
+       }
     </Layout>
   );
 }

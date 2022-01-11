@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Dropdown } from 'react-bootstrap';
 import {
-  AiFillClockCircle,
+  MdOutlineBookmark,
   AiFillStar,
-  AiOutlineClockCircle,
+  MdOutlineBookmarkBorder,
   AiOutlineStar,
 } from 'react-icons/all';
 
@@ -66,13 +66,13 @@ export default function RespPatternCard({
             )}
           {saved ? (
             <DropdownItem onClick={(event) => saveButton(event)} className="d-flex align-items-center">
-              <AiFillClockCircle className="me-2" />
+              <MdOutlineBookmark className="me-2" />
               Unsave
             </DropdownItem>
           )
             : (
               <DropdownItem onClick={(event) => saveButton(event)} className="d-flex align-items-center">
-                <AiOutlineClockCircle className="me-2" />
+                <MdOutlineBookmarkBorder className="me-2" />
                 Save for later
               </DropdownItem>
             )}

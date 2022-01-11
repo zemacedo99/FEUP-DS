@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -13,12 +14,16 @@ import {
 export default function PatternCard({
   id, title, image, setFavoriteIds, setBookmarkIds,
 }) {
-  const goToPattern = () => {};
+  const navigate = useNavigate();
+  const navigateToPattern = () => {
+    navigate(`/pattern/${id}/patlet`);
+  };
 
   const [src, { blur }] = ProgressiveImg('../assets/placeholder.jpg', image);
   return (
     <PatCard title="See pattern">
       <Card.Img variant="top" src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern's image" onClick={goToPattern} />
+
       <FavDiv role="button">
         <Favorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
       </FavDiv>
@@ -28,7 +33,7 @@ export default function PatternCard({
           setBookmarkIds={setBookmarkIds}
         />
       </SaveDiv>
-      <Card.Body onClick={goToPattern}>
+      <Card.Body onClick={navigateToPattern}>
         <CardTitle>{title}</CardTitle>
       </Card.Body>
     </PatCard>

@@ -1,11 +1,11 @@
 import {
-  AiFillClockCircle,
-  AiOutlineClockCircle,
-} from 'react-icons/ai';
+  MdOutlineBookmark,
+  MdOutlineBookmarkBorder,
+} from 'react-icons/md';
 
 import styled from 'styled-components';
 
-export const FillClockCircle = styled(AiFillClockCircle)`
+export const FillBookmarkCircle = styled(MdOutlineBookmark)`
   background-color: #FFFFFFBF;
   border-radius: 50%;
   font-size: 30px;
@@ -14,7 +14,7 @@ export const FillClockCircle = styled(AiFillClockCircle)`
   }
 `;
 
-export const OutlineClockCircle = styled(AiOutlineClockCircle)`
+export const OutlineBookmarkCircle = styled(MdOutlineBookmarkBorder)`
   background-color: #FFFFFFBF;
   border-radius: 50%;
   font-size: 30px;

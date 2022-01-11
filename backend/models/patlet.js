@@ -1,5 +1,5 @@
 class Patlet {
-  constructor(id, image, introduction, linkedPatlets, problem, solution, stars, title) {
+  constructor(id, image, introduction, linkedPatlets, problem, solution, stars, title, ref) {
     this.id = id;
     this.image = image;
     this.introduction = introduction;
@@ -8,6 +8,7 @@ class Patlet {
     this.solution = solution;
     this.stars = stars;
     this.title = title;
+    this.ref = ref;
   }
 }
 

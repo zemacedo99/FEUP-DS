@@ -5,11 +5,10 @@ import PropTypes from 'prop-types';
 
 import { Bookmark } from '../Bookmark/index';
 import { Favorite } from '../Favorite/index';
+import ProgressiveImg from '../ProgressiveImage/index';
 import {
   PatCard, CardTitle, FavDiv, SaveDiv,
 } from './style';
-
-import ProgressiveImg from '../ProgressiveImage/index';
 
 export default function PatternCard({
   id, title, image, setFavoriteIds, setBookmarkIds,

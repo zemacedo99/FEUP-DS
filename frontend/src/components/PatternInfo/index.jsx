@@ -3,7 +3,9 @@ import { Row, Image } from 'react-bootstrap';
 import {
   AiFillStar,
 } from 'react-icons/all';
+
 import PropTypes from 'prop-types';
+
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {

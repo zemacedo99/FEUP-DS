@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Container } from 'react-floating-action-button';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
+import PatternReview from '../../components/PatternReview';
 import relatedPatterns from '../../placeholders/PlaceholderPatterns';
 import {
   MainPageSection,
@@ -43,6 +45,9 @@ export default function PatternInfoPage() {
           />
         </Col>
       </Row>
+      <Container>
+        <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
+      </Container>
     </MainPageSection>
   );
 }

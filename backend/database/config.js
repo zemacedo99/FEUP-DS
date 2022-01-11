@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+const algoliasearch = require('algoliasearch');
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -12,4 +13,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
-module.exports = firestore;
+const algoliaClient = algoliasearch(
+  process.env.ALGOLIA_APPLICATION_ID,
+  process.env.ALGOLIA_API_KEY,
+);
+const algolia = algoliaClient.initIndex('patlets');
+
+module.exports = { firestore, algolia };

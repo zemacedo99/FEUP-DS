@@ -31,7 +31,7 @@ export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
           tabIndex="0"
           selected={!isFavoriteList}
         >
-          Saved
+          Bookmarks
         </BookmarksButton>
       </RightButtonBackground>
     </ButtonWrapper>

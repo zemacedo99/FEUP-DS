@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Col, Row, Spinner } from 'react-bootstrap';
+import ReactGA from 'react-ga';
 
 import axios from 'axios';
 
@@ -20,6 +21,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     document.title = 'Search';
+    ReactGA.pageview('/search');
   }, []);
 
   const updatePattern = (pattern) => {

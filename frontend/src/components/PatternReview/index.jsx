@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 // import { useModal } from 'react-hooks-use-modal';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import { AiOutlineCheckSquare } from 'react-icons/ai';
-import {
-  AiFillStar,
-  AiOutlineStar,
-} from 'react-icons/all';
-import { Rating } from 'react-simple-star-rating';
 
 import axios from 'axios';
 import PropTypes from 'prop-types';
+
+import { Rating } from '@mui/material';
 
 import SubTitleText from '../SubTitleText';
 import { FeedbackPopup } from './style';
@@ -48,18 +45,17 @@ export default function PatternReview({ patletId }) {
             <SubTitleText title="I have used this pattern" />
             <br />
             <Rating
-              onClick={handleRating}
-              ratingValue={rating}
-              allowHover={false}
-              initialValue={20}
-              emptyIcon={<AiOutlineStar className="me-2" size={23} />}
-              fullIcon={<AiFillStar className="me-2" size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />}
+              name="simple-controlled"
+              value={rating}
+              onChange={(event, newValue) => {
+                handleRating(newValue);
+              }}
             />
             <form>
               <div className="form-group d-flex flex-column">
                 {/* <input type="number" name="rating" id="rating" defaultValue={1} hidden /> */}
                 <br />
-                <textarea className="form-control" id="review" rows="3" />
+                <textarea className="form-control" id="review" rows="3" style={{ resize: 'none' }} />
                 <br />
                 <button className="btn btn-success align-self-end" type="button" onClick={() => { addReview(); sent(); }}>Send Review</button>
               </div>
@@ -74,7 +70,7 @@ export default function PatternReview({ patletId }) {
     <div>
       <OverlayTrigger trigger="click" placement="top-end" overlay={popover}>
         <span id="checkButton" className="btn btn-success p-0">
-          <AiOutlineCheckSquare className="display-1" />
+          <AiOutlineCheckSquare className="display-1" title="I have used this pattern" />
         </span>
       </OverlayTrigger>
     </div>

@@ -43,8 +43,8 @@ class Bookmark extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <FillBookmarkCircle />
-          : <OutlineBookmarkCircle /> }
+          ? <FillBookmarkCircle title="Unsave" />
+          : <OutlineBookmarkCircle title="Save to read later" /> }
       </span>
     );
   }

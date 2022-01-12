@@ -21,10 +21,6 @@ app.use(cors());
  * - declare the route
  */
 
-const helloRoute = require('./routes/hello');
-
-app.use('/hello', helloRoute);
-
 const patternRoute = require('./routes/patlet');
 
 app.use('/patterns', patternRoute);

@@ -17,7 +17,7 @@ export default function BookmarksPage() {
   useEffect(() => {
     document.title = 'Bookmarks';
     ReactGA.pageview('/bookmarks/favourites');
-    
+
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
     }).catch((error) => {

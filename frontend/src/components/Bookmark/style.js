@@ -6,21 +6,21 @@ import {
 import styled from 'styled-components';
 
 export const FillBookmarkCircle = styled(MdOutlineBookmark)`
-  background-color: #FFFFFFBF;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   font-size: 30px;
   &:hover {
     color: green;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 `;
 
 export const OutlineBookmarkCircle = styled(MdOutlineBookmarkBorder)`
-  background-color: #FFFFFFBF;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   font-size: 30px;
   &:hover {
     color: green;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 `;

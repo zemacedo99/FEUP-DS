@@ -75,6 +75,7 @@ export const NavbarContainer = styled(Container)`
 
 export const NavbarLink = styled(Nav.Link)`
   text-align: center;
+  font-weight: bold;
   @media screen and (min-width: 481px) {
     color: black !important;
     font-size: 1rem;
@@ -83,6 +84,6 @@ export const NavbarLink = styled(Nav.Link)`
   }
   transition: 0.2s opacity;
   &:hover {
-    opacity: 0.7;
+    color: #7F56D9 !important;
   }
 `;

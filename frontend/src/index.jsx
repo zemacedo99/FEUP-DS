@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import App from './App';
 import GlobalStyle from './GlobalStyle';
 
-ReactGA.initialize('UA-XXXXXX-XX');
+ReactGA.initialize('UA-213439470-1');
 
 ReactDOM.render(
   <React.StrictMode>

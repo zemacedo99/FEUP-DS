@@ -10,6 +10,7 @@ export const FillBookmarkCircle = styled(MdOutlineBookmark)`
   border-radius: 50%;
   font-size: 30px;
   &:hover {
+    color: green;
     background-color: #ffffff;
   }
 `;
@@ -19,6 +20,7 @@ export const OutlineBookmarkCircle = styled(MdOutlineBookmarkBorder)`
   border-radius: 50%;
   font-size: 30px;
   &:hover {
+    color: green;
     background-color: #ffffff;
   }
 `;

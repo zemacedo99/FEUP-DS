@@ -10,6 +10,7 @@ export const FillStar = styled(AiFillStar)`
   border-radius: 50%;
   font-size: 30px;
   &:hover {
+    color: green;
     background-color: #ffffff;
   }
 `;
@@ -19,6 +20,7 @@ export const OutlineStar = styled(AiOutlineStar)`
   border-radius: 50%;
   font-size: 30px;
   &:hover {
+    color: green;
     background-color: #ffffff;
   }
 `;

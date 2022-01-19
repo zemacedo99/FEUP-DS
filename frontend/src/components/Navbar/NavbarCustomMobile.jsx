@@ -16,20 +16,17 @@ export default function NavbarCustomMobile() {
       <NavbarNav>
         <NavbarContainer>
           <Row>
-            <Col xs="3">
+            <Col xs="2">
               <NavbarLink href="/"><BiHome /></NavbarLink>
             </Col>
-            <Col xs="3">
+            <Col xs="2">
               <NavbarLink href="/"><BiListUl /></NavbarLink>
             </Col>
-            <Col xs="3">
+            <Col xs="2">
               <NavbarLink href="/search"><BiSearch /></NavbarLink>
             </Col>
-            <Col xs="3">
+            <Col xs="2">
               <NavbarLink href="/favorites"><BiStar /></NavbarLink>
-            </Col>
-            <Col xs="3">
-              <NavbarLink href="/saved"><BiBookmark /></NavbarLink>
             </Col>
           </Row>
         </NavbarContainer>

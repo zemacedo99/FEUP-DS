@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
-import { BsListUl, BsBookmark } from 'react-icons/bs';
+import { BsListUl, BsBookmark, BsStar } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
@@ -37,7 +37,13 @@ export default function NavbarCustomDesktop() {
             <Col xs="2" md="2">
               <NavbarButtons>
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
-                <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
+                <NavbarLink href="/favourite"><BsStar /></NavbarLink>
+              </NavbarButtons>
+            </Col>
+            <Col xs="2" md="2">
+              <NavbarButtons>
+                <NavbarLink href="/"><BsListUl /></NavbarLink>
+                <NavbarLink href="/saved"><BsBookmark /></NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

@@ -37,7 +37,8 @@ export default function NavbarCustomDesktop() {
               <NavbarButtons>
                 <NavbarLink href="/about">About</NavbarLink>
                 <NavbarLink href="/">Patterns</NavbarLink>
-                <NavbarLink href="/bookmarks">Bookmarks</NavbarLink>
+                <NavbarLink href="/favorites">Favorites</NavbarLink>
+                <NavbarLink href="/saved">Saved</NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

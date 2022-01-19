@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
-  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, NavbarLink, ColContainer,
+  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, NavbarLink,
 } from './style';
 
 export default function NavbarCustomDesktop() {
@@ -16,6 +16,38 @@ export default function NavbarCustomDesktop() {
     if (e.key === 'Enter') {
       navigate('/search');
     }
+  };
+
+  const activeStyle = {
+    textDecoration: 'none',
+    textAlign: 'right',
+    fontWeight: 'bold',
+    color: '#7F56D9',
+    fontSize: '1rem',
+    '@media screen and (minWidth: 481px)': {
+      textAlign: 'right',
+      padding: '0 0 0 1.5rem',
+    },
+    transition: '0.2s opacity',
+    '&:hover': {
+      color: '#7F56D9',
+    },
+  };
+
+  const unactiveStyle = {
+    textDecoration: 'none',
+    textAlign: 'right',
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: '1rem',
+    '@media screen and (minWidth: 481px)': {
+      textAlign: 'right',
+      padding: '0 0 0 1.5rem',
+    },
+    transition: '0.2s opacity',
+    onMouseOver: {
+      color: '#7F56D9',
+    },
   };
 
   return (
@@ -35,7 +67,7 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col md="5">
               <NavbarButtons>
-                <NavbarLink href="/about">About</NavbarLink>
+                <NavLink to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
                 <NavbarLink href="/">Patterns</NavbarLink>
                 <NavbarLink href="/favorites">Favorites</NavbarLink>
                 <NavbarLink href="/saved">Saved</NavbarLink>

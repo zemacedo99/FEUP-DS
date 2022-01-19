@@ -37,7 +37,7 @@ export default function NavbarCustomDesktop() {
             <Col xs="2" md="2">
               <NavbarButtons>
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
-                <NavbarLink href="/favorites"><BsStar /></NavbarLink>
+                <NavbarLink href="/favourite"><BsStar /></NavbarLink>
               </NavbarButtons>
             </Col>
             <Col xs="2" md="2">

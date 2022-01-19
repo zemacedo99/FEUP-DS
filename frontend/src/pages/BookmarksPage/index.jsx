@@ -9,11 +9,7 @@ import { Layout, PageTitle } from '../../style';
 
 export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState([]);
-<<<<<<< HEAD
   const [isFavoriteList] = useState(false);
-=======
-  const [isFavoriteList, setFavoriteList] = useState(true);
->>>>>>> parent of 0c37da5 (working, but we have to remove bookmarkSelector)
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 

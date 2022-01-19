@@ -3,9 +3,13 @@ import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const BookmarksButton = styled.div`
-    @media screen and (min-width: 1281px) {
-        color: ${(props) => (props.selected ? '#6941C6' : '#6C6C6C')};
-        border-bottom: ${(props) => (props.selected ? '1px solid #6941C6' : 'none')};
+    //@media screen and (min-width: 1281px) {
+        background: ${(props) => (props.selected ? 'linear-gradient(90deg, #7F56D9 0%, #9E77ED 100%)' : '#F9FAFB')};
+        color: ${(props) => (props.selected ? 'white' : '#6C6C6C')};
+        width: 125%;
+        min-height: inherit;
+        border-radius: 40px;
+        text-align: center;
     }
     @media screen and (min-width: 481px) and (max-width: 1280px) {
         background: ${(props) => (props.selected ? 'linear-gradient(90deg, #7F56D9 0%, #9E77ED 100%)' : '#F9FAFB')};

@@ -4,13 +4,12 @@ import ReactGA from 'react-ga';
 
 import axios from 'axios';
 
-import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
 import { Layout, PageTitle } from '../../style';
 
 export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState([]);
-  const [isFavoriteList, setFavoriteList] = useState(false);
+  const [isFavoriteList] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
@@ -24,12 +23,6 @@ export default function BookmarksPage() {
       console.error(error);
     });
   }, []);
-
-  const updateListView = (newIsFavoriteList) => {
-    if (newIsFavoriteList === isFavoriteList) return;
-    setFavoriteList(newIsFavoriteList);
-    ReactGA.pageview(`/bookmarks/${newIsFavoriteList ? 'favourites' : 'saved'}`);
-  };
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
@@ -53,11 +46,6 @@ export default function BookmarksPage() {
         <Col md="8">
           <PageTitle> Saved </PageTitle>
         </Col>
-        <BookmarksSelector
-          md="4"
-          setFavoriteList={updateListView}
-          isFavoriteList={isFavoriteList}
-        />
       </Row>
       {
         (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))

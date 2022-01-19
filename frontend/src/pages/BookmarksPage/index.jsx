@@ -10,13 +10,13 @@ import { Layout, PageTitle } from '../../style';
 
 export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState([]);
-  const [isFavoriteList, setFavoriteList] = useState(true);
+  const [isFavoriteList, setFavoriteList] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
   useEffect(() => {
-    document.title = 'Bookmarks';
-    ReactGA.pageview('/saved');
+    document.title = 'Saved';
+    ReactGA.pageview('/bookmarks/favourites');
 
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
@@ -71,9 +71,7 @@ export default function BookmarksPage() {
           )
           : (
             <p>
-              You have no
-              { isFavoriteList ? ' favourited ' : ' bookmarked ' }
-              patterns.
+              You have no bookmarked patterns.
             </p>
           )
        }

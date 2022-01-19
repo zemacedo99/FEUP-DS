@@ -4,18 +4,19 @@ import ReactGA from 'react-ga';
 
 import axios from 'axios';
 
+import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
 import { Layout, PageTitle } from '../../style';
 
 export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState([]);
-  const [isFavoriteList] = useState(false);
+  const [isFavoriteList, setFavoriteList] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
   useEffect(() => {
-    document.title = 'Bookmarks';
-    ReactGA.pageview('/saved');
+    document.title = 'Saved';
+    ReactGA.pageview('/bookmarks/favourites');
 
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
@@ -23,6 +24,12 @@ export default function BookmarksPage() {
       console.error(error);
     });
   }, []);
+
+  const updateListView = (newIsFavoriteList) => {
+    if (newIsFavoriteList === isFavoriteList) return;
+    setFavoriteList(newIsFavoriteList);
+    ReactGA.pageview(`/bookmarks/${newIsFavoriteList ? 'favourites' : 'saved'}`);
+  };
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
@@ -46,6 +53,11 @@ export default function BookmarksPage() {
         <Col md="8">
           <PageTitle> Saved </PageTitle>
         </Col>
+        <BookmarksSelector
+          md="4"
+          setFavoriteList={updateListView}
+          isFavoriteList={isFavoriteList}
+        />
       </Row>
       {
         (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
@@ -59,9 +71,7 @@ export default function BookmarksPage() {
           )
           : (
             <p>
-              You have no
-              { isFavoriteList ? ' favourited ' : ' bookmarked ' }
-              patterns.
+              You have no bookmarked patterns.
             </p>
           )
        }

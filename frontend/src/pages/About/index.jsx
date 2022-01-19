@@ -52,7 +52,7 @@ export default function About() {
             </SubTitleText>
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
-            <Title className="mb-4 mt-sm-0 mt-3">Logo</Title>
+            <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
             <Text>
               Diam diam est neque quam sapien proin.
               Amet pulvinar ipsum, aliquet nunc euismod.

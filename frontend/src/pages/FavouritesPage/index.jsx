@@ -15,7 +15,7 @@ export default function FavoritesPage() {
 
   useEffect(() => {
     document.title = 'Favorites';
-    ReactGA.pageview('/bookmarks/favourites');
+    ReactGA.pageview('/favorites');
 
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
@@ -59,7 +59,9 @@ export default function FavoritesPage() {
           )
           : (
             <p>
-              You have no favourited patterns.
+              You have no
+              { isFavoriteList ? ' favourited ' : ' bookmarked ' }
+              patterns.
             </p>
           )
        }

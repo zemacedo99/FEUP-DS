@@ -6,10 +6,11 @@ import {
 
 import PropTypes from 'prop-types';
 
+import { PageTitle } from '../../style';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
-  PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
+  PatSection, PatStars, PatIntro, PatProblem, PatSolution,
   SubTitle, PatImage, RelatedSection,
 } from './style';
 
@@ -27,9 +28,9 @@ export default function PatternInfo({
   return (
     <>
       <Row>
-        <PatTitle>
+        <PageTitle>
           {title}
-        </PatTitle>
+        </PageTitle>
         <SubTitle>
           <PatSection>
             {section}

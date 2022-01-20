@@ -21,12 +21,13 @@ app.use(cors());
  * - declare the route
  */
 
-const helloRoute = require('./routes/hello');
-
-app.use('/hello', helloRoute);
-
 const patternRoute = require('./routes/patlet');
 
 app.use('/patterns', patternRoute);
+app.use('/patlets', patternRoute);
+
+const searchRoute = require('./routes/search');
+
+app.use('/search', searchRoute);
 
 app.listen(port);

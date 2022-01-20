@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
@@ -11,13 +12,17 @@ import { SubTitle } from './style';
 
 export default function MainPage() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [patternsList, setPatterns] = useState([]);
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
 
   useEffect(() => {
+    setLoading(true);
+    document.title = 'The Scrum Book';
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
+      setLoading(false);
     }).catch((error) => {
       console.error(error);
     });
@@ -47,12 +52,21 @@ export default function MainPage() {
         </Col>
       </Row>
       <SubTitle> The core of Scrum </SubTitle>
-      <PatternCardList
-        patterns={patternsList}
-        updatePattern={updatePattern}
-        setFavoriteIds={setFavoriteIds}
-        setBookmarkIds={setBookmarkIds}
-      />
+      { loading ? (
+        <Row className="mt-5 d-flex justify-content-center align-items-center">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Row>
+      )
+        : (
+          <PatternCardList
+            patterns={patternsList}
+            updatePattern={updatePattern}
+            setFavoriteIds={setFavoriteIds}
+            setBookmarkIds={setBookmarkIds}
+          />
+        )}
     </Layout>
   );
 }

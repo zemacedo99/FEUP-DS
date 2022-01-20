@@ -6,19 +6,21 @@ import {
 import styled from 'styled-components';
 
 export const FillStar = styled(AiFillStar)`
-  background-color: #FFFFFFBF;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   font-size: 30px;
   &:hover {
-    background-color: #ffffff;
+    color: green;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 `;
 
 export const OutlineStar = styled(AiOutlineStar)`
-  background-color: #FFFFFFBF;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   font-size: 30px;
   &:hover {
-    background-color: #ffffff;
+    color: green;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 `;

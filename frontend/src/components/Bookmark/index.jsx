@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  FillClockCircle,
-  OutlineClockCircle,
+  FillBookmarkCircle,
+  OutlineBookmarkCircle,
 } from './style';
 
 class Bookmark extends React.Component {
@@ -43,8 +43,8 @@ class Bookmark extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <FillClockCircle />
-          : <OutlineClockCircle /> }
+          ? <FillBookmarkCircle title="Unsave" />
+          : <OutlineBookmarkCircle title="Save to read later" /> }
       </span>
     );
   }

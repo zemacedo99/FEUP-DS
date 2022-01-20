@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import ReactGA from 'react-ga';
 
 import axios from 'axios';
 
@@ -14,12 +15,21 @@ export default function BookmarksPage() {
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
   useEffect(() => {
+    document.title = 'Bookmarks';
+    ReactGA.pageview('/bookmarks/favourites');
+
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
     }).catch((error) => {
       console.error(error);
     });
   }, []);
+
+  const updateListView = (newIsFavoriteList) => {
+    if (newIsFavoriteList === isFavoriteList) return;
+    setFavoriteList(newIsFavoriteList);
+    ReactGA.pageview(`/bookmarks/${newIsFavoriteList ? 'favourites' : 'saved'}`);
+  };
 
   const updatePattern = (pattern) => {
     const index = patternsList.findIndex((item) => item.id === pattern.id);
@@ -45,7 +55,7 @@ export default function BookmarksPage() {
         </Col>
         <BookmarksSelector
           md="4"
-          setFavoriteList={setFavoriteList}
+          setFavoriteList={updateListView}
           isFavoriteList={isFavoriteList}
         />
       </Row>

@@ -50,11 +50,9 @@ export default function PatternInfoPage() {
       setLoading(false);
     }).catch((error) => {
       console.error(error);
+      window.location.href = `${window.location.href}/404`;
     });
   }, []);
-
-  // Return nothing until Firebase request is finished
-  // TODO replace for spinner later
 
   if (!pattern) return ('');
 

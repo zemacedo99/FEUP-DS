@@ -9,12 +9,14 @@ import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
 import PatternReview from '../../components/PatternReview';
+import Page404 from '../Page404';
 import {
   MainPageSection,
 } from './style';
 
 export default function PatternInfoPage() {
-  const [loading, setLoading] = useState(false);
+  const [successful, setSuccessful] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [pattern, setPattern] = useState();
   const { id } = useParams();
   const list = [];
@@ -49,40 +51,39 @@ export default function PatternInfoPage() {
       }
       setLoading(false);
     }).catch((error) => {
+      setSuccessful(false);
       console.error(error);
-      window.location.href = `${window.location.href}/404`;
     });
   }, []);
 
-  if (!pattern) return ('');
+  if (!successful) return <Page404 />;
 
-  return (
+  return loading ? (
     <MainPageSection>
-      { loading ? (
-        <Row className="mt-5 d-flex justify-content-center align-items-center">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </Row>
-      ) : (
-        <Row>
-          <Col key={pattern.title} className="mb-3">
-            <PatternInfo
-              id={pattern.id}
-              title={pattern.title}
-              section=""
-              stars={pattern.stars}
-              image={pattern.image}
-              intro={pattern.introduction}
-              problem={pattern.problem}
-              solution={pattern.solution}
-              relatedList1={relatedPatterns1}
-              relatedList2={relatedPatterns2}
-            />
-          </Col>
-        </Row>
-      )}
-
+      <Row className="mt-5 d-flex justify-content-center align-items-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Row>
+    </MainPageSection>
+  ) : (
+    <MainPageSection>
+      <Row>
+        <Col key={pattern.title} className="mb-3">
+          <PatternInfo
+            id={pattern.id}
+            title={pattern.title}
+            section=""
+            stars={pattern.stars}
+            image={pattern.image}
+            intro={pattern.introduction}
+            problem={pattern.problem}
+            solution={pattern.solution}
+            relatedList1={relatedPatterns1}
+            relatedList2={relatedPatterns2}
+          />
+        </Col>
+      </Row>
       <Container>
         <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
       </Container>

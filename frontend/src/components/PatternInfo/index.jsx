@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { Row } from 'react-bootstrap';
-import {
-  AiFillStar,
-} from 'react-icons/all';
+import { BsLink45Deg, BsAsterisk } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
+
+import Divider from '@mui/material/Divider';
 
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
-  PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
-  SubTitle, PatImage, RelatedSection,
+  PatTitle, PatSection, PatParagraph,
+  RelatedSection, Link, Confidence,
 } from './style';
 
 export default function PatternInfo({
-  id, title, section, stars, image, intro, problem, solution, relatedList1, relatedList2,
+  id, title, languages, stars, image, problem, solution, relatedList1, relatedList2, link,
 }) {
   const rows = [];
   for (let i = 0; i < stars; i += 1) {
-    rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
+    rows.push(<BsAsterisk size={15} key={i} className="ms-1" />);
   }
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
@@ -29,35 +29,49 @@ export default function PatternInfo({
       <Row>
         <PatTitle>
           {title}
+          <Confidence title="Confidence Level">
+            { rows }
+          </Confidence>
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="scrumbook"
+            title="Pattern Page on the Scrumbook"
+          >
+            <BsLink45Deg size={50} className="ps-2" />
+          </Link>
         </PatTitle>
-        <SubTitle>
-          <PatSection>
-            {section}
-          </PatSection>
-          <PatStars>
-            {rows}
-          </PatStars>
-        </SubTitle>
+        { languages.map((el) => (<PatSection key={el}>{el}</PatSection>)) }
       </Row>
       <Row>
-        <PatImage src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern" rounded fluid className="p-5" />
-        <PatIntro>
-          {intro}
-        </PatIntro>
-        <br />
-        <PatProblem>
+        <div className="d-flex justify-content-center">
+          <img
+            src={src}
+            style={{
+              maxWidth: '100%', maxHeight: '50vh', paddingTop: '2em', paddingBottom: '2em', borderRadius: '25px', filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out',
+            }}
+            alt="pattern"
+          />
+        </div>
+        <PatParagraph>
           {problem}
-        </PatProblem>
+        </PatParagraph>
         <br />
-        <PatSolution>
+        <PatParagraph><strong>Therefore:</strong></PatParagraph>
+        <br />
+        <PatParagraph className="mb-5">
           {solution}
-        </PatSolution>
-        <PatSection className="mt-5">
-          Related Patterns
-        </PatSection>
-        {relatedList1.length > 0 ? <RelatedSection className="mt-2">Product Organization</RelatedSection> : null}
+        </PatParagraph>
+        <Divider variant="fullWidth" />
+        {(relatedList1.length > 0 || relatedList2.length > 0) && (
+          <PatSection className="mt-5">
+            Read Next
+          </PatSection>
+        )}
+        {relatedList1.length > 0 && <RelatedSection className="mt-2">Product Organization</RelatedSection>}
         <RelatedCardList className="my-component" patterns={relatedList1} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
-        {relatedList2.length > 0 ? <RelatedSection className="mt-2">Value Stream</RelatedSection> : null}
+        {relatedList2.length > 0 && <RelatedSection className="mt-2">Value Stream</RelatedSection>}
         <RelatedCardList className="my-component" patterns={relatedList2} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
       </Row>
     </>
@@ -67,12 +81,12 @@ export default function PatternInfo({
 PatternInfo.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  section: PropTypes.string.isRequired,
+  languages: PropTypes.arrayOf(PropTypes.string).isRequired,
   stars: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
   relatedList1: PropTypes.arrayOf(PropTypes.object).isRequired,
   relatedList2: PropTypes.arrayOf(PropTypes.object).isRequired,
+  link: PropTypes.string.isRequired,
 };

@@ -14,7 +14,7 @@ import {
 } from './style';
 
 export default function PatternInfoPage() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [pattern, setPattern] = useState();
   const { id } = useParams();
   const list = [];
@@ -53,11 +53,6 @@ export default function PatternInfoPage() {
     });
   }, []);
 
-  // Return nothing until Firebase request is finished
-  // TODO replace for spinner later
-
-  if (!pattern) return ('');
-
   return (
     <MainPageSection>
       { loading ? (
@@ -67,27 +62,29 @@ export default function PatternInfoPage() {
           </Spinner>
         </Row>
       ) : (
-        <Row>
-          <Col key={pattern.title} className="mb-3">
-            <PatternInfo
-              id={pattern.id}
-              title={pattern.title}
-              section=""
-              stars={pattern.stars}
-              image={pattern.image}
-              intro={pattern.introduction}
-              problem={pattern.problem}
-              solution={pattern.solution}
-              relatedList1={relatedPatterns1}
-              relatedList2={relatedPatterns2}
-            />
-          </Col>
-        </Row>
+        <>
+          <Row>
+            <Col key={pattern.title} className="mb-3">
+              <PatternInfo
+                id={pattern.id}
+                title={pattern.title}
+                languages={pattern.languages}
+                stars={pattern.stars}
+                image={pattern.image}
+                intro={pattern.introduction}
+                problem={pattern.problem}
+                solution={pattern.solution}
+                relatedList1={relatedPatterns1}
+                relatedList2={relatedPatterns2}
+                link={pattern.link}
+              />
+            </Col>
+          </Row>
+          <Container>
+            <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
+          </Container>
+        </>
       )}
-
-      <Container>
-        <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
-      </Container>
     </MainPageSection>
   );
 }

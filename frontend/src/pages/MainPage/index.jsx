@@ -8,7 +8,6 @@ import axios from 'axios';
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
 import { Layout, PageTitle } from '../../style';
-import { SubTitle } from './style';
 
 export default function MainPage() {
   const navigate = useNavigate();
@@ -51,7 +50,7 @@ export default function MainPage() {
           </span>
         </Col>
       </Row>
-      <SubTitle> The core of Scrum </SubTitle>
+      <Row className="mb-1" />
       { loading ? (
         <Row className="mt-5 d-flex justify-content-center align-items-center">
           <Spinner animation="border" role="status">

@@ -3,7 +3,7 @@ import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
 import { BsListUl, BsBookmark } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
@@ -12,6 +12,7 @@ import {
 
 export default function NavbarCustomDesktop() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onKeyUp = (e) => {
     if (e.key === 'Enter') {
@@ -30,9 +31,7 @@ export default function NavbarCustomDesktop() {
               </ColContainer>
             </Col>
             <Col xs="6" md="4">
-              <ColContainer>
-                <SearchBar onKeyUp={onKeyUp} />
-              </ColContainer>
+              { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
             </Col>
             <Col xs="2" md="2">
               <NavbarButtons>

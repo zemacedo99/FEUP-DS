@@ -30,11 +30,9 @@ export default function NavbarCustomDesktop() {
                 <Navbar.Brand href="/"><img width="70px" height="auto" src="/logo.ico" alt="logo" /></Navbar.Brand>
               </ColContainer>
             </Col>
-            <Col xs="6" md="4">
-              { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
-            </Col>
-            <Col xs="2" md="2">
+            <Col xs="8" md="6">
               <NavbarButtons>
+                { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
                 <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
               </NavbarButtons>

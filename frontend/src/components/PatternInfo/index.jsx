@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { BsLink45Deg, BsAsterisk } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
 
 import Divider from '@mui/material/Divider';
 
+import { PageTitle } from '../../style';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
-  PatTitle, PatSection, PatParagraph,
+  PatSection, PatParagraph,
   RelatedSection, Link, Confidence,
+  OverrideBookmark, OverrideFavorite,
+  Check,
 } from './style';
 
 export default function PatternInfo({
@@ -27,7 +30,7 @@ export default function PatternInfo({
   return (
     <>
       <Row>
-        <PatTitle>
+        <PageTitle>
           {title}
           <Confidence title="Confidence Level">
             { rows }
@@ -41,8 +44,17 @@ export default function PatternInfo({
           >
             <BsLink45Deg size={50} className="ps-2" />
           </Link>
-        </PatTitle>
-        { languages.map((el) => (<PatSection key={el}>{el}</PatSection>)) }
+        </PageTitle>
+        <Row className="d-flex justify-content-between">
+          <Col>
+            { languages.map((el) => (<PatSection key={el}>{el}</PatSection>)) }
+          </Col>
+          <Col style={{ maxWidth: 'fit-content' }}>
+            <OverrideBookmark patlet_id={id} setBookmarkIds={setBookmarkIds} />
+            <OverrideFavorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
+            <Check title="I have used this pattern" />
+          </Col>
+        </Row>
       </Row>
       <Row>
         <div className="d-flex justify-content-center">

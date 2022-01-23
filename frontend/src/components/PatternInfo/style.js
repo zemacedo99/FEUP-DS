@@ -1,35 +1,50 @@
 import { Col } from 'react-bootstrap';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 import styled from 'styled-components';
 
-export const horizontalMarginMediaQueries = `
-    @media screen and (max-width: 480px) {
-    --horizontal-margin: 3vw;
+import { Bookmark } from '../Bookmark/index';
+import { Favorite } from '../Favorite/index';
+
+export const OverrideBookmark = styled(Bookmark)`
+    background: #E9D7FE;
+    border-radius: 10px;
+    color: #6941C6;
+    font-size: 40px;
+    &:hover {
+        color: #6941C6;
+        background: rgba(233, 215, 254, 0.6);
     }
-    @media screen and (min-width: 481px) and (max-width: 1280px) {
-    --horizontal-margin: 8vw;
-    }
-    @media screen and (min-width: 1281px) {
-    --horizontal-margin: 12vw;
-    }
+    margin-right:0.4em;
 `;
 
-export const MainPageSection = styled.div`
-    font-family: Inter;
-    ${horizontalMarginMediaQueries}
-    padding: 0px var(--horizontal-margin) 100px var(--horizontal-margin);
+export const OverrideFavorite = styled(Favorite)`
+    background: #E9D7FE;
+    border-radius: 10px;
+    color: #6941C6;
+    font-size: 40px;
+    &:hover {
+        color: #6941C6;
+        background: rgba(233, 215, 254, 0.6);
+    }
+    margin-right:0.4em;
+`;
+
+export const Check = styled(AiOutlineCheck)`
+    background: #E9D7FE;
+    border-radius: 10px;
+    color: #6941C6;
+    font-size: 40px;
+    cursor: pointer;
+    &:hover {
+        color: #6941C6;
+        background: rgba(233, 215, 254, 0.6);
+    }
+    margin-right:0.4em;
 `;
 
 export const Confidence = styled.span`
     vertical-align: super;
-`;
-
-export const PatTitle = styled.h1`
-    font-weight: bold;
-    font-size: 4em;
-    @media only screen and (max-width: 768px) {
-        font-size: 3em;
-    }
 `;
 
 export const PatSection = styled.p`

@@ -6,7 +6,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
-  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, NavbarLink,
+  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, activeStyle,
+  unactiveStyle,
 } from './style';
 
 export default function NavbarCustomDesktop() {
@@ -16,38 +17,6 @@ export default function NavbarCustomDesktop() {
     if (e.key === 'Enter') {
       navigate('/search');
     }
-  };
-
-  const activeStyle = {
-    textDecoration: 'none',
-    textAlign: 'right',
-    fontWeight: 'bold',
-    color: '#7F56D9',
-    fontSize: '1rem',
-    '@media screen and (minWidth: 481px)': {
-      textAlign: 'right',
-      padding: '0 0 0 1.5rem',
-    },
-    transition: '0.2s opacity',
-    '&:hover': {
-      color: '#7F56D9',
-    },
-  };
-
-  const unactiveStyle = {
-    textDecoration: 'none',
-    textAlign: 'right',
-    fontWeight: 'bold',
-    color: 'black',
-    fontSize: '1rem',
-    '@media screen and (minWidth: 481px)': {
-      textAlign: 'right',
-      padding: '0 0 0 1.5rem',
-    },
-    transition: '0.2s opacity',
-    onMouseOver: {
-      color: '#7F56D9',
-    },
   };
 
   return (
@@ -67,10 +36,10 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col md="5">
               <NavbarButtons>
-                <NavLink to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
-                <NavbarLink href="/">Patterns</NavbarLink>
-                <NavbarLink href="/favorites">Favorites</NavbarLink>
-                <NavbarLink href="/saved">Saved</NavbarLink>
+                <NavLink className="hovering" to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
+                <NavLink className="hovering" to="/" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Patterns</NavLink>
+                <NavLink className="hovering" to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Favorites</NavLink>
+                <NavLink className="hovering" to="/saved" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Saved</NavLink>
               </NavbarButtons>
             </Col>
           </Row>

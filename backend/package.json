@@ -5,17 +5,20 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
     "algoliasearch": "^4.11.0",
+    "axios": "^0.25.0",
     "cookie-parser": "~1.4.6",
     "cors": "^2.8.5",
     "debug": "~4.3.3",
     "dotenv": "^10.0.0",
     "express": "~4.17.1",
     "firebase": "8.10.0",
+    "jest": "^27.4.7",
     "morgan": "~1.10.0",
     "nodemailer": "^6.7.2"
   },
@@ -23,6 +26,7 @@
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
+    "node-mocks-http": "^1.11.0",
     "nodemon": "^2.0.15"
   }
 }

@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
 export const MovingInput = styled.input`
-  background-color: #e4e7ec;
+  background-color: white !important;
   border-radius: 50px;
   padding-left: 3rem;
   &:focus {
     box-shadow: none !important;
     border-color: #a8a8a8;
-    background-color: #eaedf2;
+    background-color: #eaedf2 !important;
     width: 25ch;
     left: 0;
+  }
+  &:hover {
+    background-color: #eaedf2 !important;
   }
 `;
 
@@ -41,11 +44,11 @@ export const MovingIconInputContainer = styled.div`
   & input {
     width: 0;
     left: 25ch;
-    transition: left 0.35s, width 0.35s;
+    transition: left 0.35s, width 0.35s, background-color 0.35s linear;
   }
 
   &:hover input {
     width: 25ch;
-    left: 0
+    left: 0;
   }
 `;

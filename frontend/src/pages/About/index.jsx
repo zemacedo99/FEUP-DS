@@ -28,48 +28,64 @@ export default function About() {
           <Col xs={12} md={6} className="pe-md-5">
             <Title className="mb-4">About</Title>
             <Text>
-              Orci, at metus viverra facilisis risus maecenas nunc enim.
-              Varius eget suscipit cras magnis elit non molestie mattis.
-              Risus dictum enim, egestas mauris.
+              This app is inspired in a book about
+              Scrum - a simple but powerful way for people to work together.
             </Text>
             <SubTitleText title="Scrum">
-              Diam diam est neque quam sapien proin.
-              Amet pulvinar ipsum, aliquet nunc euismod.
-              Dui faucibus fusce auctor non adipiscing eget.
-              Sed feugiat suspendisse in amet massa, neque.
-              Lorem nunc euismod nulla pellentesque fusce orci commodo et rutrum.
-              Mattis nunc, in vestibulum mi faucibus amet, lectus.
-              Ultrices lacus commodo netus odio pellentesque consequat pellentesque.
-              Ut est malesuada nam lacus, aenean.
+              Scrum is about helping small teams create, build, and evolve a product,
+              one slice at a time.
+              The core of Scrum stands on twelve patterns that you can dive into in this app.
             </SubTitleText>
             <SubTitleText title="Pattern">
-              Quis est ultricies sagittis nec.
-              Risus massa dictumst commodo, ac.
-              Eget id interdum habitasse neque vel pellentesque pharetra, malesuada tortor.
-              Faucibus quam donec vitae condimentum tristique hac fermentum feugiat.
-              Lacus, viverra diam elit integer fermentum penatibus quam.
-              Neque proin varius ultrices interdum malesuada mauris diam, consectetur.
+              What is a pattern? One simple definition is that a pattern is a
+              repeatably applicable solution to a problem that arises in a specific context.
+            </SubTitleText>
+            <SubTitleText title="Pattern Languages">
+              Describes a set of patterns you can use to build your Scrum Team
+              and the other associations of people and loci of relationships that are common
+              to Scrum practice.
+              You build your organization and your process in parallel, each a little at a time,
+              weaving together patterns from both pattern languages.
             </SubTitleText>
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
             <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
-            <Text>
-              Diam diam est neque quam sapien proin.
-              Amet pulvinar ipsum, aliquet nunc euismod.
-              Dui faucibus fusce auctor non adipiscing eget.
-              Sed feugiat suspendisse in amet massa, neque.
-              Lorem nunc euismod nulla pellentesque fusce orci commodo et rutrum.
-              Mattis nunc, in vestibulum mi faucibus amet, lectus.
-              Ultrices lacus commodo netus odio pellentesque consequat pellentesque.
-              Ut est malesuada nam lacus, aenean.
-            </Text>
+            <SubTitleText title="Product Organization">
+              Builds the relationships between the people and teams in a Scrum organization.
+            </SubTitleText>
+            <SubTitleText title="Value Stream">
+              Builds relationships between steps of product construction,
+              and the artifacts that represent parts of the process.
+            </SubTitleText>
             <SubTitleText title="About Us">
-              Quis est ultricies sagittis nec.
-              Risus massa dictumst commodo, ac.
-              Eget id interdum habitasse neque vel pellentesque pharetra, malesuada tortor.
-              Faucibus quam donec vitae condimentum tristique hac fermentum feugiat.
-              Lacus, viverra diam elit integer fermentum penatibus quam.
-              Neque proin varius ultrices interdum malesuada mauris diam, consectetur.
+              <Text>
+                <b>Developers:</b>
+                <br />
+                Jeff Sutherland,
+                James O. Coplien,
+                Lachlan Heasman,
+                Mark den Hollander,
+                Cesário Ramos
+              </Text>
+              <Text>
+                <b>And The Scrum Patterns Group:</b>
+                <br />
+                Ademar Aguiar,
+                Esther Vervloed,
+                Neil Harrison,
+                Kiro Harada,
+                Joseph Yoder,
+                June Kim,
+                Alan O&apos;Callaghan,
+                Mike Beedle,
+                Gertrud Bjørnvig,
+                Dina Friis,
+                Ville Reijonen,
+                Gabrielle Benefield,
+                Jens Østergaard,
+                Veli-Pekka Eloranta,
+                Evan Leonard.
+              </Text>
             </SubTitleText>
             <Button className="contribute-button" onClick={openModal}>I want to contribute</Button>
             <ContributeModal show={showModal} onHide={() => setShowModal(false)} />

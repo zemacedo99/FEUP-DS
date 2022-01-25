@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import {
   Row, Col, Button,
@@ -31,8 +32,15 @@ export default function About() {
             <Text>
               This app is inspired in a book about
               Scrum - a simple but powerful way for people to work together.
+              A Scrum Book is available
+              at <a href="https://www.amazon.com/Scrum-Book-Spirit-Game/dp/1680506714">here</a>.
             </Text>
             <SubTitleText title="Scrum">
+              Scrum is about helping small teams create,
+              build, and evolve a product, one slice at a time.
+              Scrum is as much about people as it is about the
+              products they build and use. It defines a work environment where teams can challenge
+              themselves to become better and better at their work over time.
               Scrum is not a development method, but rather a product development framework.
               A method prescribes steps that transform a problem definition into a solution.
               Scrum, on the other hand, is a framework for the team to continuously evaluate
@@ -41,9 +49,18 @@ export default function About() {
             <SubTitleText title="Pattern">
               A pattern is a repeatably applicable solution to a
               problem that arises in a specific context.
-              A set of patterns that you can use to build your Scrum Team
-              and the other associations of people and loci of relationships that are common
-              to Scrum practice is called a pattern language.
+              We share this fundamental view of the world, that says
+              when you build something you must also repair and make
+              better the world around it.
+              The world at large then gradually improves,
+              becomes more coherent and more Whole.
+              A set of patterns that work together to this end is called a pattern language.
+              Each pattern describes the context of those patterns
+              that are prerequisites for the current one.
+              And each pattern also advises us about what other
+              patterns might further refine our Whole to
+              help complete this one. These relationships, or
+              connections, form a structure, a grammar, a language.
               This app presents two such languages:
               Product Organization, and Value Stream.
               <SubSubTitleText title="Product Organization">
@@ -58,73 +75,68 @@ export default function About() {
           <Col xs={12} md={6} className="ps-md-5">
             <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
             <Text>
-              Diam diam est neque quam sapien proin.
-              Amet pulvinar ipsum, aliquet nunc euismod.
-              Dui faucibus fusce auctor non adipiscing eget.
-              Sed feugiat suspendisse in amet massa, neque.
-              Lorem nunc euismod nulla pellentesque fusce orci commodo et rutrum.
-              Mattis nunc, in vestibulum mi faucibus amet, lectus.
-              Ultrices lacus commodo netus odio pellentesque consequat pellentesque.
-              Ut est malesuada nam lacus, aenean.
+              Credits to the authors of the book <i>A Scrum book: The Spirit of the Game</i>,
+              in which this app was inspired, are in order.<br />
+              <b>Book authors:</b><br />
+              Jeff Sutherland,
+              James O. Coplien,
+              Lachlan Heasman,
+              Mark den Hollander,
+              Cesário Ramos <br />
+              and <b>The Scrum Patterns Group</b>:
+              <br />
+              Ademar Aguiar,
+              Esther Vervloed,
+              Neil Harrison,
+              Kiro Harada,
+              Joseph Yoder,
+              June Kim,
+              Alan O&apos;Callaghan,
+              Mike Beedle,
+              Gertrud Bjørnvig,
+              Dina Friis,
+              Ville Reijonen,
+              Gabrielle Benefield,
+              Jens Østergaard,
+              Veli-Pekka Eloranta,
+              Evan Leonard.
             </Text>
-            <SubTitleText title="About Us">
-              {/*
-              <Text>
-                <b>Developers:</b>
-                <br />
-                Jeff Sutherland,
-                James O. Coplien,
-                Lachlan Heasman,
-                Mark den Hollander,
-                Cesário Ramos
-              </Text>
-              <Text>
-                <b>And The Scrum Patterns Group:</b>
-                <br />
-                Ademar Aguiar,
-                Esther Vervloed,
-                Neil Harrison,
-                Kiro Harada,
-                Joseph Yoder,
-                June Kim,
-                Alan O&apos;Callaghan,
-                Mike Beedle,
-                Gertrud Bjørnvig,
-                Dina Friis,
-                Ville Reijonen,
-                Gabrielle Benefield,
-                Jens Østergaard,
-                Veli-Pekka Eloranta,
-                Evan Leonard.
-              </Text>
-              */}
-              Ana Teresa Feliciano da Cruz,
-              André Filipe Meireles do Nascimento,
-              António Cadilha da Cunha Bezerra,
-              Breno Accioly de Barros Pimentel,
-              Catarina Justo dos Santos Fernandes,
-              Daniel da Silva Gonçalves,
-              Diogo André Barbosa Nunes,
-              Gonçalo Batalhao Alves,
-              Inês Alves Quarteu,
-              Inês Oliveira e Silva,
-              João Castro Pinto,
-              João Diogo Martins Romão,
-              João Miguel Gomes Gonçalves,
-              José António Dantas Macedo,
-              José Luís Sousa Tavares,
-              Luís André Santos Correia Assunção,
-              Márcio Cláudio Silva Duarte,
-              Mariana Almeida Truta,
-              Mariana Oliveira Ramos,
-              Nuno Filipe Ferreira de Sousa Resende,
-              Pedro Jorge Fonseca Seixas,
-              Rafael Valente Cristino,
-              Ricardo Amaral Nunes,
-              Ricardo Filipe da Silva Néri Marques Carvalho,
-              Rita Matos Maranhao Peixoto,
-              Tiago Alexandre Pinto de Faria Ferreira Alves,
-              Xavier Ruivo Pisco
+            <SubTitleText title="About us">
+              <p>
+                This app was developed in context of Large Scale Software Development,
+                a discipline teached in the Master in Informatics and Computer Engineering of
+                the Faculty of Engineering Univercity of Porto.
+              </p>
+              <p>
+                The developers of the app were:
+                Ana Teresa Cruz,
+                André Nascimento,
+                António  Bezerra,
+                Breno Accioly,
+                Catarina Fernandes,
+                Daniel Gonçalves,
+                Diogo Nunes,
+                Gonçalo Alves,
+                Inês Quarteu,
+                Inês Silva,
+                João Castro Pinto,
+                João Romão,
+                João Gonçalves,
+                José Macedo,
+                José Luís Sousa Tavares,
+                André Assunção,
+                Márcio Duarte,
+                Mariana Truta,
+                Mariana Ramos,
+                Nuno Resende,
+                Pedro Seixas,
+                Rafael Cristino,
+                Ricardo Nunes,
+                Ricardo Carvalho,
+                Rita Peixoto,
+                Tiago Alves,
+                Xavier Pisco
+              </p>
             </SubTitleText>
             <Button className="contribute-button" onClick={openModal}>I want to contribute</Button>
             <ContributeModal show={showModal} onHide={() => setShowModal(false)} />

@@ -1,3 +1,3 @@
-import createServer from './server.js';
+const createServer = require('./server');
 
 createServer();

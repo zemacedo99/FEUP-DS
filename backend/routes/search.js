@@ -1,8 +1,7 @@
 const express = require('express');
+const controller = require('../controllers/search');
 
 const router = express.Router();
-
-const controller = require('../controllers/search');
 
 router.get('/', controller.searchPatlet);
 

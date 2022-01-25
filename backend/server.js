@@ -1,11 +1,12 @@
-import express, { json, urlencoded } from 'express';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
-import logger from 'morgan';
-import patternRoute from './routes/patlet';
-import searchRoute from './routes/search';
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const logger = require('morgan');
 
-require('dotenv').config();
+require('dotenv').config(); // this needs to be before the next two requires
+
+const patternRoute = require('./routes/patlet');
+const searchRoute = require('./routes/search');
 
 const port = process.env.PORT || 3000;
 
@@ -13,23 +14,23 @@ function createServer() {
   const app = express();
 
   app.use(logger('dev'));
-  app.use(json());
-  app.use(urlencoded({ extended: false }));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(cors());
 
   /**
-     * Route importing and declaration
-     *
-     * - import route from routes directory
-     * - declare the route
-     */
-
+   * Route importing and declaration
+   *
+   * - import route from routes directory
+   * - declare the route
+   */
   app.use('/patterns', patternRoute);
   app.use('/patlets', patternRoute);
 
   app.use('/search', searchRoute);
+
   return app.listen(port);
 }
 
-export default createServer;
+module.exports = createServer;

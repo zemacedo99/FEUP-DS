@@ -36,7 +36,7 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests --transformIgnorePatterns 'node_modules/(?!(react-bootstrap)/)'",
+    "test": "react-scripts test --watchAll=false --passWithNoTests --transformIgnorePatterns 'node_modules/(?!(react-bootstrap)/)' && testcafe firefox test/testcafe.js",
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
@@ -65,7 +65,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-import-helpers": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "react-test-renderer": "^17.0.2"
   }

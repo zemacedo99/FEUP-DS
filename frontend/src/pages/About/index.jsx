@@ -6,8 +6,8 @@ import ReactGA from 'react-ga';
 
 import ContributeModal from '../../components/ContributePopup/index';
 import SubTitleText from '../../components/SubTitleText/index';
-import { Layout } from '../../style';
-import { Title, Text, Container } from './style';
+import { Layout, PageTitle } from '../../style';
+import { Text, Container } from './style';
 
 export default function About() {
   const [showModal, setShowModal] = useState(false);
@@ -26,7 +26,7 @@ export default function About() {
       <Layout>
         <Row className="g-0 justify-content-between">
           <Col xs={12} md={6} className="pe-md-5">
-            <Title className="mb-4">About</Title>
+            <PageTitle className="mb-4">About</PageTitle>
             <Text>
               Orci, at metus viverra facilisis risus maecenas nunc enim.
               Varius eget suscipit cras magnis elit non molestie mattis.
@@ -52,7 +52,7 @@ export default function About() {
             </SubTitleText>
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
-            <Title className="mb-4 mt-sm-0 mt-3">Logo</Title>
+            <PageTitle className="mb-4 mt-sm-0 mt-3">Logo</PageTitle>
             <Text>
               Diam diam est neque quam sapien proin.
               Amet pulvinar ipsum, aliquet nunc euismod.

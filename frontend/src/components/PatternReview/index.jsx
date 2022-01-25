@@ -26,7 +26,7 @@ export default function PatternReview({ patletId }) {
 
   const addReview = () => {
     const data = {
-      rating: parseInt(rating, 10) / 20,
+      rating: parseInt(rating, 10),
       // rating: parseInt(document.querySelector('#rating').value, 10),
       review: document.querySelector('#review').value,
     };

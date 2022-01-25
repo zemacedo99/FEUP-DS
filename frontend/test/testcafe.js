@@ -42,6 +42,7 @@ test('Click on first pattern bookmark button and verify localStorage', async (t)
 
 test('Search test', async (t) => {
   const patternTitle = 'High Value First';
+  await t.click(Selector('[data-testid=search-icon]'));
   await t
     .typeText('[data-testid=search-input]', patternTitle)
     .pressKey('enter');

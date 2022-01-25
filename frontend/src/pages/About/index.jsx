@@ -31,9 +31,9 @@ export default function About() {
             <Title className="mb-4">About</Title>
             <Text>
               This app is inspired in a book about
-              Scrum - a simple but powerful way for people to work together.
-              A Scrum Book is available
-              at <a href="https://www.amazon.com/Scrum-Book-Spirit-Game/dp/1680506714">here</a>.
+              Scrum - a simple but powerful way for people to work together. {' '}
+              <i>A Scrum book: The Spirit of the Game</i> is available {' '}
+              <a href="https://www.amazon.com/Scrum-Book-Spirit-Game/dp/1680506714">here</a>.
             </Text>
             <SubTitleText title="Scrum">
               Scrum is about helping small teams create,
@@ -105,10 +105,11 @@ export default function About() {
               <p>
                 This app was developed in context of Large Scale Software Development,
                 a discipline teached in the Master in Informatics and Computer Engineering of
-                the Faculty of Engineering Univercity of Porto.
+                the Faculty of Engineering Univercity of Porto by
+                Ademar Aguiar and Hugo Sereno Ferreira.
               </p>
               <p>
-                The developers of the app were:
+                <b>The developers of the app:</b><br />
                 Ana Teresa Cruz,
                 André Nascimento,
                 António  Bezerra,

@@ -44,3 +44,23 @@ test('Testing patlets', async () => {
         expect(patlet.id).toBe(i)
     }
 })
+
+test('Testing search', async() => {
+    patlets = (await axios.get("http://localhost:3000/search?query=Value+Areas")).data
+    firstPatlet = patlets[0]
+    expect(firstPatlet.title).toBe("Value Areas")
+})
+
+test('Testing search', async() => {
+    patlets = (await axios.get("http://localhost:3000/search?query=Product+Wake")).data
+    firstPatlet = patlets[0]
+    expect(firstPatlet.title).toBe("Product Wake")
+})
+
+test('Testing search', async() => {
+    patlets = (await axios.get("http://localhost:3000/search?query=Greatest+Value")).data
+    firstPatlet = patlets[0]
+    expect(firstPatlet.title).toBe("Greatest Value")
+})
+
+

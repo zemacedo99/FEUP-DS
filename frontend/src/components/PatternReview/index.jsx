@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
-import { AiOutlineCheckSquare } from 'react-icons/ai';
 
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { Rating } from '@mui/material';
 
-import { FeedbackPopup } from './style';
+import { FeedbackPopup, Check, CustomButton } from './style';
 
-export default function PatternReview({ patletId }) {
+export default function PatternReview({ patletId, deviceSize }) {
   const [rating, setRating] = useState(5); // initial rating value
 
   const handleRating = (rate) => {
@@ -46,7 +45,7 @@ export default function PatternReview({ patletId }) {
             <form>
               <div className="form-group d-flex flex-column">
                 <textarea className="form-control mt-3" id="review" rows="3" style={{ resize: 'none' }} placeholder="Write your thoughts..." />
-                <button className="btn btn-success align-self-end mt-3" type="button" onClick={() => { addReview(); sent(); }}>Send Review</button>
+                <button className="btn btn-primary align-self-end mt-3" type="button" onClick={() => { addReview(); sent(); }}>Send Review</button>
               </div>
             </form>
           </div>
@@ -56,16 +55,13 @@ export default function PatternReview({ patletId }) {
   );
 
   return (
-    <div>
-      <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-        <span id="checkButton" className="btn btn-success p-0">
-          <AiOutlineCheckSquare className="display-1" title="I have used this pattern" />
-        </span>
-      </OverlayTrigger>
-    </div>
+    <OverlayTrigger trigger="click" placement={(deviceSize < 768) ? 'top' : 'bottom'} overlay={popover} rootClose>
+      <CustomButton id="checkButton"><Check title="I have used this pattern" /></CustomButton>
+    </OverlayTrigger>
   );
 }
 
 PatternReview.propTypes = {
-  patletId: PropTypes.string.isRequired,
+  patletId: PropTypes.number.isRequired,
+  deviceSize: PropTypes.number.isRequired,
 };

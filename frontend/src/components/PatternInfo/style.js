@@ -1,5 +1,4 @@
-import { Col } from 'react-bootstrap';
-import { AiOutlineCheck } from 'react-icons/ai';
+import { Col, Button, Nav } from 'react-bootstrap';
 
 import styled from 'styled-components';
 
@@ -15,7 +14,6 @@ export const OverrideBookmark = styled(Bookmark)`
         color: #6941C6;
         background: rgba(233, 215, 254, 0.6);
     }
-    margin-right:0.4em;
 `;
 
 export const OverrideFavorite = styled(Favorite)`
@@ -27,20 +25,6 @@ export const OverrideFavorite = styled(Favorite)`
         color: #6941C6;
         background: rgba(233, 215, 254, 0.6);
     }
-    margin-right:0.4em;
-`;
-
-export const Check = styled(AiOutlineCheck)`
-    background: #E9D7FE;
-    border-radius: 10px;
-    color: #6941C6;
-    font-size: 40px;
-    cursor: pointer;
-    &:hover {
-        color: #6941C6;
-        background: rgba(233, 215, 254, 0.6);
-    }
-    margin-right:0.4em;
 `;
 
 export const Confidence = styled.span`
@@ -98,5 +82,43 @@ export const Link = styled.a`
     color: black;
     &:hover {
         color: #7F56D9;
+    }
+`;
+
+export const ButtonsSection = styled(Col)`
+    @media only screen and (max-width: 768px) {
+        position: fixed;
+        bottom: 5em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 1;
+    }
+`;
+
+export const CustomButton = styled(Button)`
+    border: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    width: fit-content !important;
+    height: fit-content !important;
+    &:hover {
+        color: #6941C6;
+        background: rgba(233, 215, 254, 0.6);
+    }
+    margin-right: 0.6em;
+    @media only screen and (max-width: 768px) {
+        margin-right: 0.8em;
+    }
+`;
+
+export const NavLink = styled(Nav.Link)`
+    font-size: 18px;
+    border-radius: 20px !important;
+    color: #6C6C6C !important;
+    background: #F9FAFB !important;
+    &:active {
+        background: linear-gradient(90deg, #7F56D9 0%, #9E77ED 100%) !important;
+        color: white !important;
     }
 `;

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-import { Container } from 'react-floating-action-button';
 import ReactGA from 'react-ga';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
-import PatternReview from '../../components/PatternReview';
 import {
   MainPageSection,
 } from './style';
@@ -20,8 +18,8 @@ export default function PatternInfoPage() {
   const list = [];
   const list2 = [];
   let index = 0;
-  const [relatedPatterns1, setRelatedPatterns1] = useState([]);
-  const [relatedPatterns2, setRelatedPatterns2] = useState([]);
+  const [relatedPatternsPO, setRelatedPatternsPO] = useState([]);
+  const [relatedPatternsVS, setRelatedPatternsVS] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -35,7 +33,7 @@ export default function PatternInfoPage() {
           axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
             list.splice(index, 1, res1.data);
             index += 1;
-            setRelatedPatterns1([...list]);
+            setRelatedPatternsPO([...list]);
           })));
       }
       if (res.data.graphVs !== undefined) {
@@ -44,7 +42,7 @@ export default function PatternInfoPage() {
           axios.get(`${process.env.REACT_APP_URL}${patlet}`).then((res1) => {
             list2.splice(index, 1, res1.data);
             index += 1;
-            setRelatedPatterns2([...list2]);
+            setRelatedPatternsVS([...list2]);
           })));
       }
       setLoading(false);
@@ -62,28 +60,23 @@ export default function PatternInfoPage() {
           </Spinner>
         </Row>
       ) : (
-        <>
-          <Row>
-            <Col key={pattern.title} className="mb-3">
-              <PatternInfo
-                id={pattern.id}
-                title={pattern.title}
-                languages={pattern.languages}
-                stars={pattern.stars}
-                image={pattern.image}
-                intro={pattern.introduction}
-                problem={pattern.problem}
-                solution={pattern.solution}
-                relatedList1={relatedPatterns1}
-                relatedList2={relatedPatterns2}
-                link={pattern.link}
-              />
-            </Col>
-          </Row>
-          <Container>
-            <PatternReview patletId={id} icon="fas fa-plus" class="position-absolute" />
-          </Container>
-        </>
+        <Row>
+          <Col key={pattern.title} className="mb-3">
+            <PatternInfo
+              id={pattern.id}
+              title={pattern.title}
+              languages={pattern.languages}
+              stars={pattern.stars}
+              image={pattern.image}
+              intro={pattern.introduction}
+              problem={pattern.problem}
+              solution={pattern.solution}
+              relatedPatternsPO={relatedPatternsPO}
+              relatedPatternsVS={relatedPatternsVS}
+              link={pattern.link}
+            />
+          </Col>
+        </Row>
       )}
     </MainPageSection>
   );

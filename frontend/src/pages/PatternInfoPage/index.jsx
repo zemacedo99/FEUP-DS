@@ -7,11 +7,13 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import PatternInfo from '../../components/PatternInfo';
+import Page404 from '../Page404';
 import {
   MainPageSection,
 } from './style';
 
 export default function PatternInfoPage() {
+  const [successful, setSuccessful] = useState(true);
   const [loading, setLoading] = useState(true);
   const [pattern, setPattern] = useState();
   const { id } = useParams();
@@ -47,37 +49,40 @@ export default function PatternInfoPage() {
       }
       setLoading(false);
     }).catch((error) => {
+      setSuccessful(false);
       console.error(error);
     });
   }, [id]);
 
-  return (
+  if (!successful) return <Page404 />;
+
+  return loading ? (
     <MainPageSection>
-      { loading ? (
-        <Row className="mt-5 d-flex justify-content-center align-items-center">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </Row>
-      ) : (
-        <Row>
-          <Col key={pattern.title} className="mb-3">
-            <PatternInfo
-              id={pattern.id}
-              title={pattern.title}
-              languages={pattern.languages}
-              stars={pattern.stars}
-              image={pattern.image}
-              intro={pattern.introduction}
-              problem={pattern.problem}
-              solution={pattern.solution}
-              relatedPatternsPO={relatedPatternsPO}
-              relatedPatternsVS={relatedPatternsVS}
-              link={pattern.link}
-            />
-          </Col>
-        </Row>
-      )}
+      <Row className="mt-5 d-flex justify-content-center align-items-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Row>
+    </MainPageSection>
+  ) : (
+    <MainPageSection>
+      <Row>
+        <Col key={pattern.title} className="mb-3">
+          <PatternInfo
+            id={pattern.id}
+            title={pattern.title}
+            languages={pattern.languages}
+            stars={pattern.stars}
+            image={pattern.image}
+            intro={pattern.introduction}
+            problem={pattern.problem}
+            solution={pattern.solution}
+            relatedPatternsPO={relatedPatternsPO}
+            relatedPatternsVS={relatedPatternsVS}
+            link={pattern.link}
+          />
+        </Col>
+      </Row>
     </MainPageSection>
   );
 }

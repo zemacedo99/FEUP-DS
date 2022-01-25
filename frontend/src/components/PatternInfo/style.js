@@ -31,6 +31,13 @@ export const Confidence = styled.span`
     vertical-align: super;
 `;
 
+export const SubTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+`;
+
 export const PatSection = styled.p`
     font-family: Inter;
     font-style: normal;

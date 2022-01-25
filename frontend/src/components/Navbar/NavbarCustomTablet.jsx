@@ -20,7 +20,7 @@ export default function NavbarCustomDesktop() {
   };
 
   return (
-    <NavbarTablet expand="lg">
+    <NavbarTablet expand="lg" data-testid="navbar_tablet">
       <NavbarNav>
         <NavbarContainer>
           <Row>

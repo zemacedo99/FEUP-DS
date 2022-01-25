@@ -32,9 +32,16 @@ jobs:
     defaults:
       run:
         working-directory: ./
+    strategy:
+      matrix:
+        node-version: [16.x]
 
     steps:
     - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v1
       with:
@@ -50,12 +57,12 @@ jobs:
         envkey_REVIEWS_DESTINATION_EMAIL: ${{secrets.REVIEWS_DESTINATION_EMAIL}}
         envkey_ALGOLIA_APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
         envkey_ALGOLIA_API_KEY: ${{secrets.ALGOLIA_API_KEY}}
-        directory: ./backend
+        directory: backend
         file_name: .env
     - name: Check current directory
-      run: pwd && ls -la
+      run: pwd & ls -la & cat .env & ls -la backend & cat backend/.env
     - name: Build the docker-compose stack
-      run: docker-compose up -f docker-compose.yml -d
+      run: docker-compose -f docker-compose.yml up -d
     - name: Check running containers
       run: docker ps -a
     - name: Run test suite

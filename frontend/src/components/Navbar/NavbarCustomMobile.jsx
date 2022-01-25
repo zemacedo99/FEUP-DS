@@ -12,7 +12,7 @@ import {
 
 export default function NavbarCustomMobile() {
   return (
-    <NavbarMobile expand="lg">
+    <NavbarMobile expand="lg" data-testid="navbar_mobile">
       <NavbarNav>
         <NavbarContainer>
           <Row>

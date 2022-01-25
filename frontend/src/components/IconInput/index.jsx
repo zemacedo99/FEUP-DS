@@ -12,13 +12,14 @@ export default function IconInput({
 }) {
   return (
     <IconInputContainer>
-      <IconContainer>{icon}</IconContainer>
+      <IconContainer data-testid="search-icon">{icon}</IconContainer>
       <Input
         className="form-control"
         value={value}
         placeholder="Search here..."
         onKeyUp={onKeyUp}
         onChange={(e) => setValue(e.target.value)}
+        data-testid="search-input"
       />
     </IconInputContainer>
   );

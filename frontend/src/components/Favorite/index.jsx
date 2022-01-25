@@ -43,8 +43,8 @@ class Favorite extends React.Component {
     return (
       <span role="button" onClick={() => { this.updateFavorite(); }} onKeyPress={() => {}} tabIndex="0">
         { favorites[this.patlet_id] === true
-          ? <FillStar />
-          : <OutlineStar /> }
+          ? <FillStar title="Unfavorite" />
+          : <OutlineStar title="Favorite" /> }
       </span>
     );
   }

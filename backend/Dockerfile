@@ -6,7 +6,7 @@ COPY package.json ./
 
 ENV PORT 3000
 
-RUN npm install --silent
+RUN npm install
 
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 

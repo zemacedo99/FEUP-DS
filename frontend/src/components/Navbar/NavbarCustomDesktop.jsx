@@ -19,7 +19,7 @@ export default function NavbarCustomDesktop() {
   };
 
   return (
-    <NavbarDesktop expand="lg">
+    <NavbarDesktop expand="lg" data-testid="navbar_desktop">
       <NavbarNav>
         <NavbarContainer>
           <Row>
@@ -35,9 +35,9 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col md="5">
               <NavbarButtons>
-                <NavbarLink href="/about">About</NavbarLink>
-                <NavbarLink href="/">Patterns</NavbarLink>
-                <NavbarLink href="/bookmarks">Bookmarks</NavbarLink>
+                <NavbarLink href="/about" data-testid="about_button">About</NavbarLink>
+                <NavbarLink href="/" data-testid="patterns_button">Patterns</NavbarLink>
+                <NavbarLink href="/bookmarks" data-testid="bookmarks_button">Bookmarks</NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

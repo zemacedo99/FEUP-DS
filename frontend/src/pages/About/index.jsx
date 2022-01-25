@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Row, Col, Button,
 } from 'react-bootstrap';
+import ReactGA from 'react-ga';
 
 import ContributeModal from '../../components/ContributePopup/index';
 import SubTitleText from '../../components/SubTitleText/index';
@@ -12,7 +13,13 @@ export default function About() {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     document.title = 'About';
+    ReactGA.pageview('/about');
   }, []);
+
+  const openModal = () => {
+    setShowModal(true);
+    ReactGA.modalview('/about/contribute');
+  };
 
   return (
     <Container>
@@ -64,7 +71,7 @@ export default function About() {
               Lacus, viverra diam elit integer fermentum penatibus quam.
               Neque proin varius ultrices interdum malesuada mauris diam, consectetur.
             </SubTitleText>
-            <Button className="contribute-button" onClick={() => { setShowModal(true); }}>I want to contribute</Button>
+            <Button className="contribute-button" onClick={openModal}>I want to contribute</Button>
             <ContributeModal show={showModal} onHide={() => setShowModal(false)} />
           </Col>
         </Row>

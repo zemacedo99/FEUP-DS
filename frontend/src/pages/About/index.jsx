@@ -8,7 +8,7 @@ import ReactGA from 'react-ga';
 import ContributeModal from '../../components/ContributePopup/index';
 import SubSubTitleText from '../../components/SubSubTitleText/index';
 import SubTitleText from '../../components/SubTitleText/index';
-import { Layout } from '../../style';
+import { Layout, PageTitle } from '../../style';
 import { Title, Text, Container } from './style';
 
 export default function About() {
@@ -28,7 +28,7 @@ export default function About() {
       <Layout>
         <Row className="g-0 justify-content-between">
           <Col xs={12} md={6} className="pe-md-5">
-            <Title className="mb-4">About</Title>
+            <PageTitle className="mb-4">About</PageTitle>
             <Text>
               This app is inspired in a book about
               Scrum - a simple but powerful way for people to work together. {' '}

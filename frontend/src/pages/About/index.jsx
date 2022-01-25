@@ -39,17 +39,13 @@ export default function About() {
               its product and evolve it into a better solution.
             </SubTitleText>
             <SubTitleText title="Pattern">
-              <p>
-                A pattern is a repeatably applicable solution to a
-                problem that arises in a specific context.
-              </p>
-              <p>
-                A set of patterns that you can use to build your Scrum Team
-                and the other associations of people and loci of relationships that are common
-                to Scrum practice is called a pattern language.
-                This app presents two such languages:
-                Product Organization, and Value Stream.
-              </p>
+              A pattern is a repeatably applicable solution to a
+              problem that arises in a specific context.
+              A set of patterns that you can use to build your Scrum Team
+              and the other associations of people and loci of relationships that are common
+              to Scrum practice is called a pattern language.
+              This app presents two such languages:
+              Product Organization, and Value Stream.
               <SubSubTitleText title="Product Organization">
                 Builds the relationships between the people and teams in a Scrum organization.
               </SubSubTitleText>
@@ -72,6 +68,7 @@ export default function About() {
               Ut est malesuada nam lacus, aenean.
             </Text>
             <SubTitleText title="About Us">
+              {/*
               <Text>
                 <b>Developers:</b>
                 <br />
@@ -100,6 +97,34 @@ export default function About() {
                 Veli-Pekka Eloranta,
                 Evan Leonard.
               </Text>
+              */}
+              Ana Teresa Feliciano da Cruz,
+              André Filipe Meireles do Nascimento,
+              António Cadilha da Cunha Bezerra,
+              Breno Accioly de Barros Pimentel,
+              Catarina Justo dos Santos Fernandes,
+              Daniel da Silva Gonçalves,
+              Diogo André Barbosa Nunes,
+              Gonçalo Batalhao Alves,
+              Inês Alves Quarteu,
+              Inês Oliveira e Silva,
+              João Castro Pinto,
+              João Diogo Martins Romão,
+              João Miguel Gomes Gonçalves,
+              José António Dantas Macedo,
+              José Luís Sousa Tavares,
+              Luís André Santos Correia Assunção,
+              Márcio Cláudio Silva Duarte,
+              Mariana Almeida Truta,
+              Mariana Oliveira Ramos,
+              Nuno Filipe Ferreira de Sousa Resende,
+              Pedro Jorge Fonseca Seixas,
+              Rafael Valente Cristino,
+              Ricardo Amaral Nunes,
+              Ricardo Filipe da Silva Néri Marques Carvalho,
+              Rita Matos Maranhao Peixoto,
+              Tiago Alexandre Pinto de Faria Ferreira Alves,
+              Xavier Ruivo Pisco
             </SubTitleText>
             <Button className="contribute-button" onClick={openModal}>I want to contribute</Button>
             <ContributeModal show={showModal} onHide={() => setShowModal(false)} />

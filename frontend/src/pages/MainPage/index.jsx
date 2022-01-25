@@ -8,7 +8,7 @@ import axios from 'axios';
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
 import { Layout, PageTitle } from '../../style';
-import { SubTitle } from './style';
+import { AboutIcon, SubTitle } from './style';
 
 export default function MainPage() {
   const navigate = useNavigate();
@@ -46,9 +46,9 @@ export default function MainPage() {
           <PageTitle> Home </PageTitle>
         </Col>
         <Col className="d-flex justify-content-end pe-4">
-          <span onClick={() => navigateToHelp()} onKeyPress={() => navigateToHelp()} role="button" tabIndex={0}>
+          <AboutIcon onClick={() => navigateToHelp()} onKeyPress={() => navigateToHelp()} role="button" tabIndex={0}>
             <img src={infoIcon} width="30px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
-          </span>
+          </AboutIcon>
         </Col>
       </Row>
       <SubTitle> The core of Scrum </SubTitle>

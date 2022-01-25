@@ -33,20 +33,23 @@ export default function About() {
               Scrum - a simple but powerful way for people to work together.
             </Text>
             <SubTitleText title="Scrum">
-              Scrum is about helping small teams create, build, and evolve a product,
-              one slice at a time.
-              The core of Scrum stands on twelve patterns that you can dive into in this app.
+              Scrum is not a development method, but rather a product development framework.
+              A method prescribes steps that transform a problem definition into a solution.
+              Scrum, on the other hand, is a framework for the team to continuously evaluate
+              its product and evolve it into a better solution.
             </SubTitleText>
             <SubTitleText title="Pattern">
-              What is a pattern? One simple definition is that a pattern is a
-              repeatably applicable solution to a problem that arises in a specific context.
-            </SubTitleText>
-            <SubTitleText title="Pattern Languages">
-              Describes a set of patterns you can use to build your Scrum Team
-              and the other associations of people and loci of relationships that are common
-              to Scrum practice.
-              You build your organization and your process in parallel, each a little at a time,
-              weaving together patterns from both pattern languages.
+              <p>
+                A pattern is a repeatably applicable solution to a
+                problem that arises in a specific context.
+              </p>
+              <p>
+                A set of patterns that you can use to build your Scrum Team
+                and the other associations of people and loci of relationships that are common
+                to Scrum practice is called a pattern language.
+                This app presents two such languages:
+                Product Organization, and Value Stream.
+              </p>
               <SubSubTitleText title="Product Organization">
                 Builds the relationships between the people and teams in a Scrum organization.
               </SubSubTitleText>
@@ -58,6 +61,16 @@ export default function About() {
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
             <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
+            <Text>
+              Diam diam est neque quam sapien proin.
+              Amet pulvinar ipsum, aliquet nunc euismod.
+              Dui faucibus fusce auctor non adipiscing eget.
+              Sed feugiat suspendisse in amet massa, neque.
+              Lorem nunc euismod nulla pellentesque fusce orci commodo et rutrum.
+              Mattis nunc, in vestibulum mi faucibus amet, lectus.
+              Ultrices lacus commodo netus odio pellentesque consequat pellentesque.
+              Ut est malesuada nam lacus, aenean.
+            </Text>
             <SubTitleText title="About Us">
               <Text>
                 <b>Developers:</b>

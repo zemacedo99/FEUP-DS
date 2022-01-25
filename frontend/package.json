@@ -29,6 +29,7 @@
     "react-simple-star-rating": "^4.0.5",
     "star-based-rating": "^1.5.7",
     "styled-components": "^5.3.3",
+    "testcafe": "^1.18.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {

@@ -1,36 +1,39 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import {
   render,
   cleanup,
   fireEvent,
   act,
   waitFor,
-} from "@testing-library/react";
+} from '@testing-library/react';
 
-import PatternReview from "..";
+import PatternReview from '..';
 
-import "@testing-library/jest-dom/extend-expect";
+import '@testing-library/jest-dom/extend-expect';
 
 afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 
-const MockPatternReview = () => (
-  <Router>
-    <PatternReview patletId="0" />
-  </Router>
-);
+function MockPatternReview() {
+  return (
+    <Router>
+      <PatternReview patletId="0" />
+    </Router>
+  );
+}
 
-it("Renders ContributePopup without crashing", () => {
+it('Renders ContributePopup without crashing', () => {
   render(<MockPatternReview />);
 });
 
-it("Renders ContributePopup with relevant elements", async () => {
+it('Renders ContributePopup with relevant elements', async () => {
   const { container, getAllByTitle, getAllByRole } = render(
-    <MockPatternReview />
+    <MockPatternReview />,
   );
-  expect(getAllByTitle("I have used this pattern")).toHaveLength(1);
+  expect(getAllByTitle('I have used this pattern')).toHaveLength(1);
 
-  const checkButton = container.querySelector("#checkButton");
+  const checkButton = container.querySelector('#checkButton');
   await waitFor(() => expect(checkButton));
 
   act(() => {
@@ -38,13 +41,13 @@ it("Renders ContributePopup with relevant elements", async () => {
   });
 
   await waitFor(() => {
-    const radios = getAllByRole("radio");
+    const radios = getAllByRole('radio');
     act(() => {
       fireEvent.click(radios[0]);
     });
 
     expect(radios).toHaveLength(6); // 5 stars + empty
-    expect(getAllByRole("textbox")).toHaveLength(1);
-    expect(getAllByRole("button")).toHaveLength(1);
+    expect(getAllByRole('textbox')).toHaveLength(1);
+    expect(getAllByRole('button')).toHaveLength(1);
   });
 });

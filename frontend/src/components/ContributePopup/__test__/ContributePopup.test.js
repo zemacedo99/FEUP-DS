@@ -1,27 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { render, cleanup } from "@testing-library/react";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import ContributeModal from "..";
+import { render, cleanup } from '@testing-library/react';
 
-import "@testing-library/jest-dom/extend-expect";
+import ContributeModal from '..';
+
+import '@testing-library/jest-dom/extend-expect';
 
 afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 
-const MockContributeModal = () => (
-  <Router>
-    <ContributeModal show={true} onHide={() => {}} />
-  </Router>
-);
+function MockContributeModal() {
+  return (
+    <Router>
+      <ContributeModal show onHide={() => {}} />
+    </Router>
+  );
+}
 
-it("Renders ContributePopup without crashing", () => {
+it('Renders ContributePopup without crashing', () => {
   render(<MockContributeModal />);
 });
 
-it("Renders NavbarDesktop with relevant elements", () => {
+it('Renders NavbarDesktop with relevant elements', () => {
   const { getAllByLabelText, getAllByRole } = render(<MockContributeModal />);
-  expect(getAllByLabelText("Name")).toHaveLength(1);
-  expect(getAllByLabelText("Email")).toHaveLength(1);
-  expect(getAllByLabelText("Reason")).toHaveLength(1);
-  expect(getAllByRole("button")).toHaveLength(2); // collapse and submit
+  expect(getAllByLabelText('Name')).toHaveLength(1);
+  expect(getAllByLabelText('Email')).toHaveLength(1);
+  expect(getAllByLabelText('Reason')).toHaveLength(1);
+  expect(getAllByRole('button')).toHaveLength(2); // collapse and submit
 });

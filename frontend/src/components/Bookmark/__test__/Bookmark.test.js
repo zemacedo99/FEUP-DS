@@ -1,22 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { render, cleanup, waitFor, fireEvent } from "@testing-library/react";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Bookmark } from "..";
+import {
+  render, cleanup, waitFor, fireEvent,
+} from '@testing-library/react';
 
-import "@testing-library/jest-dom/extend-expect";
+import { Bookmark } from '..';
+
+import '@testing-library/jest-dom/extend-expect';
 
 afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 
-it("Renders Bookmark without crashing", () => {
+it('Renders Bookmark without crashing', () => {
   render(
     <Router>
       <Bookmark patlet_id={0} setBookmarkIds={() => {}} />
-    </Router>
+    </Router>,
   );
 });
 
-test("Renders Bookmark click and unclick", async () => {
+test('Renders Bookmark click and unclick', async () => {
   let bookmarkIds = [];
   const setBookmarkIds = (ids) => {
     bookmarkIds = ids;
@@ -25,15 +28,13 @@ test("Renders Bookmark click and unclick", async () => {
   const { getByRole } = render(
     <Router>
       <Bookmark patlet_id={0} setBookmarkIds={setBookmarkIds} />
-    </Router>
+    </Router>,
   );
-  const button = getByRole("button");
+  const button = getByRole('button');
 
   fireEvent.click(button);
   await waitFor(() => expect(Object.keys(bookmarkIds).length > 0).toBeTruthy());
 
   fireEvent.click(button);
-  await waitFor(() =>
-    expect(Object.keys(bookmarkIds).length == 0).toBeTruthy()
-  );
+  await waitFor(() => expect(Object.keys(bookmarkIds).length === 0).toBeTruthy());
 });

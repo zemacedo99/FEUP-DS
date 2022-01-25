@@ -1,22 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { render, cleanup, waitFor, fireEvent, act } from "@testing-library/react";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Favorite } from "..";
+import {
+  render, cleanup, waitFor, fireEvent, act,
+} from '@testing-library/react';
 
-import "@testing-library/jest-dom/extend-expect";
+import { Favorite } from '..';
+
+import '@testing-library/jest-dom/extend-expect';
 
 afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 
-it("Renders Favorite without crashing", () => {
+it('Renders Favorite without crashing', () => {
   render(
     <Router>
       <Favorite patlet_id={0} setFavoriteIds={() => {}} />
-    </Router>
+    </Router>,
   );
 });
 
-test("Renders Favorite click and unclick", async () => {
+test('Renders Favorite click and unclick', async () => {
   let favoriteIds = [];
   const setFavoriteIds = (ids) => {
     favoriteIds = ids;
@@ -25,19 +28,17 @@ test("Renders Favorite click and unclick", async () => {
   const { getByRole } = render(
     <Router>
       <Favorite patlet_id={0} setFavoriteIds={setFavoriteIds} />
-    </Router>
+    </Router>,
   );
-  const button = getByRole("button");
+  const button = getByRole('button');
 
   act(() => {
     fireEvent.click(button);
-  })
+  });
   await waitFor(() => expect(Object.keys(favoriteIds).length > 0).toBeTruthy());
 
   act(() => {
     fireEvent.click(button);
-  })
-  await waitFor(() =>
-    expect(Object.keys(favoriteIds).length == 0).toBeTruthy()
-  );
+  });
+  await waitFor(() => expect(Object.keys(favoriteIds).length === 0).toBeTruthy());
 });

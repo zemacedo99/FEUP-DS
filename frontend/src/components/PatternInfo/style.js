@@ -37,7 +37,7 @@ export const PatSection = styled.p`
     font-weight: 500;
     font-size: 1.5em;
     margin-bottom: 0;
-    color: #039855;
+    color: #7F56D9;
     @media only screen and (max-width: 768px) {
         font-size: 1.2em;
     }
@@ -50,7 +50,7 @@ export const RelatedSection = styled.div`
     font-size: 16px;
     line-height: 24px;
     display: flex;
-    color: #039855;
+    color: #7F56D9;
 `;
 
 export const PatStars = styled(Col)`
@@ -115,9 +115,9 @@ export const CustomButton = styled(Button)`
 export const NavLink = styled(Nav.Link)`
     font-size: 18px;
     border-radius: 20px !important;
-    color: #6C6C6C !important;
-    background: #F9FAFB !important;
-    &:active {
+    color: #6C6C6C;
+    background: #F9FAFB;
+    &.active {
         background: linear-gradient(90deg, #7F56D9 0%, #9E77ED 100%) !important;
         color: white !important;
     }

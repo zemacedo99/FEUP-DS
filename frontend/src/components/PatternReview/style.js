@@ -12,7 +12,7 @@ export const FeedbackPopup = styled.div`
   line-height: 24px;
   display: flex;
   align-items: center;
-  color: #05603A;
+  color: #7F56D9;
   padding: 2em;
   border-radius: 1em;
 `;

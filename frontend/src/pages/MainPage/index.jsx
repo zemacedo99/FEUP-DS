@@ -47,7 +47,7 @@ export default function MainPage() {
         </Col>
         <Col className="d-flex justify-content-end pe-4">
           <span onClick={() => navigateToHelp()} onKeyPress={() => navigateToHelp()} role="button" tabIndex={0}>
-            <img src={infoIcon} width="30px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
+            <img src={infoIcon} width="30px" alt="info icon" title="About" style={{ cursor: 'pointer' }} />
           </span>
         </Col>
       </Row>

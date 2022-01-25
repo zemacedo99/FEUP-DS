@@ -49,7 +49,7 @@ export default function PatternInfoPage() {
     }).catch((error) => {
       console.error(error);
     });
-  }, []);
+  }, [id]);
 
   return (
     <MainPageSection>

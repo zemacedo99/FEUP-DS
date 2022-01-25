@@ -23,7 +23,7 @@ export default function PatternInfo({
   const [conf, setConf] = useState([]);
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
-  const [graph, setGraph] = useState(relatedPatternsVS.length > 0 ? 'VS' : 'PO');
+  const [graph, setGraph] = useState('');
   const [deviceSize, changeDeviceSize] = useState(window.innerWidth);
 
   const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}}.jpg`, image);
@@ -37,6 +37,10 @@ export default function PatternInfo({
     }
     setConf(r);
   }, []);
+
+  useEffect(() => {
+    setGraph(relatedPatternsVS.length > 0 ? 'VS' : 'PO');
+  }, [relatedPatternsPO, relatedPatternsVS]);
 
   const getPatterns = () => (graph === 'VS' ? relatedPatternsVS : relatedPatternsPO);
 
@@ -109,7 +113,7 @@ export default function PatternInfo({
             {deviceSize < 768
               ? (
                 <>
-                  <Nav variant="pills" className="justify-content-center mt-3" activeKey={graph} onSelect={handleSelect}>
+                  <Nav variant="pills" className="justify-content-center mt-3 mb-2" activeKey={graph} onSelect={handleSelect}>
                     {relatedPatternsVS.length > 0 && <Nav.Item><NavLink eventKey="VS">Value Stream</NavLink></Nav.Item>}
                     {relatedPatternsPO.length > 0 && <Nav.Item><NavLink eventKey="PO">Product Org.</NavLink></Nav.Item>}
                   </Nav>

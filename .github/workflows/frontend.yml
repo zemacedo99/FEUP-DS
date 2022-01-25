@@ -34,6 +34,7 @@ jobs:
         working-directory: ./
 
     steps:
+    - uses: actions/checkout@v2
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v1
       with:
@@ -51,8 +52,10 @@ jobs:
         envkey_ALGOLIA_API_KEY: ${{secrets.ALGOLIA_API_KEY}}
         directory: ./backend
         file_name: .env
+    - name: Check current directory
+      run: pwd && ls -la
     - name: Build the docker-compose stack
-      run: docker-compose up -d
+      run: docker-compose up -f docker-compose.yml -d
     - name: Check running containers
       run: docker ps -a
     - name: Run test suite

@@ -20,6 +20,7 @@ export default function MainPage() {
   useEffect(() => {
     setLoading(true);
     document.title = 'A Scrum Book';
+
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
       setLoading(false);

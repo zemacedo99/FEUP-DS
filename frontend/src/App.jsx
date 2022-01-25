@@ -9,22 +9,24 @@ import BookmarksPage from './pages/BookmarksPage';
 import MainPage from './pages/MainPage';
 import Page404 from './pages/Page404';
 import PatternInfoPage from './pages/PatternInfoPage';
+import PatternsPage from './pages/PatternsPage';
 import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App p-3 p-sm-0 pb-0">
         <SearchContextProvider>
           <NavbarCustomDesktop />
           <NavbarCustomTablet />
           <NavbarCustomMobile />
           <Routes>
             <Route path="/" exact element={<MainPage />} />
-            <Route path="/search" exact element={<SearchPage />} />
-            <Route path="/bookmarks" exact element={<BookmarksPage />} />
             <Route path="/about" exact element={<About />} />
+            <Route path="/bookmarks" exact element={<BookmarksPage />} />
+            <Route path="/patterns" exact element={<PatternsPage />} />
             <Route path="/pattern/:id/patlet" exact element={<PatternInfoPage />} />
+            <Route path="/search" exact element={<SearchPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </SearchContextProvider>

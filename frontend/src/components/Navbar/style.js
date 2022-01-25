@@ -9,12 +9,13 @@ export const NavbarDesktop = styled(Navbar)`
     display: none;
   }
   margin-bottom: 3rem;
-  background-color: white;
   font-family: Inter;
   font-size: 20px;
 `;
 
 export const NavbarMobile = styled(Navbar)`
+  background-color: white;
+
   @media screen and (max-width: 480px) {
     display: flex;
     position: fixed;
@@ -26,7 +27,6 @@ export const NavbarMobile = styled(Navbar)`
   @media screen and (min-width: 481px) {
     display: none;
   }
-  background-color: white;
   font-family: Inter;
   font-size: 20px;
 `;

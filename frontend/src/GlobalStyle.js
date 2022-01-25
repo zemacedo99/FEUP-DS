@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  body {
+    background-color: #f8f8f8;
+  }
+
   :root {
     --button-primary: linear-gradient(45deg, #6941C6 0%, #7F56D9 100%);
     --button-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
@@ -68,5 +72,28 @@ export default createGlobalStyle`
       border-color: transparent;
       box-shadow: var(--button-big-shadow);
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background: rgba(0,0,0,0.4);
+  }
+  
+  ::-webkit-scrollbar-thumb:active{
+    background: rgba(0,0,0,.9);
   }
 `;

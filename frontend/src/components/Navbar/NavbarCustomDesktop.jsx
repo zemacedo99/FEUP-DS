@@ -36,7 +36,7 @@ export default function NavbarCustomDesktop() {
             <Col md="5">
               <NavbarButtons>
                 <NavbarLink href="/about">About</NavbarLink>
-                <NavbarLink href="/">Patterns</NavbarLink>
+                <NavbarLink href="/patterns">Patterns</NavbarLink>
                 <NavbarLink href="/bookmarks">Bookmarks</NavbarLink>
               </NavbarButtons>
             </Col>

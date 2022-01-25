@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -14,17 +14,23 @@ export default function IconInput({
   icon,
 }) {
   const location = useLocation();
+  const searchInput = useRef();
+
+  const handleFocus = () => {
+    searchInput.current.focus();
+  };
 
   if (location.pathname !== '/search') {
     return (
       <MovingIconInputContainer>
-        <IconContainer>{icon}</IconContainer>
+        <IconContainer onClick={handleFocus}>{icon}</IconContainer>
         <MovingInput
           className="form-control"
           value={value}
           placeholder="Search here..."
           onKeyUp={onKeyUp}
           onChange={(e) => setValue(e.target.value)}
+          ref={searchInput}
         />
       </MovingIconInputContainer>
     );

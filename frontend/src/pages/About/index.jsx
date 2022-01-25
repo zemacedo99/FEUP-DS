@@ -5,6 +5,7 @@ import {
 import ReactGA from 'react-ga';
 
 import ContributeModal from '../../components/ContributePopup/index';
+import SubSubTitleText from '../../components/SubSubTitleText/index';
 import SubTitleText from '../../components/SubTitleText/index';
 import { Layout } from '../../style';
 import { Title, Text, Container } from './style';
@@ -46,17 +47,17 @@ export default function About() {
               to Scrum practice.
               You build your organization and your process in parallel, each a little at a time,
               weaving together patterns from both pattern languages.
+              <SubSubTitleText title="Product Organization">
+                Builds the relationships between the people and teams in a Scrum organization.
+              </SubSubTitleText>
+              <SubSubTitleText title="Value Stream">
+                Builds relationships between steps of product construction,
+                and the artifacts that represent parts of the process.
+              </SubSubTitleText>
             </SubTitleText>
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
             <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
-            <SubTitleText title="Product Organization">
-              Builds the relationships between the people and teams in a Scrum organization.
-            </SubTitleText>
-            <SubTitleText title="Value Stream">
-              Builds relationships between steps of product construction,
-              and the artifacts that represent parts of the process.
-            </SubTitleText>
             <SubTitleText title="About Us">
               <Text>
                 <b>Developers:</b>

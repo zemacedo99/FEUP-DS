@@ -57,10 +57,11 @@ jobs:
         envkey_REVIEWS_DESTINATION_EMAIL: ${{secrets.REVIEWS_DESTINATION_EMAIL}}
         envkey_ALGOLIA_APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
         envkey_ALGOLIA_API_KEY: ${{secrets.ALGOLIA_API_KEY}}
-        directory: backend
         file_name: .env
+    - name: Move .env to backend
+      run: mv .env backend
     - name: Check current directory
-      run: pwd & ls -la & cat .env & ls -la backend & cat backend/.env
+      run: pwd & ls -la & ls -la backend
     - name: Build the docker-compose stack
       run: docker-compose -f docker-compose.yml up -d
     - name: Check running containers

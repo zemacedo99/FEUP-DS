@@ -63,14 +63,14 @@ export default function About() {
               connections, form a structure, a grammar, a language.
               This app presents two such languages:
               Product Organization, and Value Stream.
-              <SubSubTitleText title="Product Organization">
-                Builds the relationships between the people and teams in a Scrum organization.
-              </SubSubTitleText>
-              <SubSubTitleText title="Value Stream">
-                Builds relationships between steps of product construction,
-                and the artifacts that represent parts of the process.
-              </SubSubTitleText>
             </SubTitleText>
+            <SubSubTitleText title="Product Organization">
+              Builds the relationships between the people and teams in a Scrum organization.
+            </SubSubTitleText>
+            <SubSubTitleText title="Value Stream">
+              Builds relationships between steps of product construction,
+              and the artifacts that represent parts of the process.
+            </SubSubTitleText>
           </Col>
           <Col xs={12} md={6} className="ps-md-5">
             <Title className="mb-4 mt-sm-0 mt-3"><img width="150px" height="auto" src="/logo.ico" alt="logo" /></Title>
@@ -102,42 +102,38 @@ export default function About() {
               Evan Leonard.
             </Text>
             <SubTitleText title="About us">
-              <p>
-                This app was developed in context of Large Scale Software Development,
-                a discipline teached in the Master in Informatics and Computer Engineering of
-                the Faculty of Engineering Univercity of Porto by
-                Ademar Aguiar and Hugo Sereno Ferreira.
-              </p>
-              <p>
-                <b>The developers of the app:</b><br />
-                Ana Teresa Cruz,
-                André Nascimento,
-                António  Bezerra,
-                Breno Accioly,
-                Catarina Fernandes,
-                Daniel Gonçalves,
-                Diogo Nunes,
-                Gonçalo Alves,
-                Inês Quarteu,
-                Inês Silva,
-                João Castro Pinto,
-                João Romão,
-                João Gonçalves,
-                José Macedo,
-                José Luís Sousa Tavares,
-                André Assunção,
-                Márcio Duarte,
-                Mariana Truta,
-                Mariana Ramos,
-                Nuno Resende,
-                Pedro Seixas,
-                Rafael Cristino,
-                Ricardo Nunes,
-                Ricardo Carvalho,
-                Rita Peixoto,
-                Tiago Alves,
-                Xavier Pisco
-              </p>
+              This app was developed in context of Large Scale Software Development,
+              a discipline teached in the Master in Informatics and Computer Engineering of
+              the Faculty of Engineering Univercity of Porto by
+              Ademar Aguiar and Hugo Sereno Ferreira.<br />
+              <b>The developers of the app:</b><br />
+              Ana Teresa Cruz,
+              André Nascimento,
+              António  Bezerra,
+              Breno Accioly,
+              Catarina Fernandes,
+              Daniel Gonçalves,
+              Diogo Nunes,
+              Gonçalo Alves,
+              Inês Quarteu,
+              Inês Silva,
+              João Castro Pinto,
+              João Romão,
+              João Gonçalves,
+              José Macedo,
+              José Luís Sousa Tavares,
+              André Assunção,
+              Márcio Duarte,
+              Mariana Truta,
+              Mariana Ramos,
+              Nuno Resende,
+              Pedro Seixas,
+              Rafael Cristino,
+              Ricardo Nunes,
+              Ricardo Carvalho,
+              Rita Peixoto,
+              Tiago Alves,
+              Xavier Pisco
             </SubTitleText>
             <Button className="contribute-button" onClick={openModal}>I want to contribute</Button>
             <ContributeModal show={showModal} onHide={() => setShowModal(false)} />

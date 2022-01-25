@@ -13,6 +13,9 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: bold;
   font-size: 60px;
+  @media screen and (max-width: 480px) {
+    text-align: center;
+  }
 `;
 
 export const Text = styled.p`

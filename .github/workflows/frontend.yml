@@ -66,5 +66,9 @@ jobs:
       run: docker-compose -f docker-compose.yml up -d
     - name: Check running containers
       run: docker ps -a
+    - name: Wait for frontend to start
+      run: sleep 30
+    - name: Install dependencies
+      run: npm install -g testcafe react-scripts
     - name: Run test suite
       run: cd frontend && npm run test --if-present

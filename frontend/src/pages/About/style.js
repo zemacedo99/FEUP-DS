@@ -1,10 +1,10 @@
+import { Button } from 'react-bootstrap';
+
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  .contribute-button {
-    @media screen and (max-width: 1200px) { 
-      width: 100%;
-    }
+export const ContributeButton = styled(Button)`
+  @media screen and (max-width: 1200px) { 
+    width: 100%;
   }
 `;
 

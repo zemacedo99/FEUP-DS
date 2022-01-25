@@ -29,6 +29,7 @@ export default function ContributeModal({ show, onHide }) {
             <Form.Label>Reason</Form.Label>
             <Form.Control as="textarea" rows={3} placeholder="Describe why you want to contribute" />
           </Form.Group>
+
           <div className="mt-3 row g-0">
             <Button className="col-12 col-md-auto" variant="primary" type="submit">
               Submit

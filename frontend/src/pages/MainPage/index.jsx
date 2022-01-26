@@ -29,13 +29,6 @@ export default function MainPage() {
     });
   }, []);
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
   const navigateToHelp = () => {
     navigate('/about');
   };
@@ -63,7 +56,6 @@ export default function MainPage() {
         : (
           <PatternCardList
             patterns={patternsList}
-            updatePattern={updatePattern}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

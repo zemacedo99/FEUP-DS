@@ -38,10 +38,7 @@ export default function RelatedCardList({
           <PatternCard
             id={pattern.id}
             title={pattern.title}
-            favorite={pattern.favorite}
-            saved={pattern.saved}
             image={pattern.image}
-            stars={pattern.stars}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

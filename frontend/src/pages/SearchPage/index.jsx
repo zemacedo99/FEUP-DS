@@ -24,13 +24,6 @@ export default function SearchPage() {
     ReactGA.pageview('/search');
   }, []);
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
   const sendRequest = () => {
     axios.get(`${process.env.REACT_APP_URL}/search`, { params: { query: text } }).then((res) => {
       setPatterns(res.data);
@@ -79,7 +72,6 @@ export default function SearchPage() {
       {!loading && patternsList && (
         <PatternCardList
           patterns={patternsList}
-          updatePattern={updatePattern}
           setFavoriteIds={setFavoriteIds}
           setBookmarkIds={setBookmarkIds}
         />

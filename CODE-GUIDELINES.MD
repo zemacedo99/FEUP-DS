@@ -45,7 +45,7 @@ src
 ├── App.jsx
 ├── index.jsx
 ├── components
-│   └── foo
+│   └── <component_name>
 │       ├── index.jsx
 │       └── style.js
 ├── services
@@ -71,5 +71,3 @@ Components should be in the `components` directory. All components should be fun
 Components with style should be created as a directory with a `style.js` file and the name of directory being the name of the component.
 
 **Do not use `.css` files, use `styled-components` instead.**
-
-There is a component example on `src/components/Foo`.

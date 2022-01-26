@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 
-import PatternCard from '../PaternCard';
+import PatternCard from '../PatternCard';
 import { CardRow } from './style';
 
 export default function PatternCardList({

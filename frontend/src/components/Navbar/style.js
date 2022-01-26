@@ -11,6 +11,11 @@ export const NavbarDesktop = styled(Navbar)`
   margin-bottom: 3rem;
   font-family: Inter;
   font-size: 20px;
+  a.hovering:hover {
+    cursor: pointer;
+    color: #7F56D9; 
+  }
+  a.hovering:not(:hover) {color:black}
 `;
 
 export const NavbarMobile = styled(Navbar)`
@@ -88,3 +93,36 @@ export const NavbarLink = styled(Nav.Link)`
     color: #7F56D9 !important;
   }
 `;
+
+export const activeStyle = {
+  textDecoration: 'none',
+  textAlign: 'center',
+  fontWeight: 'bold',
+  fontSize: '1rem',
+  padding: '0 0 0 1.5rem',
+  color: '#7F56D9',
+  '@media screen and (minWidth: 481px)': {
+    color: '#7F56D9',
+    fontSize: '1rem',
+    textAlign: 'right',
+    padding: '0 0 0 1.5rem',
+  },
+  transition: '0.2s opacity',
+  '&:hover': {
+    color: '#7F56D9',
+  },
+};
+
+export const unactiveStyle = {
+  textDecoration: 'none',
+  textAlign: 'center',
+  fontWeight: 'bold',
+  fontSize: '1rem',
+  padding: '0 0 0 1.5rem',
+  '@media screen and (minWidth: 481px)': {
+    fontSize: '1rem',
+    textAlign: 'right',
+    padding: '0 0 0 1.5rem',
+  },
+  transition: '0.2s opacity',
+};

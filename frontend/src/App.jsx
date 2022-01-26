@@ -6,6 +6,7 @@ import { NavbarCustomDesktop, NavbarCustomTablet, NavbarCustomMobile } from './c
 import SearchContextProvider from './context/SearchContext';
 import About from './pages/About';
 import BookmarksPage from './pages/BookmarksPage';
+import FavoritesPage from './pages/FavouritesPage';
 import MainPage from './pages/MainPage';
 import Page404 from './pages/Page404';
 import PatternInfoPage from './pages/PatternInfoPage';
@@ -23,9 +24,10 @@ function App() {
           <Routes>
             <Route path="/" exact element={<MainPage />} />
             <Route path="/about" exact element={<About />} />
-            <Route path="/bookmarks" exact element={<BookmarksPage />} />
+            <Route path="/favorites" exact element={<FavoritesPage />} />
             <Route path="/patterns" exact element={<PatternsPage />} />
             <Route path="/pattern/:id/patlet" exact element={<PatternInfoPage />} />
+            <Route path="/saved" exact element={<BookmarksPage />} />
             <Route path="/search" exact element={<SearchPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>

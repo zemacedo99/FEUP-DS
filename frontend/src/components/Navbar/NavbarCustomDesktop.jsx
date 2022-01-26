@@ -2,11 +2,13 @@ import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, NavLink } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
+
 import {
-  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, NavbarLink, ColContainer,
+  NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, activeStyle,
+  unactiveStyle,
 } from './style';
 
 export default function NavbarCustomDesktop() {
@@ -18,7 +20,7 @@ export default function NavbarCustomDesktop() {
       navigate('/search');
     }
   };
-
+  
   return (
     <NavbarDesktop expand="lg">
       <NavbarNav>
@@ -32,9 +34,10 @@ export default function NavbarCustomDesktop() {
             <Col md="6">
               <NavbarButtons>
                 { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
-                <NavbarLink href="/about">About</NavbarLink>
-                <NavbarLink href="/patterns">Patterns</NavbarLink>
-                <NavbarLink href="/bookmarks">Bookmarks</NavbarLink>
+                <NavLink className="hovering" to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
+                <NavLink className="hovering" to="/patterns" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Patterns</NavLink>
+                <NavLink className="hovering" to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Favorites</NavLink>
+                <NavLink className="hovering" to="/saved" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Saved</NavLink>
               </NavbarButtons>
             </Col>
           </Row>

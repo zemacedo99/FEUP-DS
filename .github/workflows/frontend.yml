@@ -48,18 +48,18 @@ jobs:
       run: docker-compose up -d
     - name: Add environment variables with secrets
       run: |
-        docker exec ds-test_backend_1 export FIREBASE_API_KEY=${{secrets.FIREBASE_API_KEY}}
-        docker exec ds-test_backend_1 export FIREBASE_AUTH_DOMAIN=${{secrets.FIREBASE_AUTH_DOMAIN}}
-        docker exec ds-test_backend_1 export FIREBASE_STORAGE_BUCKET=${{secrets.FIREBASE_STORAGE_BUCKET}}
-        docker exec ds-test_backend_1 export FIREBASE_MESSAGING_SENDER_ID=${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
-        docker exec ds-test_backend_1 export FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
-        docker exec ds-test_backend_1 export FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
-        docker exec ds-test_backend_1 export FIREBASE_PROJECT_ID=${{secrets.FIREBASE_PROJECT_ID}}
-        docker exec ds-test_backend_1 export SENDER_EMAIL=${{secrets.SENDER_EMAIL}}
-        docker exec ds-test_backend_1 export SENDER_EMAIL_PASSWORD=${{secrets.SENDER_EMAIL_PASSWORD}}
-        docker exec ds-test_backend_1 export REVIEWS_DESTINATION_EMAIL=${{secrets.REVIEWS_DESTINATION_EMAIL}}
-        docker exec ds-test_backend_1 export ALGOLIA_APPLICATION_ID=${{secrets.ALGOLIA_APPLICATION_ID}}
-        docker exec ds-test_backend_1 export ALGOLIA_API_KEY=${{secrets.ALGOLIA_API_KEY}}
+        docker exec ds-test_backend_1 ENV FIREBASE_API_KEY=${{secrets.FIREBASE_API_KEY}}
+        docker exec ds-test_backend_1 ENV FIREBASE_AUTH_DOMAIN=${{secrets.FIREBASE_AUTH_DOMAIN}}
+        docker exec ds-test_backend_1 ENV FIREBASE_STORAGE_BUCKET=${{secrets.FIREBASE_STORAGE_BUCKET}}
+        docker exec ds-test_backend_1 ENV FIREBASE_MESSAGING_SENDER_ID=${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
+        docker exec ds-test_backend_1 ENV FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
+        docker exec ds-test_backend_1 ENV FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
+        docker exec ds-test_backend_1 ENV FIREBASE_PROJECT_ID=${{secrets.FIREBASE_PROJECT_ID}}
+        docker exec ds-test_backend_1 ENV SENDER_EMAIL=${{secrets.SENDER_EMAIL}}
+        docker exec ds-test_backend_1 ENV SENDER_EMAIL_PASSWORD=${{secrets.SENDER_EMAIL_PASSWORD}}
+        docker exec ds-test_backend_1 ENV REVIEWS_DESTINATION_EMAIL=${{secrets.REVIEWS_DESTINATION_EMAIL}}
+        docker exec ds-test_backend_1 ENV ALGOLIA_APPLICATION_ID=${{secrets.ALGOLIA_APPLICATION_ID}}
+        docker exec ds-test_backend_1 ENV ALGOLIA_API_KEY=${{secrets.ALGOLIA_API_KEY}}
     - name: Restart docker
       run: docker-compose stop && docker-compose up -d
     - name: Check running containers

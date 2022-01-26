@@ -3,8 +3,11 @@ import {
   Row, Col,
 } from 'react-bootstrap';
 import {
-  BiHome, BiSearch, BiListUl, BiBookmark,
+  BiHome, BiSearch, BiListUl,
 } from 'react-icons/bi';
+import {
+  BsBookmarkStar,
+} from 'react-icons/bs';
 
 import {
   NavbarMobile, NavbarContainer, NavbarLink, NavbarNav,
@@ -20,13 +23,13 @@ export default function NavbarCustomMobile() {
               <NavbarLink href="/"><BiHome /></NavbarLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/"><BiListUl /></NavbarLink>
+              <NavbarLink href="/patterns"><BiListUl /></NavbarLink>
             </Col>
             <Col xs="3">
               <NavbarLink href="/search"><BiSearch /></NavbarLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/bookmarks"><BiBookmark /></NavbarLink>
+              <NavbarLink href="/favorites"><BsBookmarkStar /></NavbarLink>
             </Col>
           </Row>
         </NavbarContainer>

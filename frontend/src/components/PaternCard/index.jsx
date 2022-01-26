@@ -27,7 +27,7 @@ export default function PatternCard({
         variant="top"
         src={src}
         style={{
-          objectFit: 'contain',
+          objectFit: 'cover',
           height: '10em',
           filter: blur ? 'blur(20px)' : 'none',
           transition: blur ? 'none' : 'filter 0.3s ease-out',

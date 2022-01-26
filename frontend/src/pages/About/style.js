@@ -8,6 +8,16 @@ export const Container = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  @media screen and (max-width: 480px) {
+    text-align: center;
+  }
+`;
+
 export const Text = styled.p`
   font-family: Inter;
   font-style: normal;

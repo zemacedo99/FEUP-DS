@@ -23,7 +23,7 @@ export default function IconInput({
   if (location.pathname !== '/search') {
     return (
       <MovingIconInputContainer>
-        <IconContainer onClick={handleFocus}>{icon}</IconContainer>
+        <IconContainer onClick={handleFocus} data-testid="search-icon">{icon}</IconContainer>
         <MovingInput
           className="form-control"
           value={value}
@@ -31,6 +31,7 @@ export default function IconInput({
           onKeyUp={onKeyUp}
           onChange={(e) => setValue(e.target.value)}
           ref={searchInput}
+          data-testid="search-input"
         />
       </MovingIconInputContainer>
     );
@@ -45,6 +46,7 @@ export default function IconInput({
           placeholder="Search here..."
           onKeyUp={onKeyUp}
           onChange={(e) => setValue(e.target.value)}
+          data-testid="search-input"
         />
       </IconInputContainer>
     );

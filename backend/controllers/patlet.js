@@ -22,6 +22,7 @@ async function getAllPatlets(req, res) {
           doc.data().solution,
           doc.data().stars,
           doc.data().title,
+          doc.data().link,
         );
         patletsArray.push(patlet);
       });
@@ -50,6 +51,7 @@ async function getPatlet(req, res) {
         doc.data().solution,
         doc.data().stars,
         doc.data().title,
+        doc.data().link,
       );
       res.send(patlet);
     }

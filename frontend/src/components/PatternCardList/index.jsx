@@ -10,11 +10,13 @@ export default function PatternCardList({
   patterns,
   setFavoriteIds,
   setBookmarkIds,
+  half,
+  className,
 }) {
   return (
-    <CardRow>
+    <CardRow className={className}>
       {patterns.map((pattern) => (
-        <Col xs={6} md={4} lg={3} key={pattern.id} className="mt-3 mb-3">
+        <Col xs={half ? 12 : 6} md={half ? 12 : 4} lg={half ? 6 : 3} key={pattern.id} className="mt-3 mb-3">
           <PatternCard
             id={pattern.id}
             title={pattern.title}
@@ -32,4 +34,11 @@ PatternCardList.propTypes = {
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
   setFavoriteIds: PropTypes.func.isRequired,
   setBookmarkIds: PropTypes.func.isRequired,
+  half: PropTypes.bool,
+  className: PropTypes.string,
+};
+
+PatternCardList.defaultProps = {
+  half: false,
+  className: '',
 };

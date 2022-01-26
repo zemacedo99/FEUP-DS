@@ -70,7 +70,7 @@ jobs:
       run: sleep 30
 
     - name: Run react test
-      run: docker exec ds-test_frontend_1 npm run test --if-present
+      run: docker exec ds-meic5_frontend_1 npm run test --if-present
 
     - name: Install TestCafe
       run: npm install -g testcafe

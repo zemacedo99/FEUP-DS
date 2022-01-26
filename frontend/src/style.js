@@ -19,5 +19,5 @@ export const Layout = styled.div`
 
 export const PageTitle = styled.h1`
   font-weight: bold;
-  font-size: 72px;
+  font-size: 36px;
 `;

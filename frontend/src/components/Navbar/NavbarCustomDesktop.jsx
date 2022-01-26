@@ -12,6 +12,7 @@ import {
 
 export default function NavbarCustomDesktop() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onKeyUp = (e) => {
     if (e.key === 'Enter') {
@@ -24,17 +25,12 @@ export default function NavbarCustomDesktop() {
       <NavbarNav>
         <NavbarContainer>
           <Row>
-            <Col md="4">
+            <Col md="6">
               <ColContainer>
-                <Navbar.Brand href="/"><img width="70px" height="auto" src="/logo.ico" alt="logo" /></Navbar.Brand>
+                <Navbar.Brand href="/"><img width="100px" height="auto" src="/logo.ico" alt="logo" /></Navbar.Brand>
               </ColContainer>
             </Col>
-            <Col md="3">
-              <ColContainer>
-                <SearchBar onKeyUp={onKeyUp} />
-              </ColContainer>
-            </Col>
-            <Col md="5">
+            <Col md="6">
               <NavbarButtons>
                 <NavLink className="hovering" to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
                 <NavLink className="hovering" to="/" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Patterns</NavLink>

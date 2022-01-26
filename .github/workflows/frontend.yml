@@ -1,6 +1,20 @@
 name: Frontend
 on: [pull_request]
 
+env:
+  FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
+  FIREBASE_AUTH_DOMAIN: ${{secrets.FIREBASE_AUTH_DOMAIN}}
+  FIREBASE_STORAGE_BUCKET: ${{secrets.FIREBASE_STORAGE_BUCKET}}
+  FIREBASE_MESSAGING_SENDER_ID: ${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
+  FIREBASE_APP_ID: ${{secrets.FIREBASE_APP_ID}}
+  FIREBASE_MEASUREMENT_ID: ${{secrets.FIREBASE_MEASUREMENT_ID}}
+  FIREBASE_PROJECT_ID: ${{secrets.FIREBASE_PROJECT_ID}}
+  SENDER_EMAIL: ${{secrets.SENDER_EMAIL}}
+  SENDER_EMAIL_PASSWORD: ${{secrets.SENDER_EMAIL_PASSWORD}}
+  REVIEWS_DESTINATION_EMAIL: ${{secrets.REVIEWS_DESTINATION_EMAIL}}
+  ALGOLIA_APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
+  ALGOLIA_API_KEY: ${{secrets.ALGOLIA_API_KEY}}
+
 jobs:
   build-and-lint:
     name: Build and Lint
@@ -42,33 +56,24 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: Check current directory
       run: pwd & ls -la & ls -la backend
+
     - name: Build the docker-compose stack
-      run: docker-compose up -d
-    - name: Add environment variables with secrets
-      run: |
-        docker exec ds-test_backend_1 env FIREBASE_API_KEY=${{secrets.FIREBASE_API_KEY}}
-        docker exec ds-test_backend_1 env FIREBASE_AUTH_DOMAIN=${{secrets.FIREBASE_AUTH_DOMAIN}}
-        docker exec ds-test_backend_1 env FIREBASE_STORAGE_BUCKET=${{secrets.FIREBASE_STORAGE_BUCKET}}
-        docker exec ds-test_backend_1 env FIREBASE_MESSAGING_SENDER_ID=${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
-        docker exec ds-test_backend_1 env FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
-        docker exec ds-test_backend_1 env FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
-        docker exec ds-test_backend_1 env FIREBASE_PROJECT_ID=${{secrets.FIREBASE_PROJECT_ID}}
-        docker exec ds-test_backend_1 env SENDER_EMAIL=${{secrets.SENDER_EMAIL}}
-        docker exec ds-test_backend_1 env SENDER_EMAIL_PASSWORD=${{secrets.SENDER_EMAIL_PASSWORD}}
-        docker exec ds-test_backend_1 env REVIEWS_DESTINATION_EMAIL=${{secrets.REVIEWS_DESTINATION_EMAIL}}
-        docker exec ds-test_backend_1 env ALGOLIA_APPLICATION_ID=${{secrets.ALGOLIA_APPLICATION_ID}}
-        docker exec ds-test_backend_1 env ALGOLIA_API_KEY=${{secrets.ALGOLIA_API_KEY}}
-    - name: Restart docker
-      run: docker-compose stop && docker-compose up -d
+      run: docker-compose -f docker-compose_workflows.yml up -d
+
     - name: Check running containers
       run: docker ps -a
+
     - name: Wait for frontend to start
       run: sleep 30
+
     - name: Run react test
       run: docker exec ds-test_frontend_1 npm run test --if-present
+
     - name: Install TestCafe
       run: npm install -g testcafe
+
     - name: Run ui tests with TestCafe
       run: cd frontend && npm run test-ui

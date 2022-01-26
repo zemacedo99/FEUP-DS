@@ -68,7 +68,5 @@ jobs:
       run: docker ps -a
     - name: Wait for frontend to start
       run: sleep 30
-    - name: Install dependencies
-      run: cd frontend && npm install -g testcafe react-scripts && npm install
     - name: Run test suite
-      run: npm run test --if-present
+      run: docker exec ds-meic5_frontend_1 npm run test --if-present

@@ -39,12 +39,13 @@ class Favorite extends React.Component {
 
   render() {
     const { favorites } = this.state;
+    const { className } = this.props;
 
     return (
       <span role="button" onClick={() => { this.updateFavorite(); }} onKeyPress={() => {}} tabIndex="0">
         { favorites[this.patlet_id] === true
-          ? <FillStar title="Unfavorite" />
-          : <OutlineStar title="Favorite" /> }
+          ? <FillStar className={className} title="Unfavorite" />
+          : <OutlineStar className={className} title="Favorite" /> }
       </span>
     );
   }
@@ -53,6 +54,11 @@ class Favorite extends React.Component {
 Favorite.propTypes = {
   patlet_id: PropTypes.number.isRequired,
   setFavoriteIds: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
+
+Favorite.defaultProps = {
+  className: '',
 };
 
 export { Favorite };

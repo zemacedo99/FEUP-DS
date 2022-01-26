@@ -20,8 +20,8 @@ export default function PatternInfoPage() {
   const list = [];
   const list2 = [];
   let index = 0;
-  const [relatedPatternsPO, setRelatedPatternsPO] = useState([]);
-  const [relatedPatternsVS, setRelatedPatternsVS] = useState([]);
+  const [relatedPatternsPO, setRelatedPatternsPO] = useState(null);
+  const [relatedPatternsVS, setRelatedPatternsVS] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -37,7 +37,7 @@ export default function PatternInfoPage() {
             index += 1;
             setRelatedPatternsPO([...list]);
           })));
-      }
+      } else setRelatedPatternsPO([]);
       if (res.data.graphVs !== undefined) {
         index = 0;
         res.data.graphVs.map((patlet) => (
@@ -46,7 +46,7 @@ export default function PatternInfoPage() {
             index += 1;
             setRelatedPatternsVS([...list2]);
           })));
-      }
+      } else setRelatedPatternsVS([]);
       setLoading(false);
     }).catch((error) => {
       setSuccessful(false);

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Nav } from 'react-bootstrap';
+import {
+  Row, Col, Nav, Spinner,
+} from 'react-bootstrap';
 import { BsLink45Deg, BsAsterisk } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
@@ -39,6 +41,7 @@ export default function PatternInfo({
   }, []);
 
   useEffect(() => {
+    if (relatedPatternsVS === null || relatedPatternsPO === null) return;
     setGraph(relatedPatternsVS.length > 0 ? 'VS' : 'PO');
   }, [relatedPatternsPO, relatedPatternsVS]);
 
@@ -105,7 +108,14 @@ export default function PatternInfo({
           {solution}
         </PatParagraph>
         <Divider variant="fullWidth" />
-        {(relatedPatternsPO.length > 0 || relatedPatternsVS.length > 0) && (
+        {(!relatedPatternsPO || !relatedPatternsVS) ? (
+          <Row className="mt-5 d-flex justify-content-center align-items-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Row>
+        )
+          : (relatedPatternsPO.length > 0 || relatedPatternsVS.length > 0) && (
           <>
             <PatSection className="mt-5">
               Read Next
@@ -132,7 +142,7 @@ export default function PatternInfo({
               )}
 
           </>
-        )}
+          )}
       </Row>
     </>
   );
@@ -146,7 +156,12 @@ PatternInfo.propTypes = {
   image: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  relatedPatternsPO: PropTypes.arrayOf(PropTypes.object).isRequired,
-  relatedPatternsVS: PropTypes.arrayOf(PropTypes.object).isRequired,
+  relatedPatternsPO: PropTypes.arrayOf(PropTypes.object),
+  relatedPatternsVS: PropTypes.arrayOf(PropTypes.object),
   link: PropTypes.string.isRequired,
+};
+
+PatternInfo.defaultProps = {
+  relatedPatternsPO: null,
+  relatedPatternsVS: null,
 };

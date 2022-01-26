@@ -88,7 +88,7 @@ export default function PatternInfo({
           </ButtonsSection>
         </Row>
       </Row>
-      <Row>
+      <Row style={{ marginBottom: '8em' }}>
         <div className="d-flex justify-content-center">
           <img
             src={src}
@@ -104,10 +104,9 @@ export default function PatternInfo({
         <br />
         <PatParagraph><strong>Therefore:</strong></PatParagraph>
         <br />
-        <PatParagraph className="mb-5">
+        <PatParagraph>
           {solution}
         </PatParagraph>
-        <Divider variant="fullWidth" />
         {(!relatedPatternsPO || !relatedPatternsVS) ? (
           <Row className="mt-5 d-flex justify-content-center align-items-center">
             <Spinner animation="border" role="status">
@@ -117,7 +116,8 @@ export default function PatternInfo({
         )
           : (relatedPatternsPO.length > 0 || relatedPatternsVS.length > 0) && (
           <>
-            <PatSection className="mt-5">
+            <Divider variant="fullWidth" className="my-4" />
+            <PatSection>
               Read Next
             </PatSection>
             {deviceSize < 768
@@ -127,7 +127,7 @@ export default function PatternInfo({
                     {relatedPatternsVS.length > 0 && <Nav.Item><NavLink eventKey="VS">Value Stream</NavLink></Nav.Item>}
                     {relatedPatternsPO.length > 0 && <Nav.Item><NavLink eventKey="PO">Product Org.</NavLink></Nav.Item>}
                   </Nav>
-                  <div style={{ marginBottom: '8em' }}>
+                  <div>
                     <RelatedCardList className="my-component" patterns={getPatterns()} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
                   </div>
                 </>

@@ -12,4 +12,6 @@ export const Text = styled.p`
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
 `;

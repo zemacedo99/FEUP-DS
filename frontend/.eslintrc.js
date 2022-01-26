@@ -2,10 +2,12 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:testcafe/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -17,6 +19,7 @@ module.exports = {
   plugins: [
     'react',
     'import-helpers',
+    'testcafe',
   ],
   rules: {
     'import/prefer-default-export': 'off',

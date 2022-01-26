@@ -2,8 +2,8 @@ import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
-import { BsListUl, BsBookmark } from 'react-icons/bs';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { BsListUl, BsBookmark, BsStar } from 'react-icons/bs';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
@@ -34,7 +34,8 @@ export default function NavbarCustomDesktop() {
               <NavbarButtons>
                 { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
                 <NavbarLink href="/"><BsListUl /></NavbarLink>
-                <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
+                <NavbarLink href="/favorites"><BsStar /></NavbarLink>
+                <NavbarLink href="/saved"><BsBookmark /></NavbarLink>
               </NavbarButtons>
             </Col>
           </Row>

@@ -18,6 +18,9 @@ SubTitleText.defaultProps = {
 };
 
 SubTitleText.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]),
   title: PropTypes.string.isRequired,
 };

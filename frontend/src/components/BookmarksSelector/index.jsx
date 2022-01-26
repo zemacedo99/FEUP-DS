@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -10,13 +11,17 @@ import {
 } from './style';
 
 export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
+  const navigate = useNavigate();
+
   return (
     <ButtonWrapper>
       <LeftButtonBackground>
         <BookmarksButton
           role="button"
-          onClick={() => { setFavoriteList(true); }}
-          onKeyPress={() => { }}
+          onClick={() => {
+            navigate('/favorites');
+            setFavoriteList(true);
+          }}
           tabIndex="0"
           selected={isFavoriteList}
         >
@@ -26,12 +31,14 @@ export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
       <RightButtonBackground>
         <BookmarksButton
           role="button"
-          onClick={() => { setFavoriteList(false); }}
-          onKeyPress={() => { }}
+          onClick={() => {
+            navigate('/saved');
+            setFavoriteList(false);
+          }}
           tabIndex="0"
           selected={!isFavoriteList}
         >
-          Bookmarks
+          Saved
         </BookmarksButton>
       </RightButtonBackground>
     </ButtonWrapper>

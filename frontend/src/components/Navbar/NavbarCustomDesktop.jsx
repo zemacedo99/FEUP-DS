@@ -2,24 +2,14 @@ import React from 'react';
 import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import SearchBar from '../SearchBar';
 import {
   NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, activeStyle,
   unactiveStyle,
 } from './style';
 
 export default function NavbarCustomDesktop() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const onKeyUp = (e) => {
-    if (e.key === 'Enter') {
-      navigate('/search');
-    }
-  };
-
   return (
     <NavbarDesktop expand="lg">
       <NavbarNav>

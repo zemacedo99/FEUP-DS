@@ -3,7 +3,7 @@ import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
 import { BsListUl, BsBookmark, BsStar } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {

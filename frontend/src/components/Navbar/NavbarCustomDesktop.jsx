@@ -35,7 +35,7 @@ export default function NavbarCustomDesktop() {
                 { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
                 <NavLink className="hovering" data-testid="about_button" to="/about" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> About</NavLink>
                 <NavLink className="hovering" data-testid="patterns_button" to="/patterns" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Patterns</NavLink>
-                <NavLink className="hovering" data-testid="bookmarks_button"to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Favorites</NavLink>
+                <NavLink className="hovering" data-testid="bookmarks_button" to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Favorites</NavLink>
                 <NavLink className="hovering" to="/saved" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}> Saved</NavLink>
               </NavbarButtons>
             </Col>

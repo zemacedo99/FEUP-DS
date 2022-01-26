@@ -14,7 +14,7 @@ test('Click on bookmarks', async (t) => {
   await t
     .click(Selector('[data-testid=bookmarks_button]'))
     .expect(Selector('h1').innerText)
-    .eql('Bookmarks');
+    .eql('Favorites');
 });
 
 test('Click on first pattern', async (t) => {

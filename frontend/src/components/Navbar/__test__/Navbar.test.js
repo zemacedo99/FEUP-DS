@@ -46,9 +46,9 @@ it('Renders NavbarDesktop with relevant elements', () => {
   const navbar = getByTestId('navbar_desktop');
   expect(navbar).toHaveTextContent('About');
   expect(navbar).toHaveTextContent('Patterns');
-  expect(navbar).toHaveTextContent('Bookmarks');
-  // expect(navbar).toHaveTextContent("Favourites");
-  expect(getAllByRole('link')).toHaveLength(4);
+  expect(navbar).toHaveTextContent('Saved');
+  expect(navbar).toHaveTextContent("Favorites");
+  expect(getAllByRole('link')).toHaveLength(5);
 });
 
 it('Renders NavbarTablet with relevant elements', () => {
@@ -60,9 +60,9 @@ it('Renders NavbarTablet with relevant elements', () => {
   const navbar = getByTestId('navbar_tablet');
   expect(navbar).not.toHaveTextContent('About');
   expect(navbar).not.toHaveTextContent('Patterns');
-  expect(navbar).not.toHaveTextContent('Bookmarks');
-  // expect(navbar).not.toHaveTextContent("Favourites");
-  expect(getAllByRole('link')).toHaveLength(3);
+  expect(navbar).not.toHaveTextContent('Saved');
+  expect(navbar).not.toHaveTextContent("Favorites");
+  expect(getAllByRole('link')).toHaveLength(4);
 });
 
 it('Renders NavbarMobile with relevant elements', () => {
@@ -74,7 +74,7 @@ it('Renders NavbarMobile with relevant elements', () => {
   const navbar = getByTestId('navbar_mobile');
   expect(navbar).not.toHaveTextContent('About');
   expect(navbar).not.toHaveTextContent('Patterns');
-  expect(navbar).not.toHaveTextContent('Bookmarks');
-  // expect(navbar).toHaveTextContent("Favourites");
+  expect(navbar).not.toHaveTextContent('Saved');
+  expect(navbar).not.toHaveTextContent("Favorites");
   expect(getAllByRole('link')).toHaveLength(4);
 });

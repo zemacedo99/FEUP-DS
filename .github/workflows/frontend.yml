@@ -69,6 +69,6 @@ jobs:
     - name: Wait for frontend to start
       run: sleep 30
     - name: Install dependencies
-      run: npm install -g testcafe react-scripts
+      run: cd frontend && npm install -g testcafe react-scripts && npm install
     - name: Run test suite
-      run: cd frontend && npm run test --if-present
+      run: npm run test --if-present

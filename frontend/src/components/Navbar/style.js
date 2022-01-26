@@ -20,6 +20,7 @@ export const NavbarMobile = styled(Navbar)`
     display: flex;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0px 0px 42px -23px rgba(0, 0, 0, 0.35);

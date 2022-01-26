@@ -6,7 +6,7 @@ import {
 import styled from 'styled-components';
 
 export const FillStar = styled(AiFillStar)`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   font-size: 30px;
   &:hover {
@@ -16,7 +16,7 @@ export const FillStar = styled(AiFillStar)`
 `;
 
 export const OutlineStar = styled(AiOutlineStar)`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   font-size: 30px;
   &:hover {

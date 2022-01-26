@@ -1,5 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -10,8 +9,8 @@ import {
   RightButtonBackground,
 } from './style';
 
-export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
-  const navigate = useNavigate();
+export default function RowSelector({ onChange, lhs, rhs }) {
+  const [lhsSelected, setLhsSelected] = useState(true);
 
   return (
     <ButtonWrapper>
@@ -19,33 +18,36 @@ export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
         <BookmarksButton
           role="button"
           onClick={() => {
-            navigate('/favorites');
-            setFavoriteList(true);
+            setLhsSelected(true);
+            onChange('lhs');
           }}
+          onKeyPress={() => { }}
           tabIndex="0"
-          selected={isFavoriteList}
+          selected={lhsSelected}
         >
-          Favorites
+          {lhs}
         </BookmarksButton>
       </LeftButtonBackground>
       <RightButtonBackground>
         <BookmarksButton
           role="button"
           onClick={() => {
-            navigate('/saved');
-            setFavoriteList(false);
+            setLhsSelected(false);
+            onChange('rhs');
           }}
+          onKeyPress={() => { }}
           tabIndex="0"
-          selected={!isFavoriteList}
+          selected={!lhsSelected}
         >
-          Saved
+          {rhs}
         </BookmarksButton>
       </RightButtonBackground>
     </ButtonWrapper>
   );
 }
 
-BookmarksSelector.propTypes = {
-  isFavoriteList: PropTypes.bool.isRequired,
-  setFavoriteList: PropTypes.func.isRequired,
+RowSelector.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  lhs: PropTypes.string.isRequired,
+  rhs: PropTypes.string.isRequired,
 };

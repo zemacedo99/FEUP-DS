@@ -9,16 +9,16 @@ import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
 import { Layout, PageTitle } from '../../style';
 
-export default function BookmarksPage() {
+export default function FavoritesPage() {
   const [loading, setLoading] = useState(false);
   const [patternsList, setPatterns] = useState([]);
-  const [isFavoriteList, setFavoriteList] = useState(false);
+  const [isFavoriteList, setFavoriteList] = useState(true);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
   useEffect(() => {
     setLoading(true);
-    document.title = 'Saved';
+    document.title = 'Favorites';
     ReactGA.pageview('/bookmarks/favourites');
 
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
@@ -56,7 +56,7 @@ export default function BookmarksPage() {
       <Layout>
         <Row className="mb-4">
           <Col md="8">
-            <PageTitle> Saved </PageTitle>
+            <PageTitle> Favorites </PageTitle>
           </Col>
           <BookmarksSelector
             md="4"
@@ -76,7 +76,7 @@ export default function BookmarksPage() {
     <Layout>
       <Row className="mb-4">
         <Col md="8">
-          <PageTitle> Saved </PageTitle>
+          <PageTitle> Favorites </PageTitle>
         </Col>
         <BookmarksSelector
           md="4"
@@ -95,7 +95,7 @@ export default function BookmarksPage() {
         )
         : (
           <p>
-            You have no saved patterns.
+            You have no favorite patterns.
           </p>
         )}
     </Layout>

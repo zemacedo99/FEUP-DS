@@ -40,6 +40,8 @@ Add the following settings to your `.vscode/settings.json` file. These settings 
 
 ### 2.1. Directories
 
+#### Frontend
+
 ```tree
 src
 ├── App.jsx
@@ -48,13 +50,15 @@ src
 │   └── <component_name>
 │       ├── index.jsx
 │       └── style.js
-├── services
+│   └── ...
+├── assets
 │   └── ...
 └── pages
-│   └── Example.jsx
-├── util
+│   └── <page_name>
+│       ├── index.jsx
+│       └── style.js
 │   └── ...
-├── store
+├── context
 │   └── ...
 ├── style
     └── GlobalStyle.js

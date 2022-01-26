@@ -7,7 +7,7 @@ import axios from 'axios';
 import PatternCardList from '../../components/PatternCardList';
 import SearchBar from '../../components/SearchBar';
 import { SearchContext } from '../../context/SearchContext';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 import { SearchBarContainer } from './style';
 
 export default function SearchPage() {

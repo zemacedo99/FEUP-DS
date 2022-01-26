@@ -65,15 +65,3 @@ export const RightButtonBackground = styled.div`
         text-align: center;
     }
 `;
-
-// F9FAFB
-
-// @media screen and (max-width: 480px) {
-//     display: none;
-// }
-// @media screen and (min-width: 481px) and (max-width: 1280px) {
-//     display: flex;
-// }
-// @media screen and (min-width: 1281px) {
-//     display: none;
-// }

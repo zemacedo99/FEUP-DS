@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
 
 import App from './App';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from './style/GlobalStyle';
 
 ReactGA.initialize('UA-213439470-1');
 

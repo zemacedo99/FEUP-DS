@@ -6,7 +6,7 @@ import {
 
 import PropTypes from 'prop-types';
 
-import { PageTitle } from '../../style';
+import { PageTitle } from '../../style/GlobalStyle';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {

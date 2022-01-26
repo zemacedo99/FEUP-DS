@@ -6,7 +6,7 @@ import ReactGA from 'react-ga';
 
 import ContributeModal from '../../components/ContributePopup/index';
 import SubTitleText from '../../components/SubTitleText/index';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 import { Text, ContributeButton } from './style';
 
 export default function About() {

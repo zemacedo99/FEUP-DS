@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 
 export default function BookmarksPage() {
   const [patternsList, setPatterns] = useState([]);

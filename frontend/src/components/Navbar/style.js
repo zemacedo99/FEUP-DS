@@ -2,7 +2,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import styled from 'styled-components';
 
-import { horizontalMarginMediaQueries } from '../../style';
+import { horizontalMarginMediaQueries } from '../../style/GlobalStyle';
 
 export const NavbarDesktop = styled(Navbar)`
   @media screen and (max-width: 1280px) {

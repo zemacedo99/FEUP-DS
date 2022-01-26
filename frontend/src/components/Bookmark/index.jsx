@@ -39,12 +39,13 @@ class Bookmark extends React.Component {
 
   render() {
     const { bookmarks } = this.state;
+    const { className } = this.props;
 
     return (
       <span role="button" onClick={() => { this.updateBookmark(); }} onKeyPress={() => {}} tabIndex="0">
         { bookmarks[this.patlet_id] === true
-          ? <FillBookmarkCircle title="Unsave" />
-          : <OutlineBookmarkCircle title="Save to read later" /> }
+          ? <FillBookmarkCircle className={className} title="Unsave" />
+          : <OutlineBookmarkCircle className={className} title="Save to read later" /> }
       </span>
     );
   }
@@ -53,6 +54,11 @@ class Bookmark extends React.Component {
 Bookmark.propTypes = {
   patlet_id: PropTypes.number.isRequired,
   setBookmarkIds: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
+
+Bookmark.defaultProps = {
+  className: '',
 };
 
 export { Bookmark };

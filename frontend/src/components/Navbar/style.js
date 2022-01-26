@@ -9,7 +9,6 @@ export const NavbarDesktop = styled(Navbar)`
     display: none;
   }
   margin-bottom: 3rem;
-  background-color: white;
   font-family: Inter;
   font-size: 20px;
   a.hovering:hover {
@@ -20,10 +19,13 @@ export const NavbarDesktop = styled(Navbar)`
 `;
 
 export const NavbarMobile = styled(Navbar)`
+  background-color: white;
+
   @media screen and (max-width: 480px) {
     display: flex;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0px 0px 42px -23px rgba(0, 0, 0, 0.35);
@@ -31,7 +33,6 @@ export const NavbarMobile = styled(Navbar)`
   @media screen and (min-width: 481px) {
     display: none;
   }
-  background-color: white;
   font-family: Inter;
   font-size: 20px;
 `;

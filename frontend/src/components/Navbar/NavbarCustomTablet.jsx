@@ -32,9 +32,8 @@ export default function NavbarCustomDesktop() {
             </Col>
             <Col xs="8" md="6">
               <NavbarButtons>
-                <NavbarLink href="/patterns"><BsListUl /></NavbarLink>
                 { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
-                <NavbarLink href="/"><BsListUl /></NavbarLink>
+                <NavbarLink href="/patterns"><BsListUl /></NavbarLink>
                 <NavbarLink href="/bookmarks"><BsBookmark /></NavbarLink>
               </NavbarButtons>
             </Col>

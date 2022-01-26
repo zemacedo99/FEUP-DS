@@ -18,7 +18,7 @@ afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 function MockPatternReview() {
   return (
     <Router>
-      <PatternReview patletId="0" />
+      <PatternReview patletId={0} deviceSize={0} />
     </Router>
   );
 }
@@ -48,6 +48,6 @@ it('Renders ContributePopup with relevant elements', async () => {
 
     expect(radios).toHaveLength(6); // 5 stars + empty
     expect(getAllByRole('textbox')).toHaveLength(1);
-    expect(getAllByRole('button')).toHaveLength(1);
+    expect(getAllByRole('button')).toHaveLength(2);
   });
 });

@@ -5,7 +5,6 @@ import {
 import { useLocation, useNavigate, NavLink } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
-
 import {
   NavbarDesktop, NavbarButtons, NavbarNav, NavbarContainer, ColContainer, activeStyle,
   unactiveStyle,
@@ -20,7 +19,7 @@ export default function NavbarCustomDesktop() {
       navigate('/search');
     }
   };
-  
+
   return (
     <NavbarDesktop expand="lg">
       <NavbarNav>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useModal } from 'react-hooks-use-modal';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import { AiOutlineCheckSquare } from 'react-icons/ai';
 
@@ -12,22 +11,15 @@ import SubTitleText from '../SubTitleText';
 import { FeedbackPopup } from './style';
 
 export default function PatternReview({ patletId }) {
-  // const [Modal, open, close] = useModal('root', {
-  //   preventScroll: true,
-  //   closeOnOverlayClick: false,
-  // });
-
   const [rating, setRating] = useState(20); // initial rating value
   // Catch Rating value
   const handleRating = (rate) => {
-    // document.querySelector('#rating').value = parseInt(rate, 10) / 20;
     setRating(rate);
   };
 
   const addReview = () => {
     const data = {
       rating: parseInt(rating, 10),
-      // rating: parseInt(document.querySelector('#rating').value, 10),
       review: document.querySelector('#review').value,
     };
     axios.post(`${process.env.REACT_APP_URL}/patterns/${patletId}/review`, data);
@@ -53,7 +45,6 @@ export default function PatternReview({ patletId }) {
             />
             <form>
               <div className="form-group d-flex flex-column">
-                {/* <input type="number" name="rating" id="rating" defaultValue={1} hidden /> */}
                 <br />
                 <textarea className="form-control" id="review" rows="3" style={{ resize: 'none' }} />
                 <br />

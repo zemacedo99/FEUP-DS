@@ -19,7 +19,6 @@ async function requestContribute(req, res) {
   try {
     const content = `${name} (${email}) wants to contribute to the project: ${reason}`;
 
-    console.log(content);
     sendEmail(`${name} wants to contribute`, content);
 
     return res.status(201).json({ message: 'Request sent' });

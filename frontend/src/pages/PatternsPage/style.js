@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 import PatternCardList from '../../components/PatternCardList';
 
-export const SubTitle = styled.h1`
-  font-size: 30px;
-`;
-
 export const CustomPatternCardList = styled(PatternCardList)`
   @media screen and (min-width: 576px) {
     overflow-y: scroll;

@@ -5,6 +5,7 @@ const logger = require('morgan');
 
 require('dotenv').config(); // this needs to be before the next two requires
 
+const contributeRoute = require('./routes/contribute');
 const patternRoute = require('./routes/patlet');
 const searchRoute = require('./routes/search');
 
@@ -25,9 +26,9 @@ function createServer() {
    * - import route from routes directory
    * - declare the route
    */
+  app.use('/contribute', contributeRoute);
   app.use('/patterns', patternRoute);
   app.use('/patlets', patternRoute);
-
   app.use('/search', searchRoute);
 
   return app.listen(port);

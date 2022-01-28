@@ -47,7 +47,7 @@ it('Renders NavbarDesktop with relevant elements', () => {
   expect(navbar).toHaveTextContent('About');
   expect(navbar).toHaveTextContent('Patterns');
   expect(navbar).toHaveTextContent('Saved');
-  expect(navbar).toHaveTextContent("Favorites");
+  expect(navbar).toHaveTextContent('Favorites');
   expect(getAllByRole('link')).toHaveLength(5);
 });
 
@@ -61,7 +61,7 @@ it('Renders NavbarTablet with relevant elements', () => {
   expect(navbar).not.toHaveTextContent('About');
   expect(navbar).not.toHaveTextContent('Patterns');
   expect(navbar).not.toHaveTextContent('Saved');
-  expect(navbar).not.toHaveTextContent("Favorites");
+  expect(navbar).not.toHaveTextContent('Favorites');
   expect(getAllByRole('link')).toHaveLength(4);
 });
 
@@ -75,6 +75,6 @@ it('Renders NavbarMobile with relevant elements', () => {
   expect(navbar).not.toHaveTextContent('About');
   expect(navbar).not.toHaveTextContent('Patterns');
   expect(navbar).not.toHaveTextContent('Saved');
-  expect(navbar).not.toHaveTextContent("Favorites");
+  expect(navbar).not.toHaveTextContent('Favorites');
   expect(getAllByRole('link')).toHaveLength(4);
 });

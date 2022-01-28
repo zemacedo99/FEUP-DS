@@ -12,7 +12,7 @@ afterEach(cleanup); // Cleanup so there aren't multiple renders at the same time
 function MockContributeModal() {
   return (
     <Router>
-      <ContributeModal show onHide={() => {}} />
+      <ContributeModal show onHide={() => {}} setShow={() => {}} />
     </Router>
   );
 }

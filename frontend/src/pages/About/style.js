@@ -23,4 +23,15 @@ export const Text = styled.p`
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+
+  a {
+    color: #7F56D9;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #7F56D9;  
+  }
 `;

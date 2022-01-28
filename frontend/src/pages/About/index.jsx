@@ -27,15 +27,6 @@ export default function About() {
         <Row className="g-0 justify-content-between">
           <Col xs={12} md={6} className="pe-md-5">
             <PageTitle className="mb-4">About</PageTitle>
-            <Text>
-              This app is inspired in a book about Scrum - a simple but powerful
-              way for people to work together.{' '}
-              <i>A Scrum book: The Spirit of the Game</i> is available{' '}
-              <a href="https://www.amazon.com/Scrum-Book-Spirit-Game/dp/1680506714">
-                here
-              </a>
-              .
-            </Text>
             <SubTitleText title="Scrum">
               Scrum is about helping small teams create, build, and evolve a
               product, one slice at a time. Scrum is as much about people as it
@@ -77,45 +68,78 @@ export default function About() {
               <img width="150px" height="auto" src="/logo.ico" alt="logo" />
             </Title>
             <Text>
-              Credits to the authors of the book{' '}
-              <i>A Scrum book: The Spirit of the Game</i>, in which this app was
-              inspired, are in order.
-              <br />
-              <b>Book authors:</b>
-              <br />
-              Jeff Sutherland, James O. Coplien, Lachlan Heasman, Mark den
-              Hollander, Cesário Ramos <br />
-              and <b>The Scrum Patterns Group</b>:
-              <br />
-              Ademar Aguiar, Esther Vervloed, Neil Harrison, Kiro Harada, Joseph
-              Yoder, June Kim, Alan O&apos;Callaghan, Mike Beedle, Gertrud
-              Bjørnvig, Dina Friis, Ville Reijonen, Gabrielle Benefield, Jens
-              Østergaard, Veli-Pekka Eloranta, Evan Leonard.
+              This app is inspired in a book about
+              Scrum - a simple but powerful way for people to work together. {' '}
+              <i>A Scrum book: The Spirit of the Game</i> is available {' '}
+              <a href="https://www.amazon.com/Scrum-Book-Spirit-Game/dp/1680506714">here</a>.<br />
+              Credits to the authors of the book <i>A Scrum book: The Spirit of the Game</i>,
+              in which this app was inspired, are in order.<br /><br />
+              <b>Book authors</b>:{' '}
+              Jeff Sutherland,
+              James O. Coplien,
+              Lachlan Heasman,
+              Mark den Hollander,
+              Cesário Ramos.<br />
+              <b>The Scrum Patterns Group</b>:{' '}
+              Ademar Aguiar,
+              Esther Vervloed,
+              Neil Harrison,
+              Kiro Harada,
+              Joseph Yoder,
+              June Kim,
+              Alan O&apos;Callaghan,
+              Mike Beedle,
+              Gertrud Bjørnvig,
+              Dina Friis,
+              Ville Reijonen,
+              Gabrielle Benefield,
+              Jens Østergaard,
+              Veli-Pekka Eloranta,
+              Evan Leonard.
             </Text>
-            <SubTitleText title="About us">
-              This app was developed in context of Large Scale Software
-              Development, a discipline teached in the Master in Informatics and
-              Computer Engineering of the Faculty of Engineering Univercity of
-              Porto by Ademar Aguiar and Hugo Sereno Ferreira.
-              <br />
-              <b>The developers of the app:</b>
-              <br />
-              Ana Teresa Cruz, André Nascimento, António Bezerra, Breno Accioly,
-              Catarina Fernandes, Daniel Gonçalves, Diogo Nunes, Gonçalo Alves,
-              Inês Quarteu, Inês Silva, João Castro Pinto, João Romão, João
-              Gonçalves, José Macedo, José Luís Sousa Tavares, André Assunção,
-              Márcio Duarte, Mariana Truta, Mariana Ramos, Nuno Resende, Pedro
-              Seixas, Rafael Cristino, Ricardo Nunes, Ricardo Carvalho, Rita
-              Peixoto, Tiago Alves, Xavier Pisco
-            </SubTitleText>
-            <Button className="contribute-button" onClick={openModal}>
-              I want to contribute
-            </Button>
+            <Text className="mt-4">
+              Have an idea for a pattern? Contribute to the book!{' '}
+            </Text>
+            <Button className="contribute-button md-4" onClick={openModal}>I want to contribute</Button>
             <ContributeModal
               show={showModal}
               setShow={setShowModal}
               onHide={() => setShowModal(false)}
             />
+            <SubTitleText title="The Team">
+              This app was developed in context of Large Scale Software Development,
+              a discipline teached in the Master in Informatics and Computer Engineering of
+              the Faculty of Engineering University of Porto by
+              Ademar Aguiar and Hugo Sereno Ferreira.<br /><br />
+              <b>The developers of the app: {' '}</b>
+              Ana Teresa Cruz,
+              André Nascimento,
+              António Bezerra,
+              Breno Accioly,
+              Catarina Fernandes,
+              Daniel Gonçalves,
+              Diogo Nunes,
+              Gonçalo Alves,
+              Inês Quarteu,
+              Inês Silva,
+              João Castro Pinto,
+              João Romão,
+              João Gonçalves,
+              José Macedo,
+              José Luís Sousa Tavares,
+              André Assunção,
+              Márcio Duarte,
+              Mariana Truta,
+              Mariana Ramos,
+              Nuno Resende,
+              Pedro Seixas,
+              Rafael Cristino,
+              Ricardo Nunes,
+              Ricardo Carvalho,
+              Rita Peixoto,
+              Tiago Alves,
+              Xavier Pisco
+            </SubTitleText>
           </Col>
         </Row>
       </Layout>

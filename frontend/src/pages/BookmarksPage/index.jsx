@@ -51,11 +51,7 @@ export default function BookmarksPage() {
           <Col md="8">
             <PageTitle> Saved </PageTitle>
           </Col>
-          <BookmarksSelector
-            md="4"
-            setFavoriteList={updateListView}
-            isFavoriteList={isFavoriteList}
-          />
+          <BookmarksSelector updateListView={updateListView} initialState={false} />
         </Row>
         <Row className="mt-5 d-flex justify-content-center align-items-center">
           <Spinner animation="border" role="status">
@@ -71,11 +67,7 @@ export default function BookmarksPage() {
         <Col md="8">
           <PageTitle> Saved </PageTitle>
         </Col>
-        <BookmarksSelector
-          md="4"
-          setFavoriteList={updateListView}
-          isFavoriteList={isFavoriteList}
-        />
+        <BookmarksSelector updateListView={updateListView} initialState={false} />
       </Row>
       { (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
         ? (

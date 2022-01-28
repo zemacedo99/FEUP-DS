@@ -51,11 +51,7 @@ export default function FavoritesPage() {
           <Col md="8">
             <PageTitle> Favorites </PageTitle>
           </Col>
-          <BookmarksSelector
-            md="4"
-            setFavoriteList={updateListView}
-            isFavoriteList={isFavoriteList}
-          />
+          <BookmarksSelector updateListView={updateListView} />
         </Row>
         <Row className="mt-5 d-flex justify-content-center align-items-center">
           <Spinner animation="border" role="status">
@@ -71,11 +67,7 @@ export default function FavoritesPage() {
         <Col md="8">
           <PageTitle> Favorites </PageTitle>
         </Col>
-        <BookmarksSelector
-          md="4"
-          setFavoriteList={updateListView}
-          isFavoriteList={isFavoriteList}
-        />
+        <BookmarksSelector updateListView={updateListView} />
       </Row>
       { (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
         ? (

@@ -91,26 +91,14 @@ export default function PatternsPage() {
           </Container>
           <Container fluid className="d-flex d-md-none flex-column mx-0 px-0">
             <RowSelector onChange={(action) => setPatternsSelected(action === 'lhs' ? 'po' : 'vs')} lhs="Product Organization" rhs="Value Stream" />
-            {patternsSelected === 'po'
-              ? (
-                <Col className="mt-3">
-                  <CustomPatternCardList
-                    half
-                    patterns={patternsPo}
-                    setFavoriteIds={setFavoriteIds}
-                    setBookmarkIds={setBookmarkIds}
-                  />
-                </Col>
-              ) : (
-                <Col className="mt-3">
-                  <CustomPatternCardList
-                    half
-                    patterns={patternsVs}
-                    setFavoriteIds={setFavoriteIds}
-                    setBookmarkIds={setBookmarkIds}
-                  />
-                </Col>
-              )}
+            <Col className="mt-3">
+              <CustomPatternCardList
+                half
+                patterns={patternsSelected === 'po' ? patternsPo : patternsVs}
+                setFavoriteIds={setFavoriteIds}
+                setBookmarkIds={setBookmarkIds}
+              />
+            </Col>
           </Container>
         </>
       )}

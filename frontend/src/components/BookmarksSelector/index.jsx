@@ -3,49 +3,31 @@ import { useNavigate } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-import {
-  BookmarksButton,
-  ButtonWrapper,
-  LeftButtonBackground,
-  RightButtonBackground,
-} from './style';
+import RowSelector from '../RowSelector';
 
-export default function BookmarksSelector({ isFavoriteList, setFavoriteList }) {
+export default function BookmarksSelector({ updateListView, initialState }) {
   const navigate = useNavigate();
 
   return (
-    <ButtonWrapper>
-      <LeftButtonBackground>
-        <BookmarksButton
-          role="button"
-          onClick={() => {
-            navigate('/favorites');
-            setFavoriteList(true);
-          }}
-          tabIndex="0"
-          selected={isFavoriteList}
-        >
-          Favorites
-        </BookmarksButton>
-      </LeftButtonBackground>
-      <RightButtonBackground>
-        <BookmarksButton
-          role="button"
-          onClick={() => {
-            navigate('/saved');
-            setFavoriteList(false);
-          }}
-          tabIndex="0"
-          selected={!isFavoriteList}
-        >
-          Saved
-        </BookmarksButton>
-      </RightButtonBackground>
-    </ButtonWrapper>
+    <RowSelector
+      md="4"
+      onChange={(side) => {
+        const isFavoriteList = side === 'lhs';
+        updateListView(isFavoriteList);
+        navigate(isFavoriteList ? '/favorites' : '/saved');
+      }}
+      lhs="Favorites"
+      rhs="Saved"
+      initialState={initialState}
+    />
   );
 }
 
+BookmarksSelector.defaultProps = {
+  initialState: true,
+};
+
 BookmarksSelector.propTypes = {
-  isFavoriteList: PropTypes.bool.isRequired,
-  setFavoriteList: PropTypes.func.isRequired,
+  updateListView: PropTypes.func.isRequired,
+  initialState: PropTypes.bool,
 };

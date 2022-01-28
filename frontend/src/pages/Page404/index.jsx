@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { PageContainer, Title } from './style';
+import { PageTitle } from '../../style/GlobalStyle';
+import { PageContainer } from './style';
 
 export default function page404() {
   return (
     <PageContainer>
       <div className="text-center">
-        <Title>
+        <PageTitle>
           404
-        </Title>
+        </PageTitle>
         <p>
           The page you requested does not exist :(
         </p>

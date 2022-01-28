@@ -9,8 +9,10 @@ import {
   RightButtonBackground,
 } from './style';
 
-export default function RowSelector({ onChange, lhs, rhs }) {
-  const [lhsSelected, setLhsSelected] = useState(true);
+export default function RowSelector({
+  onChange, lhs, rhs, initialState,
+}) {
+  const [lhsSelected, setLhsSelected] = useState(initialState);
 
   return (
     <ButtonWrapper>
@@ -46,8 +48,13 @@ export default function RowSelector({ onChange, lhs, rhs }) {
   );
 }
 
+RowSelector.defaultProps = {
+  initialState: true,
+};
+
 RowSelector.propTypes = {
   onChange: PropTypes.func.isRequired,
   lhs: PropTypes.string.isRequired,
   rhs: PropTypes.string.isRequired,
+  initialState: PropTypes.bool,
 };

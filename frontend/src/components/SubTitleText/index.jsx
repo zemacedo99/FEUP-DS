@@ -8,7 +8,7 @@ export default function SubTitleText({ children, title }) {
   return (
     <div>
       <SubTitle className="mt-4">{ title }</SubTitle>
-      <Text>{ children }</Text>
+      { children !== '' ? <Text>{ children }</Text> : undefined }
     </div>
   );
 }

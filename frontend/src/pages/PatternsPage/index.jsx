@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import axios from 'axios';
 
 import RowSelector from '../../components/RowSelector';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 import { CustomPatternCardList } from './style';
 
 function filterPatterns(patterns, filter) {
@@ -42,13 +42,6 @@ export default function PatternsPage() {
       });
   }, []);
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
   const { patternsPo, patternsVs } = useMemo(() => {
     const patternsPoIds = filterPatterns(patternsList, 'graphPo');
     const patternsVsIds = filterPatterns(patternsList, 'graphVs');
@@ -82,7 +75,6 @@ export default function PatternsPage() {
                 <h3 className="fs-5" style={{ height: '2.5rem', color: '#7F56D9' }}>Product Organization Pattern Language</h3>
                 <CustomPatternCardList
                   patterns={patternsPo}
-                  updatePattern={updatePattern}
                   setFavoriteIds={setFavoriteIds}
                   setBookmarkIds={setBookmarkIds}
                 />
@@ -91,7 +83,6 @@ export default function PatternsPage() {
                 <h3 className="fs-5" style={{ height: '2.5rem', color: '#7F56D9' }}>Value Stream Pattern Language</h3>
                 <CustomPatternCardList
                   patterns={patternsVs}
-                  updatePattern={updatePattern}
                   setFavoriteIds={setFavoriteIds}
                   setBookmarkIds={setBookmarkIds}
                 />
@@ -100,28 +91,14 @@ export default function PatternsPage() {
           </Container>
           <Container fluid className="d-flex d-md-none flex-column mx-0 px-0">
             <RowSelector onChange={(action) => setPatternsSelected(action === 'lhs' ? 'po' : 'vs')} lhs="Product Organization" rhs="Value Stream" />
-            {patternsSelected === 'po'
-              ? (
-                <Col className="mt-3">
-                  <CustomPatternCardList
-                    half
-                    patterns={patternsPo}
-                    updatePattern={updatePattern}
-                    setFavoriteIds={setFavoriteIds}
-                    setBookmarkIds={setBookmarkIds}
-                  />
-                </Col>
-              ) : (
-                <Col className="mt-3">
-                  <CustomPatternCardList
-                    half
-                    patterns={patternsVs}
-                    updatePattern={updatePattern}
-                    setFavoriteIds={setFavoriteIds}
-                    setBookmarkIds={setBookmarkIds}
-                  />
-                </Col>
-              )}
+            <Col className="mt-3">
+              <CustomPatternCardList
+                half
+                patterns={patternsSelected === 'po' ? patternsPo : patternsVs}
+                setFavoriteIds={setFavoriteIds}
+                setBookmarkIds={setBookmarkIds}
+              />
+            </Col>
           </Container>
         </>
       )}

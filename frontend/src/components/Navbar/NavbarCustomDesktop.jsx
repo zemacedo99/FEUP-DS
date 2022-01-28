@@ -27,7 +27,7 @@ export default function NavbarCustomDesktop() {
           <Row>
             <Col md="6">
               <ColContainer>
-                <Navbar.Brand href="/"><img width="100px" height="auto" src="/logo.ico" alt="logo" /></Navbar.Brand>
+                <Navbar.Brand href="/"><img width="100px" height="auto" src="/favicon.ico" alt="logo" /></Navbar.Brand>
               </ColContainer>
             </Col>
             <Col md="6">

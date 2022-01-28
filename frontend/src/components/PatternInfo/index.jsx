@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 import Divider from '@mui/material/Divider';
 
-import { PageTitle } from '../../style';
+import { PageTitle } from '../../style/GlobalStyle';
 import PatternReview from '../PatternReview';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';

@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 
 export default function FavoritesPage() {
   const [loading, setLoading] = useState(false);
@@ -35,13 +35,6 @@ export default function FavoritesPage() {
     ReactGA.pageview(`/bookmarks/${newIsFavoriteList ? 'favourites' : 'saved'}`);
   };
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
   const favoriteList = favoriteIds ? patternsList.filter(
     (e) => favoriteIds[e.id],
   ) : [];
@@ -58,11 +51,7 @@ export default function FavoritesPage() {
           <Col md="8">
             <PageTitle> Favorites </PageTitle>
           </Col>
-          <BookmarksSelector
-            md="4"
-            setFavoriteList={updateListView}
-            isFavoriteList={isFavoriteList}
-          />
+          <BookmarksSelector updateListView={updateListView} />
         </Row>
         <Row className="mt-5 d-flex justify-content-center align-items-center">
           <Spinner animation="border" role="status">
@@ -78,17 +67,12 @@ export default function FavoritesPage() {
         <Col md="8">
           <PageTitle> Favorites </PageTitle>
         </Col>
-        <BookmarksSelector
-          md="4"
-          setFavoriteList={updateListView}
-          isFavoriteList={isFavoriteList}
-        />
+        <BookmarksSelector updateListView={updateListView} />
       </Row>
       { (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
         ? (
           <PatternCardList
             patterns={isFavoriteList ? favoriteList : readlaterList}
-            updatePattern={updatePattern}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

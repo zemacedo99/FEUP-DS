@@ -32,6 +32,7 @@ export default function ContributeModal({ show, setShow, onHide }) {
               placeholder="Describe why you want to contribute"
             />
           </Form.Group>
+
           <div className="mt-3 row g-0">
             <Button
               className="col-12 col-md-auto"

@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 import { AboutIcon } from './style';
 
 export default function MainPage() {
@@ -20,6 +20,7 @@ export default function MainPage() {
   useEffect(() => {
     setLoading(true);
     document.title = 'A Scrum Book';
+
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
       setLoading(false);
@@ -27,13 +28,6 @@ export default function MainPage() {
       console.error(error);
     });
   }, []);
-
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
 
   return (
     <Layout>
@@ -58,7 +52,6 @@ export default function MainPage() {
         : (
           <PatternCardList
             patterns={patternsList}
-            updatePattern={updatePattern}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

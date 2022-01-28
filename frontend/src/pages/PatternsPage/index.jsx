@@ -79,7 +79,7 @@ export default function PatternsPage() {
           <Container fluid className="d-none d-md-flex flex-column mx-0 px-0 mt-2">
             <Row className="gy-5 sm:gy-0 w-100 d-flex flex-column">
               <Col>
-                <h3 className="fs-5" style={{ height: '2.5rem' }}>Product Organization Pattern Language</h3>
+                <h3 className="fs-5" style={{ height: '2.5rem', color: '#7F56D9' }}>Product Organization Pattern Language</h3>
                 <CustomPatternCardList
                   patterns={patternsPo}
                   updatePattern={updatePattern}
@@ -88,7 +88,7 @@ export default function PatternsPage() {
                 />
               </Col>
               <Col>
-                <h3 className="fs-5" style={{ height: '2.5rem' }}>Value Stream Pattern Language</h3>
+                <h3 className="fs-5" style={{ height: '2.5rem', color: '#7F56D9' }}>Value Stream Pattern Language</h3>
                 <CustomPatternCardList
                   patterns={patternsVs}
                   updatePattern={updatePattern}

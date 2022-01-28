@@ -18,6 +18,17 @@ Firstly, you'll need to have Docker and Docker Compose installed on your compute
    - http://localhost:3000/ to see the application running;
    - http://localhost:3001/ to access to backend.
 
+### Tests
+#### Frontend
+In the frontend folder.
+- To run the react component rendering tests: `npm run test`
+- To run the UI tests: `npm run test-ui` 
+
+#### Backend
+In the backend folder.
+- To run the unit tests: `npm run test`
+
+
 ### Adding a dependency to project
 A volume is used to store the node modules so when we add a dependency to package.json, we need to delete these volumes and restart the application.
 We can do that with the following command:
@@ -26,7 +37,7 @@ We can do that with the following command:
    ```    
 **Note:** if there is a better way to keep the docker modules updated, please update this section.
 
-###Run eslint
+### Run eslint
 It is necessary to have eslint installed locally. For that you have to execute the following command:
 ```
 npm install

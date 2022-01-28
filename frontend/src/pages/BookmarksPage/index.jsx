@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 import ReactGA from 'react-ga';
 
 import axios from 'axios';
 
 import BookmarksSelector from '../../components/BookmarksSelector';
 import PatternCardList from '../../components/PatternCardList';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 
 export default function BookmarksPage() {
+  const [loading, setLoading] = useState(false);
   const [patternsList, setPatterns] = useState([]);
-  const [isFavoriteList, setFavoriteList] = useState(true);
+  const [isFavoriteList, setFavoriteList] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')));
   const [bookmarkIds, setBookmarkIds] = useState(JSON.parse(localStorage.getItem('bookmarks')));
 
   useEffect(() => {
-    document.title = 'Bookmarks';
+    setLoading(true);
+    document.title = 'Saved';
     ReactGA.pageview('/bookmarks/favourites');
 
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
+      setLoading(false);
     }).catch((error) => {
       console.error(error);
     });
@@ -31,13 +35,6 @@ export default function BookmarksPage() {
     ReactGA.pageview(`/bookmarks/${newIsFavoriteList ? 'favourites' : 'saved'}`);
   };
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
   const favoriteList = favoriteIds ? patternsList.filter(
     (e) => favoriteIds[e.id],
   ) : [];
@@ -47,36 +44,44 @@ export default function BookmarksPage() {
     (e) => readlaterIds[e.id],
   ) : [];
 
+  if (loading) {
+    return (
+      <Layout>
+        <Row className="mb-4">
+          <Col md="8">
+            <PageTitle> Saved </PageTitle>
+          </Col>
+          <BookmarksSelector updateListView={updateListView} initialState={false} />
+        </Row>
+        <Row className="mt-5 d-flex justify-content-center align-items-center">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Row>
+      </Layout>
+    );
+  }
   return (
     <Layout>
       <Row className="mb-4">
         <Col md="8">
-          <PageTitle> Bookmarks </PageTitle>
+          <PageTitle> Saved </PageTitle>
         </Col>
-        <BookmarksSelector
-          md="4"
-          setFavoriteList={updateListView}
-          isFavoriteList={isFavoriteList}
-        />
+        <BookmarksSelector updateListView={updateListView} initialState={false} />
       </Row>
-      {
-        (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
-          ? (
-            <PatternCardList
-              patterns={isFavoriteList ? favoriteList : readlaterList}
-              updatePattern={updatePattern}
-              setFavoriteIds={setFavoriteIds}
-              setBookmarkIds={setBookmarkIds}
-            />
-          )
-          : (
-            <p>
-              You have no
-              { isFavoriteList ? ' favourited ' : ' bookmarked ' }
-              patterns.
-            </p>
-          )
-       }
+      { (isFavoriteList ? (favoriteList.length > 0) : (readlaterList.length > 0))
+        ? (
+          <PatternCardList
+            patterns={isFavoriteList ? favoriteList : readlaterList}
+            setFavoriteIds={setFavoriteIds}
+            setBookmarkIds={setBookmarkIds}
+          />
+        )
+        : (
+          <p>
+            You have no saved patterns.
+          </p>
+        )}
     </Layout>
   );
 }

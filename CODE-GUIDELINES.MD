@@ -9,6 +9,8 @@
   - [2.1. Directories](#21-directories)
   - [2.2. Files](#22-files)
   - [2.3. Components](#23-components)
+- [3. Secrets](#3-secrets)
+  - [3.1. Backend](#31-backend)
 
 ## 1. ESLint
 
@@ -40,24 +42,46 @@ Add the following settings to your `.vscode/settings.json` file. These settings 
 
 ### 2.1. Directories
 
+#### 2.1.1 Frontend
+
 ```tree
 src
 ├── App.jsx
 ├── index.jsx
 ├── components
-│   └── foo
+│   └── <component_name>
 │       ├── index.jsx
 │       └── style.js
-├── services
+│   └── ...
+├── assets
 │   └── ...
 └── pages
-│   └── Example.jsx
-├── util
+│   └── <page_name>
+│       ├── index.jsx
+│       └── style.js
 │   └── ...
-├── store
+├── context
 │   └── ...
 ├── style
     └── GlobalStyle.js
+```
+
+#### 2.1.2 Backend
+
+```tree
+src
+├── app.js
+├── .env.example
+├── controllers
+│   └── ...
+├── database
+│   └── ...
+└── middleware
+│   └── ...
+├── models
+│   └── ...
+├── routes
+    └── ...
 ```
 
 ### 2.2. Files
@@ -72,4 +96,10 @@ Components with style should be created as a directory with a `style.js` file an
 
 **Do not use `.css` files, use `styled-components` instead.**
 
-There is a component example on `src/components/Foo`.
+## 3. Secrets
+
+Any secrets should be stored in a `.env` file, which is not part of the repository.
+
+### 3.1 Backend
+
+In the backend you can find a `.env.example` file that presents the information that the `.env` file should have so that the backend works as expected.

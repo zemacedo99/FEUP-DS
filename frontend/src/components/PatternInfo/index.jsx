@@ -1,64 +1,148 @@
-import React, { useState } from 'react';
-import { Row } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
 import {
-  AiFillStar,
-} from 'react-icons/all';
+  Row, Col, Nav, Spinner,
+} from 'react-bootstrap';
+import { BsLink45Deg, BsAsterisk } from 'react-icons/bs';
 
 import PropTypes from 'prop-types';
 
+import Divider from '@mui/material/Divider';
+
+import { PageTitle } from '../../style/GlobalStyle';
+import PatternReview from '../PatternReview';
 import ProgressiveImg from '../ProgressiveImage/index';
 import RelatedCardList from '../RelatedCardList';
 import {
-  PatTitle, PatSection, PatStars, PatIntro, PatProblem, PatSolution,
-  SubTitle, PatImage, RelatedSection,
+  PatSection, PatParagraph,
+  RelatedSection, Link, Confidence,
+  OverrideBookmark, OverrideFavorite,
+  ButtonsSection, CustomButton, NavLink,
 } from './style';
 
 export default function PatternInfo({
-  id, title, section, stars, image, intro, problem, solution, relatedList1, relatedList2,
+  id, title, languages, stars, image, problem, solution, relatedPatternsPO, relatedPatternsVS, link,
 }) {
-  const rows = [];
-  for (let i = 0; i < stars; i += 1) {
-    rows.push(<AiFillStar className="me-2" key={i} size={23} style={{ fill: '#FEC84B', stroke: '#404040', strokeWidth: 50 }} />);
-  }
+  const [conf, setConf] = useState([]);
   const setFavoriteIds = useState(JSON.parse(localStorage.getItem('favorites')))[1];
   const setBookmarkIds = useState(JSON.parse(localStorage.getItem('bookmarks')))[1];
+  const [graph, setGraph] = useState('');
+  const [deviceSize, changeDeviceSize] = useState(window.innerWidth);
 
   const [src, { blur }] = ProgressiveImg(`../assets/patlet_${id}}.jpg`, image);
+
+  const handleSelect = (eventKey) => setGraph(eventKey);
+
+  useEffect(() => {
+    const r = [];
+    for (let i = 0; i < stars; i += 1) {
+      r.push(<BsAsterisk size={15} key={i} className="ms-1" />);
+    }
+    setConf(r);
+  }, []);
+
+  useEffect(() => {
+    if (relatedPatternsVS === null || relatedPatternsPO === null) return;
+    setGraph(relatedPatternsVS.length > 0 ? 'VS' : 'PO');
+  }, [relatedPatternsPO, relatedPatternsVS]);
+
+  const getPatterns = () => (graph === 'VS' ? relatedPatternsVS : relatedPatternsPO);
+
+  useEffect(() => {
+    const resizeW = () => changeDeviceSize(window.innerWidth);
+
+    window.addEventListener('resize', resizeW); // Update the width on resize
+
+    return () => window.removeEventListener('resize', resizeW);
+  });
+
   return (
     <>
       <Row>
-        <PatTitle>
+        <PageTitle>
           {title}
-        </PatTitle>
-        <SubTitle>
-          <PatSection>
-            {section}
-          </PatSection>
-          <PatStars>
-            {rows}
-          </PatStars>
-        </SubTitle>
+          <Confidence title="Confidence Level">
+            { conf }
+          </Confidence>
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="scrumbook"
+            title="Pattern Page on the Scrumbook"
+          >
+            <BsLink45Deg size={50} className="ps-2" />
+          </Link>
+        </PageTitle>
+        <Row className="d-flex justify-content-between">
+          <Col className="col-12 col-md-6">
+            { languages.map((el) => (<PatSection key={el}>{el}</PatSection>)) }
+          </Col>
+          <ButtonsSection style={{ maxWidth: 'fit-content' }}>
+            <CustomButton>
+              <OverrideFavorite patlet_id={id} setFavoriteIds={setFavoriteIds} />
+            </CustomButton>
+            <CustomButton>
+              <OverrideBookmark patlet_id={id} setBookmarkIds={setBookmarkIds} />
+            </CustomButton>
+            <PatternReview patletId={id} deviceSize={deviceSize} />
+          </ButtonsSection>
+        </Row>
       </Row>
-      <Row>
-        <PatImage src={src} style={{ filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out' }} alt="pattern" rounded fluid className="p-5" />
-        <PatIntro>
-          {intro}
-        </PatIntro>
-        <br />
-        <PatProblem>
+      <Row style={{ marginBottom: '8em' }}>
+        <div className="d-flex justify-content-center">
+          <img
+            src={src}
+            style={{
+              maxWidth: '100%', maxHeight: '50vh', paddingTop: '2em', paddingBottom: '2em', borderRadius: '25px', filter: blur ? 'blur(20px)' : 'none', transition: blur ? 'none' : 'filter 0.3s ease-out',
+            }}
+            alt="pattern"
+          />
+        </div>
+        <PatParagraph>
           {problem}
-        </PatProblem>
+        </PatParagraph>
         <br />
-        <PatSolution>
+        <PatParagraph><strong>Therefore:</strong></PatParagraph>
+        <br />
+        <PatParagraph>
           {solution}
-        </PatSolution>
-        <PatSection className="mt-5">
-          Related Patterns
-        </PatSection>
-        {relatedList1.length > 0 ? <RelatedSection className="mt-2">Product Organization</RelatedSection> : null}
-        <RelatedCardList className="my-component" patterns={relatedList1} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
-        {relatedList2.length > 0 ? <RelatedSection className="mt-2">Value Stream</RelatedSection> : null}
-        <RelatedCardList className="my-component" patterns={relatedList2} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+        </PatParagraph>
+        {(!relatedPatternsPO || !relatedPatternsVS) ? (
+          <Row className="mt-5 d-flex justify-content-center align-items-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Row>
+        )
+          : (relatedPatternsPO.length > 0 || relatedPatternsVS.length > 0) && (
+          <>
+            <Divider variant="fullWidth" className="my-4" />
+            <PatSection>
+              Read Next
+            </PatSection>
+            {deviceSize < 768
+              ? (
+                <>
+                  <Nav variant="pills" className="justify-content-center mt-3 mb-2" activeKey={graph} onSelect={handleSelect}>
+                    {relatedPatternsVS.length > 0 && <Nav.Item><NavLink eventKey="VS">Value Stream</NavLink></Nav.Item>}
+                    {relatedPatternsPO.length > 0 && <Nav.Item><NavLink eventKey="PO">Product Org.</NavLink></Nav.Item>}
+                  </Nav>
+                  <div>
+                    <RelatedCardList className="my-component" patterns={getPatterns()} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+                  </div>
+                </>
+              )
+              : (
+                <>
+                  {relatedPatternsPO.length > 0 && <RelatedSection className="mt-2">Product Organization</RelatedSection>}
+                  <RelatedCardList className="my-component" patterns={relatedPatternsPO} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+                  {relatedPatternsVS.length > 0 && <RelatedSection className="mt-2">Value Stream</RelatedSection>}
+                  <RelatedCardList className="my-component" patterns={relatedPatternsVS} setFavoriteIds={setFavoriteIds} setBookmarkIds={setBookmarkIds} />
+                </>
+              )}
+
+          </>
+          )}
       </Row>
     </>
   );
@@ -67,12 +151,17 @@ export default function PatternInfo({
 PatternInfo.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  section: PropTypes.string.isRequired,
+  languages: PropTypes.arrayOf(PropTypes.string).isRequired,
   stars: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  intro: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  relatedList1: PropTypes.arrayOf(PropTypes.object).isRequired,
-  relatedList2: PropTypes.arrayOf(PropTypes.object).isRequired,
+  relatedPatternsPO: PropTypes.arrayOf(PropTypes.object),
+  relatedPatternsVS: PropTypes.arrayOf(PropTypes.object),
+  link: PropTypes.string.isRequired,
+};
+
+PatternInfo.defaultProps = {
+  relatedPatternsPO: null,
+  relatedPatternsVS: null,
 };

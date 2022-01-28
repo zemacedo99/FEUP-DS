@@ -6,7 +6,3 @@ export const PageContainer = styled.div`
     justify-content: center;
     margin-top: 4em;
 `;
-
-export const Title = styled.h2`
-    font-weight: bold;
-`;

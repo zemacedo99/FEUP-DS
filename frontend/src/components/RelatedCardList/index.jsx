@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 import PropTypes from 'prop-types';
 
-import PatternCard from '../PaternCard';
+import PatternCard from '../PatternCard';
 
 export default function RelatedCardList({
   patterns,
@@ -38,10 +38,7 @@ export default function RelatedCardList({
           <PatternCard
             id={pattern.id}
             title={pattern.title}
-            favorite={pattern.favorite}
-            saved={pattern.saved}
             image={pattern.image}
-            stars={pattern.stars}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

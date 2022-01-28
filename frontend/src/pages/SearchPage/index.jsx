@@ -7,7 +7,7 @@ import axios from 'axios';
 import PatternCardList from '../../components/PatternCardList';
 import SearchBar from '../../components/SearchBar';
 import { SearchContext } from '../../context/SearchContext';
-import { Layout, PageTitle } from '../../style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
 import { SearchBarContainer } from './style';
 
 export default function SearchPage() {
@@ -23,13 +23,6 @@ export default function SearchPage() {
     document.title = 'Search';
     ReactGA.pageview('/search');
   }, []);
-
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
 
   const sendRequest = () => {
     axios.get(`${process.env.REACT_APP_URL}/search`, { params: { query: text } }).then((res) => {
@@ -79,7 +72,6 @@ export default function SearchPage() {
       {!loading && patternsList && (
         <PatternCardList
           patterns={patternsList}
-          updatePattern={updatePattern}
           setFavoriteIds={setFavoriteIds}
           setBookmarkIds={setBookmarkIds}
         />

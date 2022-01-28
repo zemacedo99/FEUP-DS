@@ -1,6 +1,32 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const horizontalMarginMediaQueries = `
+@media screen and (max-width: 480px) {
+  --horizontal-margin: 3vw;
+}
+@media screen and (min-width: 481px) and (max-width: 1280px) {
+  --horizontal-margin: 8vw;
+}
+@media screen and (min-width: 1281px) {
+  --horizontal-margin: 12vw;
+}`;
+
+export const Layout = styled.div`
+  font-family: Inter;
+  ${horizontalMarginMediaQueries}
+  padding: 0px var(--horizontal-margin) 100px var(--horizontal-margin);
+`;
+
+export const PageTitle = styled.h1`
+  font-weight: bold;
+  font-size: 36px;
+`;
 
 export default createGlobalStyle`
+  body {
+    background-color: #f8f8f8;
+  }
+
   :root {
     --button-primary: linear-gradient(45deg, #6941C6 0%, #7F56D9 100%);
     --button-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
@@ -68,5 +94,28 @@ export default createGlobalStyle`
       border-color: transparent;
       box-shadow: var(--button-big-shadow);
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background: rgba(0,0,0,0.4);
+  }
+  
+  ::-webkit-scrollbar-thumb:active{
+    background: rgba(0,0,0,.9);
   }
 `;

@@ -7,8 +7,8 @@ import axios from 'axios';
 
 import infoIcon from '../../assets/infoIcon.svg';
 import PatternCardList from '../../components/PatternCardList';
-import { Layout, PageTitle } from '../../style';
-import { SubTitle } from './style';
+import { Layout, PageTitle } from '../../style/GlobalStyle';
+import { AboutIcon } from './style';
 
 export default function MainPage() {
   const navigate = useNavigate();
@@ -19,7 +19,8 @@ export default function MainPage() {
 
   useEffect(() => {
     setLoading(true);
-    document.title = 'The Scrum Book';
+    document.title = 'A Scrum Book';
+
     axios.get(`${process.env.REACT_APP_URL}/patterns`).then((res) => {
       setPatterns(res.data);
       setLoading(false);
@@ -28,17 +29,6 @@ export default function MainPage() {
     });
   }, []);
 
-  const updatePattern = (pattern) => {
-    const index = patternsList.findIndex((item) => item.id === pattern.id);
-    const list = patternsList;
-    list.splice(index, 1, pattern);
-    setPatterns([...list]);
-  };
-
-  const navigateToHelp = () => {
-    navigate('/about');
-  };
-
   return (
     <Layout>
       <Row className="align-items-center">
@@ -46,12 +36,12 @@ export default function MainPage() {
           <PageTitle> Home </PageTitle>
         </Col>
         <Col className="d-flex justify-content-end pe-4">
-          <span onClick={() => navigateToHelp()} onKeyPress={() => navigateToHelp()} role="button" tabIndex={0}>
-            <img src={infoIcon} width="30px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
-          </span>
+          <AboutIcon onClick={() => navigate('/about')} role="button" tabIndex={0}>
+            <img src={infoIcon} width="20px" alt="info icon" title="Help" style={{ cursor: 'pointer' }} />
+          </AboutIcon>
         </Col>
       </Row>
-      <SubTitle> The core of Scrum </SubTitle>
+      <Row className="mb-1" />
       { loading ? (
         <Row className="mt-5 d-flex justify-content-center align-items-center">
           <Spinner animation="border" role="status">
@@ -62,7 +52,6 @@ export default function MainPage() {
         : (
           <PatternCardList
             patterns={patternsList}
-            updatePattern={updatePattern}
             setFavoriteIds={setFavoriteIds}
             setBookmarkIds={setBookmarkIds}
           />

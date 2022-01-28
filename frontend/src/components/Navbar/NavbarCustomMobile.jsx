@@ -8,9 +8,11 @@ import {
 import {
   BsBookmarkStar,
 } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 import {
-  NavbarMobile, NavbarContainer, NavbarLink, NavbarNav,
+  NavbarMobile, NavbarContainer, NavbarNav, activeStyle,
+  unactiveStyle,
 } from './style';
 
 export default function NavbarCustomMobile() {
@@ -20,16 +22,24 @@ export default function NavbarCustomMobile() {
         <NavbarContainer>
           <Row>
             <Col xs="3">
-              <NavbarLink href="/"><BiHome /></NavbarLink>
+              <NavLink className="hovering" to="/" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                <BiHome size={21} />
+              </NavLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/patterns"><BiListUl /></NavbarLink>
+              <NavLink className="hovering" to="/patterns" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                <BiListUl size={21} />
+              </NavLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/search"><BiSearch /></NavbarLink>
+              <NavLink className="hovering" to="/search" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                <BiSearch size={21} />
+              </NavLink>
             </Col>
             <Col xs="3">
-              <NavbarLink href="/favorites"><BsBookmarkStar /></NavbarLink>
+              <NavLink className="hovering" to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                <BsBookmarkStar size={21} />
+              </NavLink>
             </Col>
           </Row>
         </NavbarContainer>

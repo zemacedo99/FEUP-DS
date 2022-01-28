@@ -35,6 +35,11 @@ export const NavbarMobile = styled(Navbar)`
   }
   font-family: Inter;
   font-size: 20px;
+  a.hovering:hover {
+    cursor: pointer;
+    color: #7F56D9; 
+  }
+  a.hovering:not(:hover) {color:#444444}
 `;
 
 export const NavbarTablet = styled(Navbar)`
@@ -49,6 +54,11 @@ export const NavbarTablet = styled(Navbar)`
   }
   font-family: Inter;
   font-size: 20px;
+  a.hovering:hover {
+    cursor: pointer;
+    color: #7F56D9; 
+  }
+  a.hovering:not(:hover) {color:black}
 `;
 
 export const NavbarButtons = styled.div`

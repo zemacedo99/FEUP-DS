@@ -3,11 +3,12 @@ import {
   Row, Col, Navbar,
 } from 'react-bootstrap';
 import { BsListUl, BsBookmark, BsStar } from 'react-icons/bs';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 
 import SearchBar from '../SearchBar';
 import {
-  NavbarTablet, NavbarNav, NavbarContainer, NavbarLink, NavbarButtons, ColContainer,
+  NavbarTablet, NavbarNav, NavbarContainer, NavbarButtons, ColContainer, activeStyle,
+  unactiveStyle,
 } from './style';
 
 export default function NavbarCustomDesktop() {
@@ -33,9 +34,15 @@ export default function NavbarCustomDesktop() {
             <Col xs="8" md="6">
               <NavbarButtons>
                 { location.pathname !== '/search' && (<ColContainer><SearchBar onKeyUp={onKeyUp} /></ColContainer>)}
-                <NavbarLink href="/patterns"><BsListUl /></NavbarLink>
-                <NavbarLink href="/favorites"><BsStar /></NavbarLink>
-                <NavbarLink href="/saved"><BsBookmark /></NavbarLink>
+                <NavLink className="hovering" to="/patterns" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                  <BsListUl />
+                </NavLink>
+                <NavLink className="hovering" to="/favorites" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                  <BsStar />
+                </NavLink>
+                <NavLink className="hovering" to="/saved" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>
+                  <BsBookmark />
+                </NavLink>
               </NavbarButtons>
             </Col>
           </Row>

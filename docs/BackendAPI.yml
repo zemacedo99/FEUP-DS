@@ -1,0 +1,218 @@
+openapi: 3.0.0
+info:
+  version: 2.0.0
+  title: Backend API
+  description: Web Resources Specification
+externalDocs:
+  description: Find more info here.
+  url: >-
+    https://github.com/softeng-feup/ds-meic5
+tags:
+  - name: 'M01: Contribute'
+  - name: 'M02: Patlets'
+  - name: 'M03: Search'
+paths:
+  /contribute:
+    post:
+      summary: 'Send pattern contribution to book authors.'
+      description: 'Send pattern contribution via e-mail to book authors. Access: PUB'
+      tags:
+        - 'M01: Contribute'
+        
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                body:
+                  type: string
+              required:
+                - name
+                - email
+                - body
+      responses:
+        '200':
+          description: >-
+            Ok. Sent contribution to book authors.
+  /patlets:
+    get:
+      summary: 'Get information about all patterns.'
+      description: 'Get information about all patterns. Access: PUB'
+      tags:
+        - 'M02: Patlets'
+      responses:
+        '200':
+          description: >-
+            Ok. Returns all of the patlets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    image:
+                      type: string
+                    introduction:
+                      type: string
+                    graphPo:
+                      type: array
+                      items:
+                        type: string
+                    graphVs:
+                      type: array
+                      items:
+                        type: string
+                    linkedPatlets:
+                      type: array
+                      items:
+                        type: string
+                    problem:
+                      type: string
+                    solution:
+                      type: string
+                    stars:
+                      type: integer
+                    title:
+                      type: string
+                    link:
+                      type: string
+  /patlets/{patletId}:
+    get:
+      summary: 'Get a specific patlets information'
+      description: 'Get a specific patlets information. Access: PUB'
+      tags:
+        - 'M02: Patlets'
+      parameters:
+        - in: path
+          name: patletId
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: >-
+            Ok. Returns the specific patlet\'s information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  image:
+                    type: string
+                  introduction:
+                    type: string
+                  graphPo:
+                    type: array
+                    items:
+                      type: string
+                  graphVs:
+                    type: array
+                    items:
+                      type: string
+                  linkedPatlets:
+                    type: array
+                    items:
+                      type: string
+                  problem:
+                    type: string
+                  solution:
+                    type: string
+                  stars:
+                    type: integer
+                  title:
+                    type: string
+                  link:
+                    type: string
+  /patlets/{patletId}/review:
+    post:
+      summary: 'Add review to patlet'
+      description: 'Add review to patlet. Access: PUB'
+      tags:
+        - 'M02: Patlets'
+      parameters:
+        - in: path
+          name: patletId
+          schema:
+            type: integer
+          required: true
+        
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: integer
+                review:
+                  type: string
+              required:
+                - rating
+                - review
+      responses:
+        '200':
+          description: >-
+            Ok. Add patlet review.
+  /search:
+    get:
+      summary: 'Provide results from the performed search.'
+      description: 'Provide results from the performed search. Access: PUB'
+      tags:
+        - 'M03: Search'
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: >-
+            Ok. Retrieved and returned the result patlets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    image:
+                      type: string
+                    introduction:
+                      type: string
+                    graphPo:
+                      type: array
+                      items:
+                        type: string
+                    graphVs:
+                      type: array
+                      items:
+                        type: string
+                    linkedPatlets:
+                      type: array
+                      items:
+                        type: string
+                    problem:
+                      type: string
+                    solution:
+                      type: string
+                    stars:
+                      type: integer
+                    title:
+                      type: string
+                    link:
+                      type: string

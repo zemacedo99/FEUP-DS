@@ -25,7 +25,7 @@ function MockPatternCardList({ patterns }) {
 }
 
 MockPatternCardList.propTypes = {
-  patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  patterns: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 const getMockPatterns = () => [

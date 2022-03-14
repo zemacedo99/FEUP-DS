@@ -49,7 +49,7 @@ export default function RelatedCardList({
 }
 
 RelatedCardList.propTypes = {
-  patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  patterns: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavoriteIds: PropTypes.func.isRequired,
   setBookmarkIds: PropTypes.func.isRequired,
 };

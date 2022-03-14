@@ -156,8 +156,8 @@ PatternInfo.propTypes = {
   image: PropTypes.string.isRequired,
   problem: PropTypes.string.isRequired,
   solution: PropTypes.string.isRequired,
-  relatedPatternsPO: PropTypes.arrayOf(PropTypes.object),
-  relatedPatternsVS: PropTypes.arrayOf(PropTypes.object),
+  relatedPatternsPO: PropTypes.arrayOf(PropTypes.shape({})),
+  relatedPatternsVS: PropTypes.arrayOf(PropTypes.shape({})),
   link: PropTypes.string.isRequired,
 };
 
